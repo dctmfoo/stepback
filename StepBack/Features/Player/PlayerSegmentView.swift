@@ -2,11 +2,13 @@ import StepBackCore
 import SwiftUI
 
 struct PlayerSegmentView: View {
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     let model: PlayerSessionModel
     let workout: WorkoutItem?
     let categoryName: String?
     let isWide: Bool
     let countdownSize: CGFloat
+    let stackedVisualHeight: CGFloat
 
     var body: some View {
         Group {
@@ -14,13 +16,19 @@ struct PlayerSegmentView: View {
                 HStack(spacing: 40) {
                     segmentText
                     visual
+                        .frame(maxWidth: 360)
                 }
             } else {
-                VStack(spacing: 16) {
+                PlayerStackedSegmentLayout(visualHeight: stackedVisualHeight) {
                     segmentText
                     visual
-                        .frame(maxHeight: 180)
+                        .frame(
+                            maxWidth: stackedVisualHeight * 4 / 3,
+                            idealHeight: stackedVisualHeight,
+                            maxHeight: stackedVisualHeight
+                        )
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -28,8 +36,19 @@ struct PlayerSegmentView: View {
         .transition(.opacity.combined(with: .scale(scale: 0.98)))
     }
 
+    @ViewBuilder
     private var segmentText: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        if isWide {
+            segmentText(countdownSize: countdownSize)
+        } else {
+            segmentText(
+                countdownSize: dynamicTypeSize.isAccessibilitySize ? 44 : countdownSize
+            )
+        }
+    }
+
+    private func segmentText(countdownSize: CGFloat) -> some View {
+        VStack(alignment: isWide ? .leading : .center, spacing: 8) {
             Text(kicker)
                 .font(.headline.bold())
                 .textCase(.uppercase)
@@ -40,36 +59,70 @@ struct PlayerSegmentView: View {
             if leadsWithNext {
                 Text(headline)
                     .font(.largeTitle.bold())
+                    .lineLimit(isWide ? nil : 2)
+                    .fixedSize(horizontal: false, vertical: true)
                     .accessibilityIdentifier("player.next")
-                countdown
+                countdown(size: countdownSize)
+                supportingText
             } else {
-                countdown
+                countdown(size: countdownSize)
                 Text(headline)
                     .font(.largeTitle.bold())
+                    .lineLimit(isWide ? nil : 2)
+                    .fixedSize(horizontal: false, vertical: true)
                     .accessibilityIdentifier("player.name")
-            }
-
-            if let detail {
-                Text(detail)
-                    .font(.title3)
-                    .foregroundStyle(Color("StageTextDim"))
-                    .accessibilityIdentifier("player.setIndicator")
-            }
-
-            if model.showsNextDuringWork,
-               let next = model.currentSegment?.nextWorkoutNameSnapshot {
-                Text(L10n.playerNext(next))
-                    .font(.headline)
-                    .foregroundStyle(Color("StageTextDim"))
-                    .accessibilityIdentifier("player.next")
+                supportingText
             }
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .multilineTextAlignment(isWide ? .leading : .center)
+        .frame(maxWidth: .infinity, alignment: isWide ? .leading : .center)
     }
 
-    private var countdown: some View {
+    @ViewBuilder
+    private var supportingText: some View {
+        if let detail {
+            Text(detail)
+                .font(.title3)
+                .foregroundStyle(Color("StageTextDim"))
+                .accessibilityIdentifier("player.setIndicator")
+        }
+        if let workNextName {
+            workNextUp(workNextName)
+        }
+    }
+
+    @ViewBuilder
+    private func workNextUp(_ next: String) -> some View {
+        if isWide {
+            if showsNextLine {
+                nextUpText(next)
+            }
+        } else {
+            nextUpText(
+                next,
+                accessibilityIdentifier: showsNextLine ? "player.next" : ""
+            )
+                .opacity(showsNextLine ? 1 : 0)
+                .accessibilityHidden(!showsNextLine)
+                .animation(.easeInOut(duration: 0.2), value: showsNextLine)
+        }
+    }
+
+    private func nextUpText(
+        _ next: String,
+        accessibilityIdentifier: String = "player.next"
+    ) -> some View {
+        Text(L10n.playerNext(next))
+            .font(.headline)
+            .lineLimit(isWide ? nil : 2)
+            .fixedSize(horizontal: false, vertical: true)
+            .foregroundStyle(Color("StageTextDim"))
+            .accessibilityIdentifier(accessibilityIdentifier)
+    }
+
+    private func countdown(size: CGFloat) -> some View {
         Text(DisplayFormatters.stageDuration(displayedSeconds))
-            .font(.system(size: countdownSize, weight: .heavy, design: .rounded))
+            .font(.system(size: size, weight: .heavy, design: .rounded))
             .monospacedDigit()
             .contentTransition(.numericText())
             .lineLimit(1)
@@ -83,7 +136,6 @@ struct PlayerSegmentView: View {
     private var visual: some View {
         if let workout {
             WorkoutVisual(workout: workout, categoryName: categoryName, variant: .stage)
-                .frame(maxWidth: 360)
         } else if let step = model.currentSegment?.step {
             WorkoutVisual(
                 workoutID: step.workoutID,
@@ -91,7 +143,6 @@ struct PlayerSegmentView: View {
                 categoryName: nil,
                 variant: .stage
             )
-            .frame(maxWidth: 360)
         }
     }
 
@@ -102,6 +153,15 @@ struct PlayerSegmentView: View {
     private var leadsWithNext: Bool {
         guard let kind = model.currentSegment?.kind else { return false }
         return kind == .getReady || kind == .rest || kind == .setRest
+    }
+
+    private var showsNextLine: Bool {
+        workNextName != nil && model.showsNextDuringWork
+    }
+
+    private var workNextName: String? {
+        guard !leadsWithNext else { return nil }
+        return model.currentSegment?.nextWorkoutNameSnapshot
     }
 
     private var kicker: String {
