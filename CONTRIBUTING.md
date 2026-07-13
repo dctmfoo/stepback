@@ -31,6 +31,27 @@ Use `make test-ipad` for iPad UI changes and `make test-mac` for native Mac UI c
 
 For a third-party physical-device build, first replace the maintainer's bundle and private CloudKit container identifiers as described in `README.md`. Then copy `Makefile.local.example` to `Makefile.local` and add only your own signing and device values. Never commit that file, provisioning profiles, device identifiers, local filesystem paths, or App Store Connect details.
 
+## Local-only files & guardrails
+
+Some files stay on the maintainer's disk and are never committed: `Makefile.local`
+(signing and device identifiers), anything under `private/` (a scratch area for
+local notes and fixtures), the local session journals under `sessions/`, and a few
+maintainer-only planning documents. They are all listed in `.gitignore`.
+
+After cloning, run:
+
+```sh
+scripts/install-guardrails.sh
+```
+
+This sets your local commit identity from `~/.config/oss-guard/git-identity` when
+that file exists and installs `pre-commit` / `pre-push` hooks that run
+[gitleaks](https://github.com/gitleaks/gitleaks) over your changes, block any
+force-added ignored file, and refuse commits made under a disallowed identity.
+Contributors without the optional config still get gitleaks secret scanning. Please
+commit with a GitHub noreply email address, and never commit real signing values,
+device identifiers, local filesystem paths, or personal data.
+
 ## Pull requests
 
 - Keep each change focused and explain the user-visible value.
