@@ -1,6 +1,6 @@
 # Spec: Portrait (stacked) stage composition — centered hero stack
 
-**Status:** Ready
+**Status:** Implemented
 **Owner screens:**
 - `StepBack/Features/Player/PlayerSegmentView.swift` (stacked-branch layout, visual sizing)
 - `StepBack/Features/Player/PlayerStageView.swift` (stage vertical budget, stacked padding/spacers)

@@ -18,7 +18,8 @@ struct PlayerStageView: View {
                     workout: workout,
                     categoryName: categoryName,
                     isWide: isWide,
-                    countdownSize: countdownSize(for: proxy.size, isWide: isWide)
+                    countdownSize: countdownSize(for: proxy.size, isWide: isWide),
+                    stackedVisualHeight: stackedVisualHeight(for: proxy.size)
                 )
                 PlayerProgressFoot(model: model)
                 PlayerControlBar(model: model, end: end)
@@ -43,5 +44,12 @@ struct PlayerStageView: View {
     private func countdownSize(for size: CGSize, isWide: Bool) -> CGFloat {
         let proportion = isWide ? size.height * 0.27 : size.height * 0.17
         return min(220, max(72, proportion))
+    }
+
+    private func stackedVisualHeight(for size: CGSize) -> CGFloat {
+        let widthBound = max(0, size.width - 32) * 3 / 4
+        let canvasTarget = max(180, size.height * 0.30)
+        let shortCanvasBound = size.height * 0.34
+        return min(widthBound, canvasTarget, shortCanvasBound)
     }
 }

@@ -100,6 +100,7 @@
     box-shadow:0 26px 52px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.07)}
   .ipadframe.land{width:720px;height:548px}
   .ipadframe.stagefr{width:860px;height:632px}
+  .ipadframe.stageportrait{width:590px;height:780px}
   .ipadscr{width:100%;height:100%;border-radius:18px;overflow:hidden;position:relative;
     background:var(--ios-grouped);display:flex;flex-direction:column;font-size:13px;color:var(--ios-label)}
   .isbar{height:26px;flex:none;display:flex;justify-content:space-between;align-items:center;padding:8px 20px 0;font-size:11.5px;font-weight:600}
@@ -1228,6 +1229,35 @@
   </div>
 
   <h3>Compact stage &amp; completion</h3>
+  <div class="screen wide">
+    <div class="padwrap"><figure class="shot wide" id="player-ipad-portrait"><div class="ipad"><div class="ipadframe stageportrait"><div class="stagescr">
+      <div class="stg-sbar"><span>Morning Core</span><span>9:41</span></div>
+      <div class="stg-main" style="flex-direction:column;gap:0;padding:18px 36px 0;justify-content:space-around;text-align:center">
+        <div class="stg-col" style="align-items:center">
+          <div class="stg-kicker">Work · Set 2 of 2</div>
+          <div class="cd" style="font-size:138px;margin-top:2px">0:19</div>
+          <div class="stg-name">Squats</div>
+          <div class="stg-sub">Workout 2 of 5</div>
+        </div>
+        <div class="stg-media" style="width:280px;background:rgba(214,120,219,.16);color:#D678DB">
+          <svg class="ic" width="60" height="60"><use href="#c-legs"/></svg>
+          <span style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.75">Legs &amp; Glutes</span>
+        </div>
+      </div>
+      <div class="stg-foot">
+        <div class="progress"><i style="width:50%"></i></div>
+        <div class="ptimes"><span>2:46</span><span>−2:44</span></div>
+        <div class="ctlbar compact">
+          <div class="ctl"><svg class="ic" width="17" height="17"><use href="#i-bwd"/></svg></div>
+          <div class="ctl big"><svg class="ic" width="22" height="22"><use href="#i-pause"/></svg></div>
+          <div class="ctl"><svg class="ic" width="17" height="17"><use href="#i-fwd"/></svg></div>
+          <div class="ctl end" style="height:46px">End</div>
+        </div>
+      </div>
+    </div></div></div>
+    <figcaption><b>Work segment, iPad portrait.</b> Every stacked stage shares one center axis: kicker → countdown → workout name → detail, then the 4:3 <code>WorkoutVisual</code> below. The visual consumes roughly 30% of the stage height, while the remaining height is deliberately distributed around the hero and visual bands instead of pooling into dead space. The countdown remains the single hero and landscape remains the two-column composition above.</figcaption></figure></div>
+  </div>
+
   <div class="screen">
     <div class="phones">
       <figure class="shot"><div class="phone"><div class="frame"><div class="scr"><div class="stagescr">

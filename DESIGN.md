@@ -105,7 +105,7 @@ across_the_room:                     # The signature ruleset. Applies to the pla
 media_readiness:                     # PRD §4.7 — v1 is name-only, layouts reserve media slots.
   component: "WorkoutVisual — the ONLY way any screen renders a workout's visual identity."
   placeholder: "Monogram tile: category-hue soft fill, category SF Symbol, concentric radius. Same tile family at every size."
-  slots: { gallery_card: "1:1", workout_detail: "4:3", builder_row: "1:1 small", stage: "4:3 region beside/above the countdown (landscape/portrait)" }
+  slots: { gallery_card: "1:1", workout_detail: "4:3", builder_row: "1:1 small", stage: "4:3 region beside/below the countdown (landscape/portrait)" }
   later: "Photos/video loops drop into the same slots via mediaKey; screens must not reflow when media arrives."
 
 haptics:
@@ -283,7 +283,7 @@ size stays disciplined. All numerals tabular so durations align down every list.
   smart defaults (PRD §5.4).
 - **Stage — work segment:** countdown as the single hero, workout name below it,
   set indicator ("Set 2 of 3") and optional rep guidance in stage-dim text, the
-  `WorkoutVisual` region beside (landscape) or above (portrait) the countdown, and a
+  `WorkoutVisual` region beside (landscape) or below (portrait) the countdown, and a
   full-width thin progress bar with elapsed/remaining at the stage foot. Segment hue:
   Stage Work (progress ring/bar, accents — never a full-canvas flood).
 - **Stage — rest segment:** layout inverts — "Next: Squats" leads at title scale with
