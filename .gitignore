@@ -15,3 +15,14 @@ xcuserdata/
 # Secrets / local config
 Makefile.local
 *.local.json
+
+# Local-only personal/release material (kept on disk, never version-controlled)
+sessions/
+docs/specs/SPEC-oss-publication.md
+docs/specs/SPEC-github-macos-ui-automation.md
+docs/specs/workout-media-proof-of-concept.md
+docs/guides/workout-media-poc-agent-guide.md
+docs/verification/github-macos-runner-usage.md
+docs/verification/macos-ui-failure-inventory.md
+docs/verification/v1-acceptance.md
+private/
