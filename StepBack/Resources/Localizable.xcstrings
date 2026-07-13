@@ -1,0 +1,1860 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "date.today" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Today" } } }
+    },
+    "addto.new-routine" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "New Routine" } } }
+    },
+    "addto.title" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Add to Routine" } } }
+    },
+    "app.name" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "StepBack" } } }
+    },
+    "ax.play-routine" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Play %@" } } }
+    },
+    "ax.rest" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Rest, %@" } } }
+    },
+    "builder.add-workouts" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Add Workouts" } } }
+    },
+    "builder.discard.confirm" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Discard Changes" } } }
+    },
+    "builder.discard.keep" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Keep Editing" } } }
+    },
+    "builder.discard.title" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Discard changes?" } } }
+    },
+    "builder.empty.message" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Add workouts to build your routine." } } }
+    },
+    "builder.empty.title" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "No workouts yet" } } }
+    },
+    "builder.name.label" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Name" } } }
+    },
+    "builder.picker.add-count" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : {
+        "stringUnit" : { "state" : "translated", "value" : "%#@count@" },
+        "substitutions" : { "count" : { "argNum" : 1, "formatSpecifier" : "lld", "variations" : { "plural" : {
+          "one" : { "stringUnit" : { "state" : "translated", "value" : "Add %arg Workout" } },
+          "other" : { "stringUnit" : { "state" : "translated", "value" : "Add %arg Workouts" } }
+        } } } }
+      } }
+    },
+    "builder.picker.all" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "All" } } }
+    },
+    "builder.picker.search" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Search" } } }
+    },
+    "builder.picker.selected" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Selected" } } }
+    },
+    "builder.step.accessibility" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "%1$@, %2$@" } } }
+    },
+    "builder.step.actions" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Step Actions" } } }
+    },
+    "builder.step.collapse-hint" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Collapses timing controls." } } }
+    },
+    "builder.step.delete" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Remove Step" } } }
+    },
+    "builder.step.expand-hint" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Expands timing controls." } } }
+    },
+    "builder.step.move-down" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Move Down" } } }
+    },
+    "builder.step.move-up" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Move Up" } } }
+    },
+    "builder.step.off" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Off" } } }
+    },
+    "builder.step.rep-guidance" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Rep guidance" } } }
+    },
+    "builder.step.rest-after" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Rest after" } } }
+    },
+    "builder.step.rest-after.footnote" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Plays only when another step follows." } } }
+    },
+    "builder.step.set-rest" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Rest between sets" } } }
+    },
+    "builder.step.sets" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Sets" } } }
+    },
+    "builder.step.work" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Work" } } }
+    },
+    "builder.title.edit" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit Routine" } } }
+    },
+    "builder.title.new" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "New Routine" } } }
+    },
+    "builder.total" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Total" } } }
+    },
+    "common.cancel" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Cancel" } } }
+    },
+    "common.dismiss" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Dismiss" } } }
+    },
+    "common.error.message" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "The change could not be saved. Please try again." } } }
+    },
+    "common.error.title" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Couldn’t Save" } } }
+    },
+    "common.save" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Save" } } }
+    },
+    "common.summary-separator" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : " · " } } }
+    },
+    "custom.category" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Category" } } }
+    },
+    "custom.edit.title" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit Workout" } } }
+    },
+    "custom.name" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Name" } } }
+    },
+    "custom.new.title" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "New Workout" } } }
+    },
+    "custom.notes" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Notes" } } }
+    },
+    "custom.notes.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Optional" } } }
+    },
+    "gallery.add-your-own" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Add your own" } } }
+    },
+    "gallery.category.count" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : {
+        "stringUnit" : { "state" : "translated", "value" : "%#@count@" },
+        "substitutions" : { "count" : { "argNum" : 1, "formatSpecifier" : "lld", "variations" : { "plural" : {
+          "one" : { "stringUnit" : { "state" : "translated", "value" : "%arg workout" } },
+          "other" : { "stringUnit" : { "state" : "translated", "value" : "%arg workouts" } }
+        } } } }
+      } }
+    },
+    "gallery.category.yours" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : {
+        "stringUnit" : { "state" : "translated", "value" : "%#@count@" },
+        "substitutions" : { "count" : { "argNum" : 1, "formatSpecifier" : "lld", "variations" : { "plural" : {
+          "one" : { "stringUnit" : { "state" : "translated", "value" : "%arg yours" } },
+          "other" : { "stringUnit" : { "state" : "translated", "value" : "%arg yours" } }
+        } } } }
+      } }
+    },
+    "gallery.search.empty" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "No workouts found" } } }
+    },
+    "gallery.search.prompt" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : {
+        "stringUnit" : { "state" : "translated", "value" : "Search %#@count@" },
+        "substitutions" : { "count" : { "argNum" : 1, "formatSpecifier" : "lld", "variations" : { "plural" : {
+          "one" : { "stringUnit" : { "state" : "translated", "value" : "%arg workout" } },
+          "other" : { "stringUnit" : { "state" : "translated", "value" : "%arg workouts" } }
+        } } } }
+      } }
+    },
+    "gallery.yours" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Yours" } } }
+    },
+    "home.empty.message" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Pick workouts from the gallery and press play — that’s the whole app." } } }
+    },
+    "home.empty.restore" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Restore starter routines" } } }
+    },
+    "home.empty.title" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "No routines yet" } } }
+    },
+    "home.new-routine" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "New Routine" } } }
+    },
+    "home.streak" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : {
+        "stringUnit" : { "state" : "translated", "value" : "%#@count@" },
+        "substitutions" : { "count" : { "argNum" : 1, "formatSpecifier" : "lld", "variations" : { "plural" : {
+          "one" : { "stringUnit" : { "state" : "translated", "value" : "%arg-day streak" } },
+          "other" : { "stringUnit" : { "state" : "translated", "value" : "%arg-day streak" } }
+        } } } }
+      } }
+    },
+    "home.streak.best" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Best %lld" } } }
+    },
+    "home.week.minutes" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : {
+        "stringUnit" : { "state" : "translated", "value" : "%#@count@" },
+        "substitutions" : { "count" : { "argNum" : 1, "formatSpecifier" : "lld", "variations" : { "plural" : {
+          "one" : { "stringUnit" : { "state" : "translated", "value" : "%arg min this week" } },
+          "other" : { "stringUnit" : { "state" : "translated", "value" : "%arg min this week" } }
+        } } } }
+      } }
+    },
+    "home.week.sessions" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : {
+        "stringUnit" : { "state" : "translated", "value" : "%#@count@" },
+        "substitutions" : { "count" : { "argNum" : 1, "formatSpecifier" : "lld", "variations" : { "plural" : {
+          "one" : { "stringUnit" : { "state" : "translated", "value" : "%arg session" } },
+          "other" : { "stringUnit" : { "state" : "translated", "value" : "%arg sessions" } }
+        } } } }
+      } }
+    },
+    "routine.default-name" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Routine %lld" } } }
+    },
+    "routine.delete" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete Routine" } } }
+    },
+    "routine.delete.confirm.message" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Its workout history stays in your stats." } } }
+    },
+    "routine.delete.confirm.title" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete “%@”?" } } }
+    },
+    "routine.duplicate" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Duplicate" } } }
+    },
+    "routine.duplicate.name" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "%@ copy" } } }
+    },
+    "routine.edit" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit" } } }
+    },
+    "routine.empty.message" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Add workouts from the Gallery. Step editing arrives in the routine builder." } } }
+    },
+    "routine.empty.title" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Ready for workouts" } } }
+    },
+    "routine.play" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Play" } } }
+    },
+    "routine.rest" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Rest · %@" } } }
+    },
+    "routine.stats.last-done" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : {
+        "stringUnit" : { "state" : "translated", "value" : "Last done %1$@ · %#@count@" },
+        "substitutions" : { "count" : { "argNum" : 2, "formatSpecifier" : "lld", "variations" : { "plural" : {
+          "one" : { "stringUnit" : { "state" : "translated", "value" : "%arg×" } },
+          "other" : { "stringUnit" : { "state" : "translated", "value" : "%arg×" } }
+        } } } }
+      } }
+    },
+    "routine.stats.never" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Not played yet" } } }
+    },
+    "routine.workout-count" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : {
+        "stringUnit" : { "state" : "translated", "value" : "%#@count@" },
+        "substitutions" : { "count" : { "argNum" : 1, "formatSpecifier" : "lld", "variations" : { "plural" : {
+          "one" : { "stringUnit" : { "state" : "translated", "value" : "%arg workout" } },
+          "other" : { "stringUnit" : { "state" : "translated", "value" : "%arg workouts" } }
+        } } } }
+      } }
+    },
+    "settings.privacy" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "No accounts. Everything stays in your private iCloud." } } }
+    },
+    "settings.version" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "StepBack %1$@ (%2$@)" } } }
+    },
+    "shell.select-routine" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Select a routine" } } }
+    },
+    "shell.select-workout" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Select a workout" } } }
+    },
+    "step.summary.reps" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : {
+        "stringUnit" : { "state" : "translated", "value" : "~%#@count@" },
+        "substitutions" : { "count" : { "argNum" : 1, "formatSpecifier" : "lld", "variations" : { "plural" : {
+          "one" : { "stringUnit" : { "state" : "translated", "value" : "%arg rep" } },
+          "other" : { "stringUnit" : { "state" : "translated", "value" : "%arg reps" } }
+        } } } }
+      } }
+    },
+    "step.summary.set-rest" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "%@ between sets" } } }
+    },
+    "step.summary.sets" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "%1$@ × %2$lld" } } }
+    },
+    "tab.gallery" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Gallery" } } }
+    },
+    "tab.routines" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Routines" } } }
+    },
+    "tab.settings" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } } }
+    },
+    "workout.add-to-routine" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Add to Routine" } } }
+    },
+    "workout.appears-in" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : {
+        "stringUnit" : { "state" : "translated", "value" : "Appears in %#@count@" },
+        "substitutions" : { "count" : { "argNum" : 1, "formatSpecifier" : "lld", "variations" : { "plural" : {
+          "one" : { "stringUnit" : { "state" : "translated", "value" : "%arg routine" } },
+          "other" : { "stringUnit" : { "state" : "translated", "value" : "%arg routines" } }
+        } } } }
+      } }
+    },
+    "workout.appears-in.more" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : {
+        "stringUnit" : { "state" : "translated", "value" : "and %#@count@" },
+        "substitutions" : { "count" : { "argNum" : 1, "formatSpecifier" : "lld", "variations" : { "plural" : {
+          "one" : { "stringUnit" : { "state" : "translated", "value" : "%arg more" } },
+          "other" : { "stringUnit" : { "state" : "translated", "value" : "%arg more" } }
+        } } } }
+      } }
+    },
+    "workout.delete" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete Workout" } } }
+    },
+    "workout.delete.confirm.message" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Routines that use it keep its name." } } }
+    },
+    "workout.delete.confirm.title" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete “%@”?" } } }
+    },
+    "workout.edit" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit" } } }
+    },
+    "category.arms-shoulders" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arms & Shoulders"
+          }
+        }
+      }
+    },
+    "category.balance" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balance"
+          }
+        }
+      }
+    },
+    "category.cardio" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cardio"
+          }
+        }
+      }
+    },
+    "category.chest-back" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chest & Back"
+          }
+        }
+      }
+    },
+    "category.core" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Core"
+          }
+        }
+      }
+    },
+    "category.full-body" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Full Body"
+          }
+        }
+      }
+    },
+    "category.legs-glutes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Legs & Glutes"
+          }
+        }
+      }
+    },
+    "category.mobility-stretch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mobility & Stretch"
+          }
+        }
+      }
+    },
+    "focus.back" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        }
+      }
+    },
+    "focus.calves" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calves"
+          }
+        }
+      }
+    },
+    "focus.chest" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chest"
+          }
+        }
+      }
+    },
+    "focus.core" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Core"
+          }
+        }
+      }
+    },
+    "focus.endurance" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Endurance"
+          }
+        }
+      }
+    },
+    "focus.flexibility" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flexibility"
+          }
+        }
+      }
+    },
+    "focus.glutes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Glutes"
+          }
+        }
+      }
+    },
+    "focus.hamstrings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hamstrings"
+          }
+        }
+      }
+    },
+    "focus.hip-flexors" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hip Flexors"
+          }
+        }
+      }
+    },
+    "focus.obliques" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obliques"
+          }
+        }
+      }
+    },
+    "focus.quadriceps" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quadriceps"
+          }
+        }
+      }
+    },
+    "focus.shoulders" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shoulders"
+          }
+        }
+      }
+    },
+    "focus.stability" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stability"
+          }
+        }
+      }
+    },
+    "focus.triceps" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Triceps"
+          }
+        }
+      }
+    },
+    "starter.full-body-classic" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Full-Body Classic"
+          }
+        }
+      }
+    },
+    "starter.full-session" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Full Session"
+          }
+        }
+      }
+    },
+    "starter.quick-start" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quick Start"
+          }
+        }
+      }
+    },
+    "workout.arm-circle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arm Circles"
+          }
+        }
+      }
+    },
+    "workout.back-extension" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back Extension"
+          }
+        }
+      }
+    },
+    "workout.bear-crawl" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bear Crawl"
+          }
+        }
+      }
+    },
+    "workout.bicycle-crunch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bicycle Crunch"
+          }
+        }
+      }
+    },
+    "workout.bird-dog" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bird Dog"
+          }
+        }
+      }
+    },
+    "workout.bridge" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bridge"
+          }
+        }
+      }
+    },
+    "workout.burpee" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Burpee"
+          }
+        }
+      }
+    },
+    "workout.butt-kick" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Butt Kicks"
+          }
+        }
+      }
+    },
+    "workout.butterfly-stretch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Butterfly Stretch"
+          }
+        }
+      }
+    },
+    "workout.calf-raise" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calf Raise"
+          }
+        }
+      }
+    },
+    "workout.cat-cow" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cat-Cow"
+          }
+        }
+      }
+    },
+    "workout.child-pose" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Child's Pose"
+          }
+        }
+      }
+    },
+    "workout.cobra-stretch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cobra Stretch"
+          }
+        }
+      }
+    },
+    "workout.crab-toe-touch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crab Toe Touch"
+          }
+        }
+      }
+    },
+    "workout.crab-walk" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crab Walk"
+          }
+        }
+      }
+    },
+    "workout.crunch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crunch"
+          }
+        }
+      }
+    },
+    "workout.curtsy-lunge" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Curtsy Lunge"
+          }
+        }
+      }
+    },
+    "workout.dead-bug" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dead Bug"
+          }
+        }
+      }
+    },
+    "workout.decline-push-up" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Decline Push-Up"
+          }
+        }
+      }
+    },
+    "workout.diamond-push-up" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diamond Push-Up"
+          }
+        }
+      }
+    },
+    "workout.donkey-kick" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Donkey Kick"
+          }
+        }
+      }
+    },
+    "workout.downward-dog" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downward Dog"
+          }
+        }
+      }
+    },
+    "workout.fast-feet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fast Feet"
+          }
+        }
+      }
+    },
+    "workout.fire-hydrant" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fire Hydrant"
+          }
+        }
+      }
+    },
+    "workout.flutter-kick" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Flutter Kicks"
+          }
+        }
+      }
+    },
+    "workout.frogger" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frogger"
+          }
+        }
+      }
+    },
+    "workout.half-burpee" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Half Burpee"
+          }
+        }
+      }
+    },
+    "workout.hamstring-stretch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hamstring Stretch"
+          }
+        }
+      }
+    },
+    "workout.heel-to-toe-walk" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Heel-to-Toe Walk"
+          }
+        }
+      }
+    },
+    "workout.high-knees" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "High Knees"
+          }
+        }
+      }
+    },
+    "workout.hip-flexor-stretch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hip Flexor Stretch"
+          }
+        }
+      }
+    },
+    "workout.hollow-hold" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hollow Hold"
+          }
+        }
+      }
+    },
+    "workout.inchworm" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inchworm"
+          }
+        }
+      }
+    },
+    "workout.incline-push-up" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Incline Push-Up"
+          }
+        }
+      }
+    },
+    "workout.invisible-jump-rope" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invisible Jump Rope"
+          }
+        }
+      }
+    },
+    "workout.jump-squat" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jump Squat"
+          }
+        }
+      }
+    },
+    "workout.jumping-jack" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jumping Jack"
+          }
+        }
+      }
+    },
+    "workout.kneeling-push-up" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kneeling Push-Up"
+          }
+        }
+      }
+    },
+    "workout.lateral-shuffle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lateral Shuffle"
+          }
+        }
+      }
+    },
+    "workout.leg-raise" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leg Raise"
+          }
+        }
+      }
+    },
+    "workout.lunge" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Forward Lunge"
+          }
+        }
+      }
+    },
+    "workout.mountain-climber" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mountain Climber"
+          }
+        }
+      }
+    },
+    "workout.neck-roll" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neck Rolls"
+          }
+        }
+      }
+    },
+    "workout.pigeon-pose" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pigeon Pose"
+          }
+        }
+      }
+    },
+    "workout.pike-push-up" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pike Push-Up"
+          }
+        }
+      }
+    },
+    "workout.plank" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plank"
+          }
+        }
+      }
+    },
+    "workout.plank-to-push-up" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plank to Push-Up"
+          }
+        }
+      }
+    },
+    "workout.plank-up-down" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plank Up-Down"
+          }
+        }
+      }
+    },
+    "workout.push-up" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Push-Up"
+          }
+        }
+      }
+    },
+    "workout.quad-stretch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standing Quad Stretch"
+          }
+        }
+      }
+    },
+    "workout.reverse-crunch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reverse Crunch"
+          }
+        }
+      }
+    },
+    "workout.reverse-lunge" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reverse Lunge"
+          }
+        }
+      }
+    },
+    "workout.reverse-plank" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reverse Plank"
+          }
+        }
+      }
+    },
+    "workout.reverse-snow-angel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reverse Snow Angel"
+          }
+        }
+      }
+    },
+    "workout.russian-twist" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Russian Twist"
+          }
+        }
+      }
+    },
+    "workout.scapular-push-up" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scapular Push-Up"
+          }
+        }
+      }
+    },
+    "workout.shadow-boxing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shadow Boxing"
+          }
+        }
+      }
+    },
+    "workout.shoulder-stretch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cross-Body Shoulder Stretch"
+          }
+        }
+      }
+    },
+    "workout.shoulder-tap" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shoulder Taps"
+          }
+        }
+      }
+    },
+    "workout.side-leg-raise" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Side Leg Raise"
+          }
+        }
+      }
+    },
+    "workout.side-lunge" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Side Lunge"
+          }
+        }
+      }
+    },
+    "workout.side-plank" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Side Plank"
+          }
+        }
+      }
+    },
+    "workout.single-leg-bridge" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Single-Leg Bridge"
+          }
+        }
+      }
+    },
+    "workout.single-leg-calf-raise" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Single-Leg Calf Raise"
+          }
+        }
+      }
+    },
+    "workout.single-leg-deadlift" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Single-Leg Deadlift"
+          }
+        }
+      }
+    },
+    "workout.single-leg-hop" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Single-Leg Hop"
+          }
+        }
+      }
+    },
+    "workout.single-leg-stand" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Single-Leg Stand"
+          }
+        }
+      }
+    },
+    "workout.skater" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skaters"
+          }
+        }
+      }
+    },
+    "workout.sphinx-push-up" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sphinx Push-Up"
+          }
+        }
+      }
+    },
+    "workout.split-squat" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Split Squat"
+          }
+        }
+      }
+    },
+    "workout.sprawl" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sprawl"
+          }
+        }
+      }
+    },
+    "workout.squat" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Squat"
+          }
+        }
+      }
+    },
+    "workout.squat-pulse" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Squat Pulse"
+          }
+        }
+      }
+    },
+    "workout.squat-thrust" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Squat Thrust"
+          }
+        }
+      }
+    },
+    "workout.standing-forward-fold" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standing Forward Fold"
+          }
+        }
+      }
+    },
+    "workout.standing-knee-raise" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standing Knee Raise"
+          }
+        }
+      }
+    },
+    "workout.star-jump" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Star Jump"
+          }
+        }
+      }
+    },
+    "workout.step-up" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Step-Up"
+          }
+        }
+      }
+    },
+    "workout.sumo-squat" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sumo Squat"
+          }
+        }
+      }
+    },
+    "workout.superman" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Superman"
+          }
+        }
+      }
+    },
+    "workout.swimmer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Swimmer"
+          }
+        }
+      }
+    },
+    "workout.thread-the-needle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thread the Needle"
+          }
+        }
+      }
+    },
+    "workout.tree-pose" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tree Pose"
+          }
+        }
+      }
+    },
+    "workout.tricep-dip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Triceps Dip"
+          }
+        }
+      }
+    },
+    "workout.tuck-jump" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tuck Jump"
+          }
+        }
+      }
+    },
+    "workout.turkish-get-up" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Turkish Get-Up"
+          }
+        }
+      }
+    },
+    "workout.v-up" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "V-Up"
+          }
+        }
+      }
+    },
+    "workout.wall-handstand-hold" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wall Handstand Hold"
+          }
+        }
+      }
+    },
+    "workout.wall-push-up" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wall Push-Up"
+          }
+        }
+      }
+    },
+    "workout.warrior-three" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warrior Three"
+          }
+        }
+      }
+    },
+    "workout.wide-push-up" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wide Push-Up"
+          }
+        }
+      }
+    },
+    "player.back" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Back" } } } },
+    "player.complete.done" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Done" } } } },
+    "player.complete.go-again" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Go Again" } } } },
+    "player.complete.streak" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : {
+        "stringUnit" : { "state" : "translated", "value" : "%#@count@" },
+        "substitutions" : { "count" : { "argNum" : 1, "formatSpecifier" : "lld", "variations" : { "plural" : {
+          "one" : { "stringUnit" : { "state" : "translated", "value" : "%arg day" } },
+          "other" : { "stringUnit" : { "state" : "translated", "value" : "%arg days" } }
+        } } } }
+      } }
+    },
+    "player.complete.streak.label" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Streak" } } } },
+    "player.complete.times" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "%lld×" } } } },
+    "player.complete.times.label" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Completed" } } } },
+    "player.complete.title" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Nice work" } } } },
+    "player.complete.workouts" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : {
+        "stringUnit" : { "state" : "translated", "value" : "%#@count@" },
+        "substitutions" : { "count" : { "argNum" : 1, "formatSpecifier" : "lld", "variations" : { "plural" : {
+          "one" : { "stringUnit" : { "state" : "translated", "value" : "%arg workout completed" } },
+          "other" : { "stringUnit" : { "state" : "translated", "value" : "%arg workouts completed" } }
+        } } } }
+      } }
+    },
+    "player.end" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "End" } } } },
+    "player.end.confirm" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "End Routine" } } } },
+    "player.end.confirm.title" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "End this routine?" } } } },
+    "player.end.keep" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Keep Going" } } } },
+    "player.first" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "First: %@" } } } },
+    "player.kicker.get-ready" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Get ready" } } } },
+    "player.kicker.rest" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Rest" } } } },
+    "player.kicker.separator" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : " · " } } } },
+    "player.kicker.work" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Work" } } } },
+    "player.next" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Next: %@" } } } },
+    "player.partial.message" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "You did %@ — saved to history" } } } },
+    "player.pause" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Pause" } } } },
+    "player.progress" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Progress" } } } },
+    "player.progress.value" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "%1$@ elapsed, %2$@ remaining" } } } },
+    "player.resume" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Resume" } } } },
+    "player.set-indicator" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Set %1$lld of %2$lld" } } } },
+    "player.skip" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Skip" } } } },
+    "player.time-remaining" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Time remaining" } } } },
+    "player.unavailable" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Choose a routine to play" } } } },
+    "player.wake.reason" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Keep the workout stage visible" } } } },
+    "player.window.title" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Player" } } } },
+    "player.workout-indicator" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Workout %1$lld of %2$lld" } } } },
+    "detail.provenance.agent" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Edited by agent" } } } },
+    "settings.agentBridge.footer" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Coding agents on this Mac can create and edit workouts, routines, and plans. They can never delete anything." } } } },
+    "settings.agentBridge.reveal" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Show Bridge Folder in Finder" } } } },
+    "settings.agentBridge.title" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Agent Access" } } } },
+    "settings.agentBridge.toggle" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Allow agent changes" } } } },
+    "settings.get-ready" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Get ready" } } } },
+    "settings.get-ready.detail" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Before the first workout" } } } },
+    "settings.section.audio" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Audio" } } } },
+    "settings.section.icloud" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "iCloud" } } } },
+    "settings.section.player" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Player" } } } },
+    "settings.sync" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Sync" } } } },
+    "settings.sync.checking" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Checking…" } } } },
+    "settings.sync.unavailable" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "iCloud unavailable — changes stay on this device" } } } },
+    "settings.sync.up-to-date" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Up to date" } } } },
+    "settings.tones" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Countdown tones" } } } },
+    "settings.tones.detail" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "3-2-1 beeps and transitions" } } } },
+    "settings.voice" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Voice announcements" } } } },
+    "settings.voice.detail" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Workout names, rests, completion" } } } },
+    "speech.complete" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Nice work — %@" } } } },
+    "speech.get-ready" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Get ready — first: %@" } } } },
+    "speech.reps" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "About %lld reps" } } } },
+    "speech.rest" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Rest — next: %@" } } } },
+    "speech.separator" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : ". " } } } },
+    "speech.set-rest" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Rest — next: set %1$lld of %2$lld" } } } },
+    "speech.work" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "%@" } } } },
+    "speech.work-set" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "%1$@ — set %2$lld of %3$lld" } } } },
+    "welcome.compose" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Compose" } } } },
+    "welcome.compose.detail" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Pick workouts from the gallery into your own routine — times, sets, rests." } } } },
+    "welcome.follow" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Follow" } } } },
+    "welcome.follow.detail" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Voice and tones guide every move — no need to touch the screen again." } } } },
+    "welcome.get-started" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Get Started" } } } },
+    "welcome.play" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Play" } } } },
+    "welcome.play.detail" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "One tap starts the whole routine. The screen stays awake." } } } },
+    "welcome.privacy" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "No accounts. Your routines sync only to your private iCloud." } } } },
+    "welcome.tagline" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Build your routine once. Then press play, step back, and follow." } } } },
+    "welcome.title" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "StepBack" } } } },
+    "plans.section.title" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Plans" } } } },
+    "plans.new" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "New Plan" } } } },
+    "plans.edit" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit Plan" } } } },
+    "plans.editor.duplicatePlan" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Duplicate Plan" } } } },
+    "plans.editor.addRoutine" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Add Routine" } } } },
+    "plans.editor.replaceRoutine" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Replace Routine" } } } },
+    "plans.slot.routineRemoved" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Routine removed" } } } },
+    "plans.delete.confirm.title" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete Plan?" } } } },
+    "plans.delete" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete Plan" } } } },
+    "plans.defaultName" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Plan %lld" } } } },
+    "plans.today.kicker" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Today" } } } },
+    "plans.today.done.title" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Done for Today" } } } },
+    "plans.today.rest.title" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Rest Day" } } } },
+    "plans.today.next" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Next: %1$@ · %2$@" } } } },
+    "plans.today.multi.count" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "%1$lld of %2$lld today" } } } },
+    "plans.today.strip.accessibility" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : {
+        "stringUnit" : { "state" : "translated", "value" : "%1$lld of %#@total@ done this week" },
+        "substitutions" : { "total" : { "argNum" : 2, "formatSpecifier" : "lld", "variations" : { "plural" : {
+          "one" : { "stringUnit" : { "state" : "translated", "value" : "%arg day" } },
+          "other" : { "stringUnit" : { "state" : "translated", "value" : "%arg days" } }
+        } } } }
+      } }
+    },
+    "plans.myWeek.title" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "My Week" } } } },
+    "plans.migration.week-name" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "%1$@ · Week %2$lld" } } } },
+    "plans.myWeek.row" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "My Week · %@" } } } },
+    "plans.myWeek.set" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Set as My Week" } } } },
+    "plans.myWeek.choose" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Choose Your Week" } } } },
+    "plans.nudge.title" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Plan Your Week" } } } },
+    "plans.nudge.message" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Pick a routine for each day." } } } },
+    "plans.day.rest" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Rest" } } } },
+    "plans.day.done.accessibility" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Done" } } } },
+    "plans.day.routine.accessibility %@ %@" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "%1$@, %2$@" } } } },
+    "plans.picker.summary" : {
+      "extractionState" : "manual",
+      "localizations" : { "en" : {
+        "stringUnit" : { "state" : "translated", "value" : "%#@days@ · %2$@" },
+        "substitutions" : { "days" : { "argNum" : 1, "formatSpecifier" : "lld", "variations" : { "plural" : {
+          "one" : { "stringUnit" : { "state" : "translated", "value" : "%arg day" } },
+          "other" : { "stringUnit" : { "state" : "translated", "value" : "%arg days" } }
+        } } } }
+      } }
+    },
+    "plans.today.repair" : { "extractionState" : "manual", "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "Fix in Editor" } } } },
+    "workout.worlds-greatest-stretch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "World's Greatest Stretch"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

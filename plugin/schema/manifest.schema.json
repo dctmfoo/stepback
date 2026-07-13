@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stepback.local/schema/agent-manifest-v2.json",
+  "title": "StepBack Agent Bridge manifest",
+  "type": "object",
+  "required": [
+    "schemaVersion", "generatedAt", "rootPath", "inboxPath", "processedPath", "failedPath",
+    "catalogVersion", "categories", "catalogWorkouts", "customWorkouts", "routines", "plans"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 2 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "rootPath": { "type": "string" },
+    "inboxPath": { "type": "string" },
+    "processedPath": { "type": "string" },
+    "failedPath": { "type": "string" },
+    "catalogVersion": { "type": "integer", "minimum": 1 },
+    "categories": { "type": "array", "items": { "$ref": "#/$defs/category" } },
+    "catalogWorkouts": { "type": "array", "items": { "$ref": "#/$defs/catalogWorkout" } },
+    "customWorkouts": { "type": "array", "items": { "$ref": "#/$defs/customWorkout" } },
+    "routines": { "type": "array", "items": { "$ref": "#/$defs/routine" } },
+    "plans": { "type": "array", "items": { "$ref": "#/$defs/plan" } }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "category": {
+      "type": "object",
+      "required": ["id", "displayName", "symbolName"],
+      "properties": {
+        "id": { "type": "string" }, "displayName": { "type": "string" }, "symbolName": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "catalogWorkout": {
+      "type": "object",
+      "required": ["id", "displayName", "categoryID", "focusAreas"],
+      "properties": {
+        "id": { "type": "string" }, "displayName": { "type": "string" },
+        "categoryID": { "type": "string" }, "focusAreas": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "provenance": { "type": ["string", "null"] },
+    "customWorkout": {
+      "type": "object",
+      "required": ["id", "name", "categoryID", "createdAt", "updatedAt"],
+      "properties": {
+        "id": { "type": "string" }, "name": { "type": "string" }, "categoryID": { "type": "string" },
+        "notes": { "type": ["string", "null"] }, "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }, "lastEditedVia": { "$ref": "#/$defs/provenance" }
+      },
+      "additionalProperties": false
+    },
+    "routineStep": {
+      "type": "object",
+      "required": ["workoutID", "workoutName", "workSeconds", "sets", "setRestSeconds", "restAfterSeconds"],
+      "properties": {
+        "workoutID": { "type": "string" }, "workoutName": { "type": "string" },
+        "workSeconds": { "type": "integer" }, "sets": { "type": "integer" },
+        "setRestSeconds": { "type": "integer" }, "restAfterSeconds": { "type": "integer" },
+        "repGuidance": { "type": ["integer", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "routine": {
+      "type": "object",
+      "required": ["id", "name", "createdAt", "updatedAt", "totalSeconds", "sessionCount", "completedSessionCount", "steps"],
+      "properties": {
+        "id": { "type": "string" }, "name": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }, "updatedAt": { "type": "string", "format": "date-time" },
+        "lastEditedVia": { "$ref": "#/$defs/provenance" }, "totalSeconds": { "type": "integer", "minimum": 0 },
+        "sessionCount": { "type": "integer", "minimum": 0 },
+        "completedSessionCount": { "type": "integer", "minimum": 0 },
+        "steps": { "type": "array", "items": { "$ref": "#/$defs/routineStep" } }
+      },
+      "additionalProperties": false
+    },
+    "planSlot": {
+      "type": "object",
+      "required": ["id", "index", "routineID", "routineName", "routineExists"],
+      "properties": {
+        "id": { "type": "string" }, "index": { "type": "integer" }, "routineID": { "type": "string" },
+        "routineName": { "type": "string" },
+        "routineExists": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "planDay": {
+      "type": "object",
+      "required": ["weekday", "slots"],
+      "properties": {
+        "weekday": { "type": "integer", "minimum": 1, "maximum": 7 }, "slots": { "type": "array", "items": { "$ref": "#/$defs/planSlot" } }
+      },
+      "additionalProperties": false
+    },
+    "plan": {
+      "type": "object",
+      "required": [
+        "id", "name", "createdAt", "updatedAt", "isMyWeek", "days"
+      ],
+      "properties": {
+        "id": { "type": "string" }, "name": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }, "updatedAt": { "type": "string", "format": "date-time" },
+        "lastEditedVia": { "$ref": "#/$defs/provenance" }, "isMyWeek": { "type": "boolean" },
+        "days": { "$ref": "#/$defs/planDays" }
+      },
+      "additionalProperties": false
+    },
+    "planDays": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": { "$ref": "#/$defs/planDay" },
+      "allOf": [
+        { "contains": { "properties": { "weekday": { "const": 1 } }, "required": ["weekday"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "properties": { "weekday": { "const": 2 } }, "required": ["weekday"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "properties": { "weekday": { "const": 3 } }, "required": ["weekday"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "properties": { "weekday": { "const": 4 } }, "required": ["weekday"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "properties": { "weekday": { "const": 5 } }, "required": ["weekday"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "properties": { "weekday": { "const": 6 } }, "required": ["weekday"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "properties": { "weekday": { "const": 7 } }, "required": ["weekday"] }, "minContains": 1, "maxContains": 1 }
+      ]
+    }
+  }
+}

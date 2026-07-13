@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 2,
+  "commandID": "b3333333-3333-4333-8333-333333333333",
+  "verb": "createRoutine",
+  "payload": {
+    "name": "Hallucinated",
+    "steps": [
+      { "workoutID": "not-in-manifest", "workSeconds": 30, "sets": 1, "setRestSeconds": 0, "restAfterSeconds": 0 }
+    ]
+  }
+}

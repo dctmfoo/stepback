@@ -1,0 +1,225 @@
+name: macOS UI Automation
+run-name: "macOS UI: ${{ inputs.suite }} — ${{ inputs.reason }}"
+
+on:
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: Run exactly one hosted Mac UI suite
+        type: choice
+        required: true
+        default: functional
+        options:
+          - functional
+          - accessibility
+      test_filter:
+        description: Optional exact XCTest target/class/method filter for a focused run
+        type: string
+        required: false
+      reason:
+        description: Why this hosted UI run is necessary
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+# Hosted Mac minutes are scarce. Queue runs instead of executing two at once or
+# cancelling an already-billed job. There are no push or pull-request triggers.
+concurrency:
+  group: stepback-hosted-macos-ui
+  cancel-in-progress: false
+
+env:
+  DEVELOPER_DIR: /Applications/Xcode_26.5.app/Contents/Developer
+  XCODEGEN_MINIMUM_VERSION: 2.43.0
+  PROJECT: StepBack.xcodeproj
+  SCHEME: StepBackMac
+  DESTINATION: platform=macOS
+
+jobs:
+  functional-mac-ui:
+    if: inputs.suite == 'functional'
+    name: macOS Functional UI
+    runs-on: macos-26
+    timeout-minutes: 15
+    env:
+      DEFAULT_TEST_FILTER: StepBackMacUITests/StepBackMacUITests
+      EVIDENCE_STEM: StepBackMac-Functional
+    steps:
+      - name: Record hosted runner start
+        run: date +%s > "$RUNNER_TEMP/hosted-start-epoch"
+
+      - name: Check out source
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+
+      - name: Install and verify XcodeGen
+        run: |
+          if ! command -v xcodegen >/dev/null; then
+            brew install xcodegen
+          fi
+          python3 - "$(xcodegen --version | awk '{print $NF}')" "$XCODEGEN_MINIMUM_VERSION" <<'PY'
+          import sys
+
+          actual = tuple(map(int, sys.argv[1].split(".")))
+          minimum = tuple(map(int, sys.argv[2].split(".")))
+          if actual < minimum:
+              raise SystemExit(f"XcodeGen {actual} is older than required {minimum}")
+          PY
+
+      - name: Generate project and verify no drift
+        run: |
+          xcodegen generate
+          git diff --exit-code -- StepBack.xcodeproj
+
+      - name: Run selected functional Mac UI tests
+        env:
+          REQUESTED_TEST_FILTER: ${{ inputs.test_filter }}
+        run: |
+          set -o pipefail
+          test_filter="${REQUESTED_TEST_FILTER:-$DEFAULT_TEST_FILTER}"
+          if [[ ! "$test_filter" =~ ^StepBackMacUITests/StepBackMacUITests(/[A-Za-z0-9_]+)?$ ]]; then
+            echo "Functional filter must select StepBackMacUITests/StepBackMacUITests or one of its methods." >&2
+            exit 2
+          fi
+          xcodebuild \
+            -project "$PROJECT" \
+            -scheme "$SCHEME" \
+            -destination "$DESTINATION" \
+            -derivedDataPath "$RUNNER_TEMP/DerivedData-functional" \
+            -resultBundlePath "$RUNNER_TEMP/$EVIDENCE_STEM.xcresult" \
+            test \
+            "-only-testing:$test_filter" \
+            CODE_SIGNING_ALLOWED=NO \
+            DEVELOPMENT_TEAM= \
+            2>&1 | tee "$RUNNER_TEMP/$EVIDENCE_STEM.log"
+
+      - name: Publish functional result and usage summary
+        if: always()
+        run: |
+          started="$(cat "$RUNNER_TEMP/hosted-start-epoch")"
+          elapsed_seconds="$(( $(date +%s) - started ))"
+          estimated_minutes="$(( (elapsed_seconds + 59) / 60 ))"
+          printf '{"step_observed_seconds":%s,"rounded_minutes":%s}\n' \
+            "$elapsed_seconds" "$estimated_minutes" > "$RUNNER_TEMP/$EVIDENCE_STEM-usage.json"
+          {
+            echo "### macOS Functional UI"
+            echo "Step-observed hosted use: **${estimated_minutes} minute(s)** (${elapsed_seconds} seconds)."
+            echo "Record the authoritative GitHub job URL and duration in the task's verification notes."
+            if [[ -d "$RUNNER_TEMP/$EVIDENCE_STEM.xcresult" ]] && \
+              xcrun xcresulttool get test-results summary \
+                --path "$RUNNER_TEMP/$EVIDENCE_STEM.xcresult" \
+                --compact > "$RUNNER_TEMP/$EVIDENCE_STEM-summary.json"; then
+              echo '```json'
+              cat "$RUNNER_TEMP/$EVIDENCE_STEM-summary.json"
+              echo '```'
+            else
+              echo "No readable xcresult summary was produced. Inspect the uploaded raw log."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload functional evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: macos-functional-ui-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/StepBackMac-Functional.xcresult
+            ${{ runner.temp }}/StepBackMac-Functional.log
+            ${{ runner.temp }}/StepBackMac-Functional-summary.json
+            ${{ runner.temp }}/StepBackMac-Functional-usage.json
+          if-no-files-found: warn
+          retention-days: 14
+  accessibility-diagnostic:
+    if: inputs.suite == 'accessibility'
+    name: macOS Accessibility Diagnostic
+    runs-on: macos-26
+    timeout-minutes: 20
+    continue-on-error: true
+    env:
+      DEFAULT_TEST_FILTER: StepBackMacUITests/StepBackMacAccessibilityAuditTests
+      EVIDENCE_STEM: StepBackMac-Accessibility
+    steps:
+      - name: Record hosted runner start
+        run: date +%s > "$RUNNER_TEMP/hosted-start-epoch"
+
+      - name: Check out source
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+
+      - name: Install and verify XcodeGen
+        run: |
+          if ! command -v xcodegen >/dev/null; then
+            brew install xcodegen
+          fi
+          python3 - "$(xcodegen --version | awk '{print $NF}')" "$XCODEGEN_MINIMUM_VERSION" <<'PY'
+          import sys
+
+          actual = tuple(map(int, sys.argv[1].split(".")))
+          minimum = tuple(map(int, sys.argv[2].split(".")))
+          if actual < minimum:
+              raise SystemExit(f"XcodeGen {actual} is older than required {minimum}")
+          PY
+
+      - name: Generate project and verify no drift
+        run: |
+          xcodegen generate
+          git diff --exit-code -- StepBack.xcodeproj
+
+      - name: Run selected Mac accessibility diagnostics
+        env:
+          REQUESTED_TEST_FILTER: ${{ inputs.test_filter }}
+        run: |
+          set -o pipefail
+          test_filter="${REQUESTED_TEST_FILTER:-$DEFAULT_TEST_FILTER}"
+          if [[ ! "$test_filter" =~ ^StepBackMacUITests/StepBackMacAccessibilityAuditTests(/[A-Za-z0-9_]+)?$ ]]; then
+            echo "Accessibility filter must select StepBackMacUITests/StepBackMacAccessibilityAuditTests or one of its methods." >&2
+            exit 2
+          fi
+          xcodebuild \
+            -project "$PROJECT" \
+            -scheme "$SCHEME" \
+            -destination "$DESTINATION" \
+            -derivedDataPath "$RUNNER_TEMP/DerivedData-accessibility" \
+            -resultBundlePath "$RUNNER_TEMP/$EVIDENCE_STEM.xcresult" \
+            test \
+            "-only-testing:$test_filter" \
+            CODE_SIGNING_ALLOWED=NO \
+            DEVELOPMENT_TEAM= \
+            2>&1 | tee "$RUNNER_TEMP/$EVIDENCE_STEM.log"
+
+      - name: Publish accessibility result and usage summary
+        if: always()
+        run: |
+          started="$(cat "$RUNNER_TEMP/hosted-start-epoch")"
+          elapsed_seconds="$(( $(date +%s) - started ))"
+          estimated_minutes="$(( (elapsed_seconds + 59) / 60 ))"
+          printf '{"step_observed_seconds":%s,"rounded_minutes":%s}\n' \
+            "$elapsed_seconds" "$estimated_minutes" > "$RUNNER_TEMP/$EVIDENCE_STEM-usage.json"
+          {
+            echo "### macOS Accessibility Diagnostic"
+            echo "Step-observed hosted use: **${estimated_minutes} minute(s)** (${elapsed_seconds} seconds)."
+            echo "Record the authoritative GitHub job URL and duration in the task's verification notes."
+            if [[ -d "$RUNNER_TEMP/$EVIDENCE_STEM.xcresult" ]] && \
+              xcrun xcresulttool get test-results summary \
+                --path "$RUNNER_TEMP/$EVIDENCE_STEM.xcresult" \
+                --compact > "$RUNNER_TEMP/$EVIDENCE_STEM-summary.json"; then
+              echo '```json'
+              cat "$RUNNER_TEMP/$EVIDENCE_STEM-summary.json"
+              echo '```'
+            else
+              echo "No readable xcresult summary was produced. Inspect the uploaded raw log."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload accessibility evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: macos-accessibility-diagnostic-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/StepBackMac-Accessibility.xcresult
+            ${{ runner.temp }}/StepBackMac-Accessibility.log
+            ${{ runner.temp }}/StepBackMac-Accessibility-summary.json
+            ${{ runner.temp }}/StepBackMac-Accessibility-usage.json
+          if-no-files-found: warn
+          retention-days: 14

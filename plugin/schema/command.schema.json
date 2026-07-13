@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stepback.local/schema/agent-command-v2.json",
+  "title": "StepBack Agent Bridge command",
+  "type": "object",
+  "required": ["schemaVersion", "commandID", "verb", "payload"],
+  "properties": {
+    "schemaVersion": { "const": 2 },
+    "commandID": { "type": "string", "format": "uuid" },
+    "expectedUpdatedAt": { "type": "string", "format": "date-time" },
+    "verb": {
+      "enum": [
+        "createCustomWorkout", "updateCustomWorkout",
+        "createRoutine", "updateRoutine",
+        "createPlan", "updatePlan",
+        "activatePlan"
+      ]
+    },
+    "payload": { "type": "object" }
+  },
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": { "properties": { "verb": { "const": "createCustomWorkout" } } },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/customWorkoutCreate" } } }
+    },
+    {
+      "if": { "properties": { "verb": { "const": "updateCustomWorkout" } } },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/customWorkoutUpdate" } } }
+    },
+    {
+      "if": { "properties": { "verb": { "const": "createRoutine" } } },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/routineCreate" } } }
+    },
+    {
+      "if": { "properties": { "verb": { "const": "updateRoutine" } } },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/routineUpdate" } } }
+    },
+    {
+      "if": { "properties": { "verb": { "const": "createPlan" } } },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/planCreate" } } }
+    },
+    {
+      "if": { "properties": { "verb": { "const": "updatePlan" } } },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/planUpdate" } } }
+    },
+    {
+      "if": { "properties": { "verb": { "const": "activatePlan" } } },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/planActivation" } } }
+    }
+  ],
+  "$defs": {
+    "name": { "type": "string", "minLength": 1, "maxLength": 120, "pattern": "\\S" },
+    "customWorkoutBase": {
+      "type": "object",
+      "required": ["name", "categoryID"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "$ref": "#/$defs/name" },
+        "categoryID": { "type": "string", "minLength": 1 },
+        "notes": { "type": ["string", "null"], "maxLength": 2000 }
+      },
+      "additionalProperties": false
+    },
+    "customWorkoutCreate": {
+      "$ref": "#/$defs/customWorkoutBase",
+      "not": { "required": ["id"] }
+    },
+    "customWorkoutUpdate": {
+      "$ref": "#/$defs/customWorkoutBase",
+      "required": ["id", "name", "categoryID"]
+    },
+    "routineStep": {
+      "type": "object",
+      "required": ["workoutID", "workSeconds", "sets", "setRestSeconds", "restAfterSeconds"],
+      "properties": {
+        "workoutID": { "type": "string", "minLength": 1 },
+        "workSeconds": { "type": "integer", "minimum": 5, "maximum": 600, "multipleOf": 5 },
+        "sets": { "type": "integer", "minimum": 1, "maximum": 20 },
+        "setRestSeconds": { "type": "integer", "minimum": 0, "maximum": 300, "multipleOf": 5 },
+        "restAfterSeconds": { "type": "integer", "minimum": 0, "maximum": 300, "multipleOf": 5 },
+        "repGuidance": { "type": ["integer", "null"], "minimum": 5, "maximum": 100, "multipleOf": 5 }
+      },
+      "additionalProperties": false
+    },
+    "routineBase": {
+      "type": "object",
+      "required": ["name", "steps"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "$ref": "#/$defs/name" },
+        "steps": { "type": "array", "maxItems": 200, "items": { "$ref": "#/$defs/routineStep" } }
+      },
+      "additionalProperties": false
+    },
+    "routineCreate": {
+      "$ref": "#/$defs/routineBase",
+      "not": { "required": ["id"] },
+      "properties": { "steps": { "minItems": 1 } }
+    },
+    "routineUpdate": {
+      "$ref": "#/$defs/routineBase",
+      "required": ["id", "name", "steps"]
+    },
+    "routineReference": {
+      "type": "object",
+      "required": ["fromCommand"],
+      "properties": { "fromCommand": { "type": "string", "format": "uuid" } },
+      "additionalProperties": false
+    },
+    "planSlot": {
+      "type": "object",
+      "properties": {
+        "routineID": { "type": "string", "minLength": 1 },
+        "routineRef": { "$ref": "#/$defs/routineReference" }
+      },
+      "oneOf": [
+        { "required": ["routineID"], "not": { "required": ["routineRef"] } },
+        { "required": ["routineRef"], "not": { "required": ["routineID"] } }
+      ],
+      "additionalProperties": false
+    },
+    "planDay": {
+      "type": "object",
+      "required": ["weekday", "slots"],
+      "properties": {
+        "weekday": { "type": "integer", "minimum": 1, "maximum": 7 },
+        "slots": { "type": "array", "maxItems": 100, "items": { "$ref": "#/$defs/planSlot" } }
+      },
+      "additionalProperties": false
+    },
+    "planBase": {
+      "type": "object",
+      "required": ["name", "days"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "$ref": "#/$defs/name" },
+        "days": { "$ref": "#/$defs/planDays" }
+      },
+      "additionalProperties": false
+    },
+    "planDays": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": { "$ref": "#/$defs/planDay" },
+      "allOf": [
+        { "contains": { "properties": { "weekday": { "const": 1 } }, "required": ["weekday"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "properties": { "weekday": { "const": 2 } }, "required": ["weekday"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "properties": { "weekday": { "const": 3 } }, "required": ["weekday"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "properties": { "weekday": { "const": 4 } }, "required": ["weekday"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "properties": { "weekday": { "const": 5 } }, "required": ["weekday"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "properties": { "weekday": { "const": 6 } }, "required": ["weekday"] }, "minContains": 1, "maxContains": 1 },
+        { "contains": { "properties": { "weekday": { "const": 7 } }, "required": ["weekday"] }, "minContains": 1, "maxContains": 1 }
+      ]
+    },
+    "planCreate": {
+      "$ref": "#/$defs/planBase",
+      "not": { "required": ["id"] }
+    },
+    "planUpdate": {
+      "$ref": "#/$defs/planBase",
+      "required": ["id", "name", "days"]
+    },
+    "planActivation": {
+      "type": "object",
+      "required": ["id"],
+      "properties": { "id": { "type": "string", "minLength": 1 } },
+      "additionalProperties": false
+    }
+  }
+}

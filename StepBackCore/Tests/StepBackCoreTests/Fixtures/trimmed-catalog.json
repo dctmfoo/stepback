@@ -1,0 +1,64 @@
+{
+  "catalogVersion": 1,
+  "categories": [
+    { "id": "full-body", "nameKey": "category.full-body", "symbolName": "figure.mixed.cardio" },
+    { "id": "core", "nameKey": "category.core", "symbolName": "figure.core.training" },
+    { "id": "arms-shoulders", "nameKey": "category.arms-shoulders", "symbolName": "dumbbell.fill" },
+    { "id": "chest-back", "nameKey": "category.chest-back", "symbolName": "figure.strengthtraining.traditional" },
+    { "id": "legs-glutes", "nameKey": "category.legs-glutes", "symbolName": "figure.squat" },
+    { "id": "cardio", "nameKey": "category.cardio", "symbolName": "figure.run" },
+    { "id": "mobility-stretch", "nameKey": "category.mobility-stretch", "symbolName": "figure.flexibility" },
+    { "id": "balance", "nameKey": "category.balance", "symbolName": "figure.yoga" }
+  ],
+  "workouts": [
+    {
+      "id": "bridge",
+      "nameKey": "workout.bridge",
+      "categoryID": "legs-glutes",
+      "focusAreas": ["glutes", "core"],
+      "mediaKey": null,
+      "instructionsKey": null
+    },
+    {
+      "id": "squat",
+      "nameKey": "workout.squat",
+      "categoryID": "legs-glutes",
+      "focusAreas": ["quadriceps", "glutes"],
+      "mediaKey": null,
+      "instructionsKey": null
+    },
+    {
+      "id": "plank",
+      "nameKey": "workout.plank",
+      "categoryID": "core",
+      "focusAreas": ["core"],
+      "mediaKey": null,
+      "instructionsKey": null,
+      "futureField": { "ignored": true }
+    }
+  ],
+  "starterRoutines": [
+    {
+      "nameKey": "starter.quick-core",
+      "steps": [
+        {
+          "workoutID": "bridge",
+          "workSeconds": 30,
+          "sets": 2,
+          "setRestSeconds": 10,
+          "restAfterSeconds": 15,
+          "repGuidance": null
+        },
+        {
+          "workoutID": "plank",
+          "workSeconds": 30,
+          "sets": 1,
+          "setRestSeconds": 0,
+          "restAfterSeconds": 0,
+          "repGuidance": null
+        }
+      ]
+    }
+  ],
+  "futureTopLevelField": "ignored"
+}

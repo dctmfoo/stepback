@@ -1,0 +1,6 @@
+# Copy this file to Makefile.local and fill only the values needed by your lane.
+# Makefile.local is ignored by git so signing and device identifiers stay local.
+
+TEAM_ID :=
+IPHONE_ID :=
+IPAD_ID :=

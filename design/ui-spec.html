@@ -1,0 +1,1459 @@
+<meta charset="utf-8">
+<title>StepBack — UI Specification</title>
+<style>
+  /* ============================================================
+     StepBack — canonical screen-by-screen UI specification.
+     Page chrome: dark editorial. Mockups inside device frames use
+     ONLY DESIGN.md tokens (Pulse Azure, Recover Mint, stage set,
+     eight category hues, iOS semantic colors).
+     ============================================================ */
+  :root{
+    --ink:#e9edf3; --note:#94a0b4; --paper:#0d1117; --panel:#151b23; --hair:#252e3a;
+    /* page-chrome accents = the app's own dark-appearance tokens */
+    --azure:#3d9bff; --azure-deep:#0b63e5; --mint:#3bd6c3; --mint-deep:#0e9f8e;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
+    font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px 110px}
+  a{color:var(--azure);text-decoration:none}
+  a:hover{text-decoration:underline}
+  code{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:.86em;background:rgba(148,160,180,.14);padding:.1em .4em;border-radius:5px}
+  svg.ic{display:block}
+
+  /* ---------- page chrome ---------- */
+  header.masthead{padding:64px 0 8px}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--note)}
+  h1{font-size:40px;font-weight:700;letter-spacing:-.02em;margin:.2em 0 .25em;text-wrap:balance}
+  .dek{font-size:18px;color:var(--note);max-width:66ch;margin:0}
+  nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 8px}
+  nav.toc a{font-size:12.5px;font-weight:600;color:var(--ink);background:var(--panel);border:1px solid var(--hair);
+    border-radius:999px;padding:6px 13px}
+  nav.toc a:hover{border-color:var(--azure);color:var(--azure);text-decoration:none}
+
+  section{margin-top:76px}
+  .kicker{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--azure)}
+  h2{font-size:27px;font-weight:700;letter-spacing:-.015em;margin:.25em 0 .3em;text-wrap:balance}
+  h3{font-size:18px;font-weight:650;margin:1.6em 0 .4em}
+  .lede{color:var(--note);max-width:72ch;margin-top:0}
+
+  .tenets{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin-top:20px}
+  .tenet{background:var(--panel);border:1px solid var(--hair);border-radius:14px;padding:18px 20px}
+  .tenet b{display:block;font-size:15px;margin-bottom:4px}
+  .tenet p{margin:0;font-size:13.5px;color:var(--note)}
+  .tenet .src{display:block;margin-top:8px;font-size:11.5px;color:var(--note);opacity:.85}
+
+  .screen{display:grid;grid-template-columns:minmax(300px,auto) 1fr;gap:36px;align-items:start;margin-top:26px}
+  .screen.wide{grid-template-columns:1fr}
+  .phones{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start;min-width:0}
+  .padwrap{overflow-x:auto;padding-bottom:8px;min-width:0}
+  @media(max-width:980px){.screen{grid-template-columns:1fr}}
+
+  .notes h4{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mint);margin:1.4em 0 .5em}
+  .notes h4:first-child{margin-top:.2em}
+  .notes ul{margin:.2em 0;padding-left:19px}
+  .notes li{margin:.45em 0;font-size:14px}
+  .notes li b{font-weight:650}
+  .cite{font-size:12.5px;color:var(--note)}
+  .verdict{margin-top:18px;background:rgba(61,155,255,.08);border:1px solid rgba(61,155,255,.28);border-radius:12px;padding:13px 16px;font-size:14px}
+  .verdict b{color:var(--azure)}
+
+  table.spec{border-collapse:collapse;width:100%;margin-top:14px;font-size:13.5px;background:var(--panel);border:1px solid var(--hair);border-radius:12px;overflow:hidden}
+  table.spec th,table.spec td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hair);vertical-align:top}
+  table.spec th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--note);background:rgba(148,160,180,.06)}
+  table.spec tr:last-child td{border-bottom:none}
+  .tablewrap{overflow-x:auto}
+
+  .swatches{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .sw{width:140px;background:var(--panel);border:1px solid var(--hair);border-radius:12px;overflow:hidden}
+  .sw .chip{height:52px;display:flex;align-items:flex-end;justify-content:flex-end;padding:5px 7px}
+  .sw .chip svg{opacity:.9}
+  .sw .m{padding:8px 11px;font-size:11px;line-height:1.4}
+  .sw .m b{display:block;font-size:12px;color:var(--ink)}
+  .sw .m span{color:var(--note)}
+  .sw .m code{font-size:10px;padding:.05em .3em}
+
+  figure.shot{margin:0}
+  figcaption{font-size:12px;color:var(--note);margin-top:10px;max-width:340px}
+  figure.shot.wide figcaption{max-width:760px}
+
+  /* ============================================================
+     DEVICE FRAMES
+     ============================================================ */
+  /* ---------- iPhone ---------- */
+  .phone{width:304px;flex:none}
+  .frame{width:304px;height:660px;background:#05070a;border-radius:47px;padding:3px;
+    box-shadow:0 24px 48px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.07)}
+  .frame.tall{height:760px}
+  .island{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:96px;height:26px;border-radius:14px;background:#000;z-index:60}
+  .sbar{height:44px;flex:none;display:flex;justify-content:space-between;align-items:center;padding:10px 26px 0;font-size:12.5px;font-weight:600}
+  .sicons{display:flex;gap:5px;align-items:center}
+  .cell{display:flex;gap:1.5px;align-items:flex-end}
+  .cell i{width:2.6px;background:currentColor;border-radius:1px;display:block}
+  .batt{width:21px;height:10.5px;border:1px solid currentColor;border-radius:3px;opacity:.85;position:relative}
+  .batt::after{content:"";position:absolute;inset:1.5px;right:5px;background:currentColor;border-radius:1px}
+
+  /* ---------- iPad ---------- */
+  .ipad{flex:none}
+  .ipadframe{background:#05070a;border-radius:30px;padding:12px;
+    box-shadow:0 26px 52px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.07)}
+  .ipadframe.land{width:720px;height:548px}
+  .ipadframe.stagefr{width:860px;height:632px}
+  .ipadscr{width:100%;height:100%;border-radius:18px;overflow:hidden;position:relative;
+    background:var(--ios-grouped);display:flex;flex-direction:column;font-size:13px;color:var(--ios-label)}
+  .isbar{height:26px;flex:none;display:flex;justify-content:space-between;align-items:center;padding:8px 20px 0;font-size:11.5px;font-weight:600}
+
+  /* ============================================================
+     IN-MOCKUP TOKENS — light (browsing) appearance.
+     Values are DESIGN.md frontmatter token values, verbatim.
+     ============================================================ */
+  .scr,.ipadscr{
+    --accent:#0B63E5;            /* PulseAzure (light) */
+    --accent-soft:#E8F0FD;       /* PulseAzureSoft (light) */
+    --rmint:#0E9F8E;             /* RecoverMint (light) */
+    --rmint-soft:#E6F4F1;        /* RecoverMintSoft (light) */
+    --c-full:#5856D6; --c-core:#FF9500; --c-arms:#AF52DE; --c-chest:#1E96D1;
+    --c-legs:#96419B; --c-cardio:#B26B00; --c-mob:#5D6B85; --c-bal:#A2845E;
+    --ios-grouped:#f2f2f7; --ios-bg:#ffffff; --ios-label:#0a0a0a; --ios-sec:#333338;
+    --ios-sep:rgba(60,60,67,.18); --ios-fill:rgba(120,120,128,.12);
+  }
+  .scr{position:relative;width:100%;height:100%;border-radius:44px;overflow:hidden;background:var(--ios-grouped);
+    display:flex;flex-direction:column;color:var(--ios-label);font-size:13px}
+  .navlg{padding:10px 18px 4px;flex:none}
+  .navlg .lt{font-size:26px;font-weight:700;letter-spacing:-.02em}
+  .navlg.pad .lt{font-size:30px}
+  .navrow{display:flex;justify-content:space-between;align-items:center}
+  .navinline{display:flex;align-items:center;justify-content:space-between;padding:4px 12px 8px;flex:none;position:relative}
+  .navinline .back{display:flex;align-items:center;gap:1px;color:var(--accent);font-size:14.5px;font-weight:500}
+  .navinline .ttl{font-size:14.5px;font-weight:650;position:absolute;left:50%;transform:translateX(-50%);max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .navbtn{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.85);border:.5px solid rgba(0,0,0,.06);
+    box-shadow:0 1px 4px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;color:var(--accent)}
+  .navbtns{display:flex;gap:8px}
+  .content{flex:1;overflow:hidden;padding:2px 14px 0;position:relative}
+  .ipadscr .content{padding:2px 22px 0}
+
+  /* floating glass bars (system material approximation) */
+  .glass{background:rgba(252,252,253,.82);backdrop-filter:blur(18px) saturate(1.7);-webkit-backdrop-filter:blur(18px) saturate(1.7);
+    border:.5px solid rgba(255,255,255,.65);box-shadow:0 6px 22px rgba(0,0,0,.13),inset 0 .5px 0 rgba(255,255,255,.7)}
+  .tabzone{position:absolute;left:0;right:0;bottom:0;padding:8px 12px 9px;z-index:50;display:flex;flex-direction:column;gap:8px;align-items:center}
+  .tabbar{border-radius:26px;height:56px;display:flex;align-items:center;justify-content:space-around;padding:0 6px;width:100%}
+  .tab{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:9.5px;font-weight:600;color:#77777c;min-width:64px}
+  .tab.on{color:var(--accent)}
+  /* iPadOS 26 floating top tab pill */
+  .padtabs{position:absolute;top:34px;left:50%;transform:translateX(-50%);z-index:50;border-radius:999px;
+    display:flex;gap:2px;padding:4px}
+  .padtab{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#77777c;border-radius:999px;padding:6px 14px}
+  .padtab.on{background:var(--accent-soft);color:var(--accent)}
+  .scrim-fade{position:absolute;left:0;right:0;bottom:0;height:100px;
+    background:linear-gradient(to top,rgba(242,242,247,.95),rgba(242,242,247,0));pointer-events:none;z-index:40}
+
+  .sechead{font-size:12.5px;font-weight:600;color:var(--ios-sec);padding:12px 3px 6px}
+  .card{background:var(--ios-bg);border-radius:16px;margin-bottom:12px;overflow:hidden}
+  .row{display:flex;align-items:center;gap:10px;padding:11px 13px;position:relative}
+  .row + .row::before{content:"";position:absolute;top:0;left:13px;right:0;height:.5px;background:var(--ios-sep)}
+  .row .grow{flex:1;min-width:0}
+  .row .t{font-size:14.5px;font-weight:550}
+  .row .s{font-size:12px;color:var(--ios-sec);margin-top:1px}
+  .row .v{text-align:right;flex:none;font-size:14px;color:var(--ios-sec);font-variant-numeric:tabular-nums}
+  .chev{color:rgba(60,60,67,.3);flex:none}
+  .footnote{font-size:11px;color:var(--ios-sec);padding:6px 4px 0;line-height:1.45}
+
+  /* ---------- motivation strip ---------- */
+  .mstrip{display:flex;gap:26px;align-items:center;padding:2px 4px 12px;flex:none}
+  .mstat{display:flex;gap:8px;align-items:center}
+  .mstat .mi{width:26px;height:26px;border-radius:8px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex:none}
+  .mstat b{font-size:15px;font-weight:650;font-variant-numeric:tabular-nums;display:block;line-height:1.15}
+  .mstat span{font-size:10px;color:var(--ios-sec);display:block}
+
+  /* ---------- routine card ---------- */
+  .rgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .rcard{background:var(--ios-bg);border-radius:18px;padding:14px 15px;display:flex;gap:10px;align-items:stretch}
+  .rcard .grow{flex:1;min-width:0}
+  .rname{font-size:15px;font-weight:650;line-height:1.25}
+  .rdur{font-size:23px;font-weight:600;letter-spacing:-.01em;font-variant-numeric:tabular-nums;margin-top:2px}
+  .rdur small{font-size:13px;font-weight:600;color:var(--ios-sec)}
+  .rmeta{font-size:11px;color:var(--ios-sec);margin-top:3px;display:flex;align-items:center;gap:6px}
+  .rdots{display:flex;gap:3.5px}
+  .rdots i{width:6.5px;height:6.5px;border-radius:50%;display:block}
+  .rstats{font-size:11px;color:var(--ios-sec);margin-top:7px;font-variant-numeric:tabular-nums}
+  .rside{display:flex;flex-direction:column;justify-content:flex-end;flex:none}
+  .playbtn{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 5px 14px rgba(11,99,229,.35)}
+  .playbtn svg{margin-left:2px}
+
+  /* ---------- routine detail / hero ---------- */
+  .heroblock{padding:2px 4px 12px}
+  .herostat{font-size:31px;font-weight:600;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+  .herostat small{font-size:17px;font-weight:600;color:var(--ios-sec)}
+  .herosub{font-size:12px;color:var(--ios-sec);margin-top:2px;font-variant-numeric:tabular-nums}
+  .bigplay{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:#fff;border-radius:16px;
+    padding:13px 0;font-size:15.5px;font-weight:650;box-shadow:0 8px 22px rgba(11,99,229,.35)}
+  .secactions{display:flex;gap:8px;margin-top:8px}
+  .secbtn{flex:1;text-align:center;background:var(--ios-fill);border-radius:13px;padding:9px 0;font-size:13px;font-weight:600;color:var(--accent)}
+  .secbtn.destructive{color:var(--ios-sec)}
+
+  /* ---------- WorkoutVisual monogram tile ---------- */
+  .wv{border-radius:11px;display:flex;align-items:center;justify-content:center;flex:none}
+  .wv.s38{width:38px;height:38px}
+  .wv.s28{width:28px;height:28px;border-radius:8px}
+
+  /* ---------- step + rest rows (detail & builder) ---------- */
+  .step{display:flex;align-items:center;gap:10px;background:var(--ios-bg);border-radius:13px;padding:9px 12px;margin-bottom:6px}
+  .step .t{font-size:13.5px;font-weight:600}
+  .step .sum{font-size:11px;color:var(--ios-sec);margin-top:1px;font-variant-numeric:tabular-nums}
+  .step .grow{flex:1;min-width:0}
+  .grip{color:rgba(60,60,67,.28);flex:none}
+  .rest{display:flex;align-items:center;gap:7px;background:var(--rmint-soft);color:var(--ios-label);border-radius:10px;
+    padding:5px 12px;margin:0 0 6px;font-size:11px;font-weight:650;font-variant-numeric:tabular-nums}
+  .rest svg{flex:none;color:var(--rmint)}
+
+  /* ---------- builder step editor ---------- */
+  .stepedit{background:var(--ios-bg);border-radius:13px;margin:-3px 0 6px;padding:2px 12px 8px;border:1.5px solid var(--accent-soft)}
+  .editrow{display:flex;justify-content:space-between;align-items:center;padding:7px 0;position:relative}
+  .editrow + .editrow::before{content:"";position:absolute;top:0;left:0;right:0;height:.5px;background:var(--ios-sep)}
+  .editrow .el{font-size:12.5px;font-weight:500}
+  .stp{display:flex;align-items:center;background:var(--ios-fill);border-radius:8px;overflow:hidden}
+  .stp b{padding:3px 8px;min-width:48px;text-align:center;font-size:12.5px;font-weight:600;font-variant-numeric:tabular-nums}
+  .stp span{padding:3px 9px;color:var(--accent);font-weight:700;font-size:13px}
+
+  /* ---------- builder floating bar ---------- */
+  .fab{position:absolute;left:50%;transform:translateX(-50%);bottom:14px;z-index:50;border-radius:22px;
+    display:flex;align-items:center;gap:14px;padding:8px 10px 8px 8px;width:max-content}
+  .fab .addw{display:flex;align-items:center;gap:6px;background:var(--accent);color:#fff;border-radius:15px;padding:9px 15px;font-size:13px;font-weight:650}
+  .fab .tot{font-size:11px;color:var(--ios-sec);padding-right:8px}
+  .fab .tot b{display:block;font-size:15px;color:var(--ios-label);font-weight:650;font-variant-numeric:tabular-nums}
+
+  /* ---------- gallery ---------- */
+  .search{display:flex;align-items:center;gap:6px;background:rgba(120,120,128,.12);border-radius:11px;padding:7.5px 10px;color:var(--ios-sec);font-size:13.5px;margin:0 0 6px}
+  .gsechead{display:flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;margin:12px 2px 8px}
+  .gsechead .n{flex:1}
+  .gsechead .cnt{font-size:11px;color:var(--ios-sec);font-weight:500;font-variant-numeric:tabular-nums}
+  .gtiles{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  .gtiles.cols3{grid-template-columns:repeat(3,1fr)}
+  .gtile .tile{aspect-ratio:1;border-radius:14px;display:flex;align-items:center;justify-content:center}
+  .gtile .n{font-size:10.5px;font-weight:600;margin-top:5px;text-align:center;line-height:1.25}
+  .gtile .sub{font-size:9px;color:var(--ios-sec);text-align:center;margin-top:1px}
+  .tile.add{border:1.5px dashed rgba(60,60,67,.3);color:var(--ios-sec);background:transparent}
+
+  /* ---------- picker sheet ---------- */
+  .sheet{position:absolute;left:0;right:0;bottom:0;top:52px;z-index:72;background:var(--ios-grouped);border-radius:24px 24px 0 0;
+    padding:8px 14px 12px;box-shadow:0 -18px 44px rgba(0,0,0,.24);display:flex;flex-direction:column}
+  .sheet .grab{width:38px;height:4px;border-radius:2px;background:rgba(120,120,128,.32);margin:0 auto 10px;flex:none}
+  .sheet h3{font-size:19px;margin:0 0 8px;font-weight:750;letter-spacing:-.02em}
+  .pchips{display:flex;gap:6px;overflow:hidden;padding:2px 0 8px;flex:none}
+  .pchip{display:flex;align-items:center;gap:4px;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:600;flex:none;
+    background:var(--ios-bg);color:var(--ios-label);border:.5px solid rgba(0,0,0,.07)}
+  .pchip.on{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+  .picklist{flex:1;overflow:hidden}
+  .pickrow{display:flex;align-items:center;gap:10px;background:var(--ios-bg);border-radius:12px;padding:8px 11px;margin-bottom:6px}
+  .pickrow .t{font-size:13px;font-weight:600;flex:1}
+  .pcheck{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(60,60,67,.3);flex:none;display:flex;align-items:center;justify-content:center}
+  .pcheck.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .traybar{flex:none;padding-top:8px}
+  .tray{display:flex;align-items:center;gap:6px;padding-bottom:8px}
+  .tray .lbl{font-size:10.5px;color:var(--ios-sec);margin-right:2px}
+  .addbtn{background:var(--accent);color:#fff;border-radius:14px;text-align:center;padding:12px 0;font-size:14.5px;font-weight:650}
+
+  /* ---------- settings ---------- */
+  .tgl{width:44px;height:26px;border-radius:13px;background:rgba(120,120,128,.24);position:relative;flex:none}
+  .tgl.on{background:var(--accent)}
+  .tgl::after{content:"";position:absolute;top:2px;left:2px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1.5px 4px rgba(0,0,0,.25)}
+  .tgl.on::after{left:auto;right:2px}
+
+  /* ---------- onboarding ---------- */
+  .ob{flex:1;display:flex;flex-direction:column;padding:26px 22px 18px;position:relative}
+  .appicon{width:86px;height:86px;border-radius:20px;margin:22px auto 0;position:relative;
+    background:linear-gradient(165deg,#3D9BFF 0%,#0B63E5 62%,#0B0F14 130%);box-shadow:0 10px 26px rgba(11,99,229,.4);
+    display:flex;align-items:center;justify-content:center;color:#fff}
+  .obh{font-size:24px;font-weight:700;letter-spacing:-.02em;text-align:center;margin-top:16px}
+  .obsub{font-size:13px;color:var(--ios-sec);text-align:center;margin-top:6px;line-height:1.45;padding:0 6px}
+  .obrows{margin-top:24px;display:flex;flex-direction:column;gap:16px;padding:0 6px}
+  .obrow{display:flex;gap:13px;align-items:flex-start}
+  .obrow .ic{width:34px;height:34px;border-radius:9px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex:none}
+  .obrow b{font-size:13.5px;display:block}
+  .obrow span{font-size:12px;color:var(--ios-sec);line-height:1.4;display:block;margin-top:1px}
+  .obfoot{margin-top:auto}
+  .privnote{display:flex;gap:7px;align-items:flex-start;font-size:10.5px;color:var(--ios-sec);line-height:1.45;padding:0 8px 14px}
+  .privnote svg{flex:none;margin-top:1px;color:var(--accent)}
+  .cta{border-radius:16px;background:var(--accent);color:#fff;text-align:center;padding:13px 0;font-size:15.5px;font-weight:650}
+
+  /* ============================================================
+     THE STAGE — appearance-invariant player tokens (DESIGN.md
+     `stage:`). Identical in light and dark system appearance.
+     ============================================================ */
+  .stagescr{position:relative;width:100%;height:100%;overflow:hidden;display:flex;flex-direction:column;font-size:13px;
+    background:#0B0F14;color:#F5F7FA;            /* StageCanvas / StageText */
+    --dim:rgba(245,247,250,.80);                  /* StageTextDim */
+    --surface:#161C24;                            /* StageSurface */
+    --work:#46A2FF;                               /* StageWork — 7.20:1 on StageCanvas */
+    --restc:#3BD6C3;                              /* RecoverMint (luminous variant) */
+  }
+  .scr .stagescr{border-radius:44px}
+  .stg-sbar{height:26px;flex:none;display:flex;justify-content:space-between;align-items:center;padding:10px 22px 0;font-size:11px;font-weight:600;color:var(--dim)}
+  .stg-main{flex:1;display:flex;align-items:center;justify-content:center;gap:52px;padding:8px 44px 0;min-height:0}
+  .stg-col{display:flex;flex-direction:column;justify-content:center;min-width:0}
+  .stg-kicker{font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--work)}
+  .stg-kicker.rest{color:var(--restc)}
+  .cd{font-weight:800;letter-spacing:-.045em;font-variant-numeric:tabular-nums;line-height:.96;
+    font-family:ui-rounded,-apple-system,BlinkMacSystemFont,sans-serif}
+  .cd.hero{font-size:172px;margin:2px 0 0 -6px}
+  .cd.sub{font-size:104px;color:#F5F7FA}
+  .stg-name{font-size:33px;font-weight:700;letter-spacing:-.01em;margin-top:2px}
+  .stg-name.next{font-size:38px}
+  .stg-sub{font-size:16px;color:var(--dim);font-weight:500;margin-top:5px;font-variant-numeric:tabular-nums}
+  .stg-media{aspect-ratio:4/3;border-radius:20px;display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;flex:none}
+  .stg-foot{flex:none;padding:0 26px 16px}
+  .progress{height:6px;border-radius:3px;background:rgba(245,247,250,.14);overflow:hidden}
+  .progress i{display:block;height:100%;background:var(--work);border-radius:3px}
+  .progress.rest i{background:var(--restc)}
+  .ptimes{display:flex;justify-content:space-between;font-size:12px;color:var(--dim);font-variant-numeric:tabular-nums;margin-top:6px}
+  .ctlbar{margin:12px auto 0;width:max-content;display:flex;align-items:center;gap:26px;padding:10px 24px;border-radius:999px;
+    background:rgba(22,28,36,.88);border:.5px solid rgba(255,255,255,.09);
+    box-shadow:0 10px 30px rgba(0,0,0,.5),inset 0 .5px 0 rgba(255,255,255,.07);
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+  .ctl{width:52px;height:52px;border-radius:50%;background:rgba(245,247,250,.08);display:flex;align-items:center;justify-content:center;color:#F5F7FA;flex:none}
+  .ctl.big{width:66px;height:66px;background:var(--work);color:#0B0F14}
+  .ctl.end{background:transparent;color:var(--dim);width:auto;border-radius:999px;padding:0 10px;font-size:12.5px;font-weight:700;height:52px}
+  .ctlbar.compact{gap:16px;padding:8px 16px}
+  .ctlbar.compact .ctl{width:46px;height:46px}
+  .ctlbar.compact .ctl.big{width:58px;height:58px}
+
+  /* stage state-comparison strips (section: stage-dark) */
+  .stagecompare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+  @media(max-width:760px){.stagecompare{grid-template-columns:1fr}}
+  .stagecard{border-radius:16px;background:#0B0F14;color:#F5F7FA;padding:18px 20px;border:1px solid rgba(255,255,255,.08)}
+  .stagecard .cd{font-size:56px}
+  .stagecard .lbl{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+
+  /* ---------- completion ---------- */
+  .done-hero{font-size:64px;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums;line-height:1;
+    font-family:ui-rounded,-apple-system,BlinkMacSystemFont,sans-serif}
+  .done-hero small{font-size:26px;font-weight:700;color:var(--dim)}
+  .donebtn{border-radius:16px;background:var(--work);color:#0B0F14;text-align:center;padding:13px 0;font-size:15.5px;font-weight:700}
+  .donebtn.ghost{background:rgba(245,247,250,.08);color:#F5F7FA;margin-top:8px;font-weight:600}
+
+  /* ---------- Mac window ---------- */
+  .macwin{width:100%;min-height:440px;background:#f5f5f6;border:1px solid var(--hair);border-radius:14px;overflow:hidden;
+    box-shadow:0 18px 42px rgba(0,0,0,.4);color:#1d1d1f;
+    --accent:#0B63E5;--accent-soft:#E8F0FD;--rmint:#0E9F8E;--rmint-soft:#E6F4F1;
+    --c-full:#5856D6;--c-core:#FF9500;--c-arms:#AF52DE;--c-chest:#1E96D1;
+    --c-legs:#96419B;--c-cardio:#B26B00;--c-mob:#5D6B85;--c-bal:#A2845E;
+    --ios-bg:#ffffff;--ios-sec:#333338;--ios-sep:rgba(60,60,67,.16);--ios-fill:rgba(120,120,128,.12)}
+  .mactool{height:46px;background:rgba(255,255,255,.75);border-bottom:1px solid #d9d9de;display:flex;align-items:center;gap:10px;padding:0 14px}
+  .macdot{width:11px;height:11px;border-radius:50%;background:#ff5f57;box-shadow:17px 0 #febc2e,34px 0 #28c840;flex:none}
+  .mactitle{font-size:13px;font-weight:650;margin-left:38px}
+  .mactool .grow{flex:1}
+  .maciconbtn{width:28px;height:28px;border-radius:7px;background:rgba(120,120,128,.12);display:flex;align-items:center;justify-content:center;color:var(--accent)}
+  .macbody{display:grid;grid-template-columns:172px minmax(220px,256px) 1fr;min-height:394px}
+  .macside{background:#efeff2;border-right:1px solid #d9d9de;padding:12px 10px}
+  .maccontent{background:#fafafa;border-right:1px solid #d9d9de;padding:12px 10px}
+  .macdetail{background:#fff;padding:20px 24px;min-width:0}
+  .macsection{font-size:11px;font-weight:700;color:#6e6e73;text-transform:uppercase;margin:6px 8px}
+  .macitem{display:flex;align-items:center;gap:8px;border-radius:7px;padding:7px 8px;margin-bottom:3px;font-size:12.5px}
+  .macitem.on{background:var(--accent-soft);box-shadow:inset 2px 0 0 var(--accent)}
+  .macitem .mi{width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex:none}
+  .macitem .mm{margin-left:auto;font-variant-numeric:tabular-nums;font-weight:600;color:#6e6e73;font-size:11.5px}
+  .macrow{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid rgba(0,0,0,.05);border-radius:9px;padding:7px 9px;margin-bottom:5px;font-size:12px}
+  .macrow.on{outline:2px solid var(--accent);outline-offset:-2px}
+  .macrow b{display:block;font-size:12px}
+  .macrow span{display:block;font-size:10.5px;color:#6e6e73;font-variant-numeric:tabular-nums}
+</style>
+<svg style="display:none" aria-hidden="true">
+  <!-- controls & chrome -->
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7.5 4.8c0-1.1 1.2-1.8 2.2-1.2l11 6.4c1 .6 1 2 0 2.6l-11 6.4c-1 .6-2.2-.1-2.2-1.2z"/></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><g fill="currentColor"><rect x="6" y="4.5" width="4" height="15" rx="1.4"/><rect x="14" y="4.5" width="4" height="15" rx="1.4"/></g></symbol>
+  <symbol id="i-fwd" viewBox="0 0 24 24"><g fill="currentColor"><path d="M5 6.1c0-.9 1-1.5 1.8-1l8.4 5.4c.7.5.7 1.5 0 2L6.8 17.9c-.8.5-1.8-.1-1.8-1z"/><rect x="17" y="5" width="2.6" height="14" rx="1.2"/></g></symbol>
+  <symbol id="i-bwd" viewBox="0 0 24 24"><g fill="currentColor"><path d="M19 6.1c0-.9-1-1.5-1.8-1l-8.4 5.4c-.7.5-.7 1.5 0 2l8.4 5.4c.8.5 1.8-.1 1.8-1z"/><rect x="4.4" y="5" width="2.6" height="14" rx="1.2"/></g></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" d="M12 5.5v13M5.5 12h13"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" d="M9.5 5.5l6.5 6.5-6.5 6.5"/></symbol>
+  <symbol id="i-chevl" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" d="M14.5 5.5L8 12l6.5 6.5"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.2"/><path d="M15.6 15.6L21 21"/></g></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v2.6M12 18.6v2.6M2.8 12h2.6M18.6 12h2.6M5.5 5.5l1.8 1.8M16.7 16.7l1.8 1.8M18.5 5.5l-1.8 1.8M7.3 16.7l-1.8 1.8"/></g></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M7 18.5a4.3 4.3 0 0 1-.4-8.6 6 6 0 0 1 11.4-1 4.1 4.1 0 0 1-.6 9.6z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="10.5" width="13" height="9.5" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4.3 4.3L19 7"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+  <symbol id="i-grip" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M5.5 9h13M5.5 15h13"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M12 3.2c.6 3-1.6 4.6-2.9 6.3-1.2 1.6-1.9 3-1.9 4.9a4.8 4.8 0 0 0 9.6 0c0-1.5-.6-2.8-1.4-3.9-.5 1-1.2 1.6-2.2 1.9.9-2.9-.1-6.6-1.2-9.2z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="8.2"/><path d="M12 7.4V12l3.2 2.2"/></g></symbol>
+  <symbol id="i-speaker" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3.2L12 5.4v13.2l-4.8-4.1H4z"/><path d="M15.5 9.2a4.2 4.2 0 0 1 0 5.6M18 6.8a7.6 7.6 0 0 1 0 10.4"/></g></symbol>
+  <symbol id="i-tone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" d="M3.5 12h2.6l2.2-5.6 3.4 11.2 3.2-8.4 1.6 2.8h4"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8.5 6.5h11M8.5 12h11M8.5 17.5h11"/><circle cx="4.6" cy="6.5" r=".6" fill="currentColor"/><circle cx="4.6" cy="12" r=".6" fill="currentColor"/><circle cx="4.6" cy="17.5" r=".6" fill="currentColor"/></g></symbol>
+  <symbol id="i-more" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="6" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="18" cy="12" r="1.7"/></g></symbol>
+  <symbol id="i-dup" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2.2"/><path d="M16 4.5H6.2A2.2 2.2 0 0 0 4 6.7V16"/></g></symbol>
+  <!-- category glyphs (placeholder line art standing in for SF Symbols; symbol names in the token table) -->
+  <symbol id="c-full" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.6" r="1.9"/><path d="M12 6.8v6.4M12 13.2l-4 6.2M12 13.2l4 6.2M4.5 8.2L12 10l7.5-1.8"/></g></symbol>
+  <symbol id="c-core" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.2" cy="9.6" r="1.9"/><path d="M7.6 11.2c2.4 2 5.4 2.6 8.2 1.6l4-1.6M11 19.5l3.6-5.4M6 19.5l3.2-4.6"/></g></symbol>
+  <symbol id="c-arms" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.2 12h7.6"/><rect x="4.4" y="7.6" width="2.6" height="8.8" rx="1.1"/><rect x="17" y="7.6" width="2.6" height="8.8" rx="1.1"/><path d="M2.6 10v4M21.4 10v4"/></g></symbol>
+  <symbol id="c-chest" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.8" r="1.9"/><path d="M3.5 9.2h17M6 9.2v3.4M18 9.2v3.4M12 7v6.6l-3.4 5.9M12 13.6l3.4 5.9"/></g></symbol>
+  <symbol id="c-legs" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.4" r="1.9"/><path d="M12 6.6v4.8M12 11.4l-4.6 1.8 1 5.4M12 11.4l4.6 1.8-1 5.4M7 7.8h10"/></g></symbol>
+  <symbol id="c-cardio" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.6" cy="4.6" r="1.9"/><path d="M9.4 20.5l2.7-5.2 3-2-1.2-4.3-3.7 1.7-1.8 3M13.9 9l3.4 2.6 2.9.4M12.1 15.3l1.7 2.5 2.7 2"/></g></symbol>
+  <symbol id="c-mob" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.8" cy="5.4" r="1.9"/><path d="M7.6 7.4l2.2 4.4 8.4 2.6M9.8 11.8L6 19.5M18.2 14.4l1.4 5.1"/></g></symbol>
+  <symbol id="c-bal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.2" r="1.9"/><path d="M12 6.4v8.2M12 14.6v5M12 9l-4.6-2M12 9l4.6-2M12 12l-3 2.2"/></g></symbol>
+</svg>
+
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">StepBack · Design specification · iPadOS / iOS / macOS 26 · July 2026</div>
+  <h1>The exact UI, screen by screen</h1>
+  <p class="dek">High-fidelity mockups for every screen in PRD.md v1.0, built strictly from the DESIGN.md tokens — one electric hue for effort, one calm hue for breathing, and a stage you can read from across the room. Written for the agent implementing SwiftUI: every layout decision is annotated and cited.</p>
+  <nav class="toc">
+    <a href="#principles">First principles</a>
+    <a href="#system">Design system</a>
+    <a href="#stage-dark">The stage is always dark</a>
+    <a href="#onboarding">Onboarding</a>
+    <a href="#routines">Routines home</a>
+    <a href="#plans">Training plans</a>
+    <a href="#routine-detail">Routine detail</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#workout-detail">Workout detail</a>
+    <a href="#builder">Routine builder</a>
+    <a href="#player">Live player — the stage</a>
+    <a href="#settings">Settings</a>
+    <a href="#platforms">Platform adaptation</a>
+    <a href="#mapping">SwiftUI mapping</a>
+  </nav>
+</header>
+
+<!-- ============================================================ -->
+<section id="principles">
+  <div class="kicker">First principles</div>
+  <h2>Six tenets, before a single pixel</h2>
+  <p class="lede">StepBack exists because setting up a workout must never feel like a chore that makes the user skip the workout (PRD §0.3). Every screen below is judged against these six tenets; when a layout choice is ambiguous, the tenet with the lower number wins.</p>
+  <div class="tenets">
+    <div class="tenet"><b>1 · Simple always works — and simple is not plain</b>
+      <p>The whole app is three tabs, one builder flow, one stage. Every decision is judged by one question: <i>does this reduce the friction between "I should work out" and "I am working out"?</i> The bar is award-winning UX built from very few concepts — no dashboards, no programs, no upsells.</p>
+      <span class="src">PRD §0.3 product philosophy; PRD §2 non-goals</span></div>
+    <div class="tenet"><b>2 · The hands-free promise is sacred</b>
+      <p>Press play, lean the iPad against the wall, step back, follow. Nothing in the player may ever require walking to the device: every step is time-based, rep counts are guidance labels only, and advancement is always automatic. Pause/skip exist for rare intervention, at oversized arm's-length targets.</p>
+      <span class="src">PRD §0.4, §6.1 (Seven model — time-driven, never rep-driven)</span></div>
+    <div class="tenet"><b>3 · One hero number per screen</b>
+      <p>The countdown on the stage, total duration on routine detail, active minutes on completion. Everything else steps down through weight and color, not size — the hero-stat role (rounded semibold tabular) exists so screens never shout twice.</p>
+      <span class="src">DESIGN.md §5 "One hero number per screen"; typography roles table</span></div>
+    <div class="tenet"><b>4 · Across-the-room legibility is a spec, not a vibe</b>
+      <p>Everything needed to <i>follow</i> the routine must be unmistakable at 3–4 m on an 11″ iPad in landscape: countdown ≥ 25% of stage height, stage text contrast ≥ 7:1 on StageCanvas, work vs rest encoded by hue <b>and</b> layout — never hue alone. Verified in a lit and a dim room before the player is called done.</p>
+      <span class="src">DESIGN.md `across_the_room` ruleset; PRD §9 acceptance #4</span></div>
+    <div class="tenet"><b>5 · Sound is the primary channel during play</b>
+      <p>The user is across the room and possibly mid-burpee: voice announces each workout and rest, 3-2-1 beeps precede every transition. No haptics on the stage — the device isn't in hand. The screen confirms what the ears already know.</p>
+      <span class="src">PRD §6.4 audio design; DESIGN.md §7 "Sound is the primary feedback channel"</span></div>
+    <div class="tenet"><b>6 · Every state is designed, including the honest ones</b>
+      <p>Empty states teach the next action; a partial session records honestly and gets a smaller acknowledgment, never a guilt trip; a missing catalog id still renders via the name snapshot; a broken streak simply shows the new number. No dead spinners, no raw errors, no shame states.</p>
+      <span class="src">PRD §5.7, §7 (honest by construction), §4.1 (id resilience)</span></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section id="system">
+  <div class="kicker">Foundation</div>
+  <h2>Design system — few tokens, used everywhere</h2>
+  <p class="lede">Restraint is the system: SF Pro with rounded numerals for the athletic voice, one brand accent doing one job (Pulse Azure = effort), one functional counterpart (Recover Mint = breathe), an appearance-invariant stage set, and eight permanent category hues. Every swatch below is a DESIGN.md frontmatter value, verbatim; every custom color ships as an asset-catalog pair (Any + Dark) referenced by name.</p>
+
+  <h3>Brand, functional &amp; stage tokens</h3>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#0B63E5"></div><div class="m"><b>Pulse Azure</b><span><code>#0B63E5</code> / <code>#3D9BFF</code> dark · the single browsing accent: Play, selection, active tab, links</span></div></div>
+    <div class="sw"><div class="chip" style="background:#E8F0FD"></div><div class="m"><b>Pulse Azure Soft</b><span><code>#E8F0FD</code> / <code>rgba(61,155,255,.16)</code> dark · selected chips, icon tiles, quiet accent surfaces</span></div></div>
+    <div class="sw"><div class="chip" style="background:#0E9F8E"></div><div class="m"><b>Recover Mint</b><span><code>#0E9F8E</code> / <code>#3BD6C3</code> dark · rest, set-rest, get-ready only. One meaning: breathe</span></div></div>
+    <div class="sw"><div class="chip" style="background:#E6F4F1"></div><div class="m"><b>Recover Mint Soft</b><span><code>#E6F4F1</code> / <code>rgba(59,214,195,.14)</code> dark · builder rest rows, rest chips</span></div></div>
+    <div class="sw"><div class="chip" style="background:#0B0F14"></div><div class="m"><b>Stage Canvas</b><span><code>#0B0F14</code> · player background, identical in both appearances</span></div></div>
+    <div class="sw"><div class="chip" style="background:#161C24"></div><div class="m"><b>Stage Surface</b><span><code>#161C24</code> · stage control bar &amp; cards</span></div></div>
+    <div class="sw"><div class="chip" style="background:#F5F7FA"></div><div class="m"><b>Stage Text / Dim</b><span><code>#F5F7FA</code> / 80% · stage text hierarchy, ≥ 7:1 on StageCanvas</span></div></div>
+    <div class="sw"><div class="chip" style="background:#333338"></div><div class="m"><b>Secondary Text</b><span><code>#333338</code> / <code>#EBEBF0</code> dark · small app-owned metadata with enhanced contrast; size and weight preserve hierarchy</span></div></div>
+  </div>
+
+  <h3>Category identity hues + SF Symbols</h3>
+  <p class="lede">Symbols belong to categories, not hues. Each category owns one permanent hue and one SF Symbol, used identically in gallery, builder, routine cards, and stats — soft-tile use only, never as chrome accent. (The line glyphs in these mockups are placeholders for the real SF Symbols named below; fallback <code>figure.strengthtraining.functional</code>.)</p>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#5856D6;color:#fff"><svg class="ic" width="18" height="18"><use href="#c-full"/></svg></div><div class="m"><b>Full Body</b><span><code>#5856D6</code>/<code>#5E5CE6</code> · <code>figure.mixed.cardio</code></span></div></div>
+    <div class="sw"><div class="chip" style="background:#FF9500;color:#fff"><svg class="ic" width="18" height="18"><use href="#c-core"/></svg></div><div class="m"><b>Core</b><span><code>#FF9500</code>/<code>#FF9F0A</code> · <code>figure.core.training</code></span></div></div>
+    <div class="sw"><div class="chip" style="background:#AF52DE;color:#fff"><svg class="ic" width="18" height="18"><use href="#c-arms"/></svg></div><div class="m"><b>Arms &amp; Shoulders</b><span><code>#AF52DE</code>/<code>#BF5AF2</code> · <code>dumbbell.fill</code></span></div></div>
+    <div class="sw"><div class="chip" style="background:#1E96D1;color:#fff"><svg class="ic" width="18" height="18"><use href="#c-chest"/></svg></div><div class="m"><b>Chest &amp; Back</b><span><code>#1E96D1</code>/<code>#4CC2FF</code> · <code>figure.strengthtraining.traditional</code></span></div></div>
+    <div class="sw"><div class="chip" style="background:#96419B;color:#fff"><svg class="ic" width="18" height="18"><use href="#c-legs"/></svg></div><div class="m"><b>Legs &amp; Glutes</b><span><code>#96419B</code>/<code>#D678DB</code> · <code>figure.squat</code></span></div></div>
+    <div class="sw"><div class="chip" style="background:#B26B00;color:#fff"><svg class="ic" width="18" height="18"><use href="#c-cardio"/></svg></div><div class="m"><b>Cardio</b><span><code>#B26B00</code>/<code>#E5A421</code> · <code>figure.run</code></span></div></div>
+    <div class="sw"><div class="chip" style="background:#5D6B85;color:#fff"><svg class="ic" width="18" height="18"><use href="#c-mob"/></svg></div><div class="m"><b>Mobility &amp; Stretch</b><span><code>#5D6B85</code>/<code>#93A2C0</code> · <code>figure.flexibility</code></span></div></div>
+    <div class="sw"><div class="chip" style="background:#A2845E;color:#fff"><svg class="ic" width="18" height="18"><use href="#c-bal"/></svg></div><div class="m"><b>Balance</b><span><code>#A2845E</code>/<code>#AC8E68</code> · <code>figure.yoga</code></span></div></div>
+  </div>
+  <p class="cite" style="margin-top:10px">Recover Mint was deliberately removed from the category palette so rest owns it unambiguously ("Mint is not a category" — DESIGN.md §2). Legs &amp; Glutes is plum on the purple side, never pink/red: <b>no red anywhere</b> except the system destructive role on explicit Delete.</p>
+
+  <h3>Type roles — five roles + one documented exception</h3>
+  <div class="tablewrap"><table class="spec">
+    <tr><th>Role</th><th>Ref size / weight</th><th>Used for</th><th>Rule</th></tr>
+    <tr><td><b>Large title</b></td><td>34 bold</td><td>Tab root titles: Routines, Gallery, Settings</td><td>Dynamic Type <code>.largeTitle</code>, system navigation</td></tr>
+    <tr><td><b>Hero stat</b></td><td>~31 semibold <b>rounded</b>, tabular</td><td>The one big number per screen: routine total duration, completion minutes</td><td>SF Pro Rounded for stat numerals only — the athletic voice. One per screen, never two.</td></tr>
+    <tr><td><b>Body</b></td><td>17/15 regular–medium</td><td>Row titles, step summaries, field values</td><td><code>.body</code>/<code>.subheadline</code></td></tr>
+    <tr><td><b>Footnote</b></td><td>13 regular</td><td>Row subtitles, stats lines ("Last done 2 days ago · 14×")</td><td><code>.footnote</code>, factual and relative copy</td></tr>
+    <tr><td><b>Caption label</b></td><td>11 semibold UPPERCASE</td><td>Form labels, section kickers, set indicators in lists</td><td><code>.caption</code> + uppercase transform</td></tr>
+    <tr><td><b>Stage numerals</b></td><td>viewport-scaled, SF Pro Rounded heavy, tabular</td><td><b>Player countdown only</b></td><td>≥ 25% of stage height on iPad landscape; <b>NOT Dynamic Type</b> — the app's single fixed-size exception. Rationale: 3–4 m viewing distance is outside Dynamic Type's design range (DESIGN.md `stage_numerals`). At accessibility sizes the stage stacks vertically and the countdown yields height before any label truncates. All other stage text stays Dynamic Type.</td></tr>
+  </table></div>
+  <p class="cite">All durations and counts render tabular (<code>monospacedDigit</code>) so times align down every list; all values come from Foundation <code>Duration</code>/relative-date formatters, never hand-assembled strings (PRD §3.1).</p>
+
+  <h3>Spacing, shape &amp; glass rules</h3>
+  <div class="tablewrap"><table class="spec">
+    <tr><th>Token</th><th>Rule</th><th>Why (grounded)</th></tr>
+    <tr><td><b>Spacing</b></td><td>Base-4/8 grid: 16 pt content margins compact / 24 pt regular, 12–16 pt card padding, 24 pt between sections.</td><td>DESIGN.md `spacing` frontmatter; standard OS 26 grouped-list metrics come free with system components.</td></tr>
+    <tr><td><b>iPad columns</b></td><td>Gallery and Routines use adaptive multi-column grids in regular width — never a stretched single column. Builder pairs step list with picker side-by-side when width allows.</td><td>"iPad-first means multi-column, not magnified" (DESIGN.md §5); size classes only, no device-type branches.</td></tr>
+    <tr><td><b>Shape</b></td><td>System-provided radii; custom cards use concentric corners relative to container. Never hand-tuned per view.</td><td>DESIGN.md `shape`; concentric shapes are an OS 26 guideline.</td></tr>
+    <tr><td><b>Glass</b></td><td>System material for tab bar, toolbars, sheets, menus. Exactly <b>two</b> custom glass elements in the whole app: the builder's floating Add-Workouts/total bar and the stage control bar.</td><td>DESIGN.md `elevation.glass_budget`; a third custom glass element requires a recorded spec decision, not a whim.</td></tr>
+    <tr><td><b>Shadows / gradients</b></td><td>System defaults only; no decorative drop shadows, no gradients, no photography-of-athletes decoration.</td><td>DESIGN.md §6: "The stage's drama is type and color, not vignettes."</td></tr>
+    <tr><td><b>Haptics</b></td><td><code>.success</code> on routine save and session complete; <code>.selection</code> in pickers; <b>none on stage transitions</b>.</td><td>DESIGN.md `haptics` — the device is across the room; sound is the channel (PRD §6.4).</td></tr>
+    <tr><td><b>Motion</b></td><td>Segment transitions crossfade ≤ 300 ms; last 3 s pulse the numeral in sync with the beeps; completion count-up settles once ≤ 800 ms. Reduce Motion → opacity-only fades, beeps carry emphasis.</td><td>DESIGN.md `motion`; nothing loops, nothing celebrates longer than a second.</td></tr>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="stage-dark">
+  <div class="kicker">Foundation · Appearance</div>
+  <h2>The stage is always dark</h2>
+  <p class="lede">Browsing surfaces are native OS 26 — semantic colors that adapt to light and dark automatically, zero <code>colorScheme</code> branches. The player is different: the moment Play is tapped the app goes full-screen onto <b>StageCanvas</b> <code>#0B0F14</code>, identical at noon and midnight. Same convention as video players: a wall-propped iPad must not glow like a lamp in a dim room or wash out in a bright one.</p>
+
+  <div class="tablewrap"><table class="spec">
+    <tr><th>Surface</th><th>Light appearance</th><th>Dark appearance</th><th>Mechanism</th></tr>
+    <tr><td>Routines / Gallery / Builder / Settings</td><td>Semantic system colors (<code>systemGroupedBackground</code>, <code>label</code>, <code>separator</code>…)</td><td>Adapt automatically — true-black grouped canvas, <code>#1C1C1E</code> cards</td><td>Semantic colors + custom asset-catalog pairs (Any + Dark). Raw hex and <code>colorScheme</code> branches in feature code are defects.</td></tr>
+    <tr><td>Pulse Azure / Recover Mint / category hues</td><td>Deep pigment on white (<code>#0B63E5</code>, <code>#0E9F8E</code>…)</td><td>Luminous on black (<code>#3D9BFF</code>, <code>#3BD6C3</code>…)</td><td>One asset-catalog color set per token; identity never changes, only luminosity.</td></tr>
+    <tr><td><b>The player stage</b></td><td colspan="2" style="text-align:center"><b>Identical:</b> StageCanvas <code>#0B0F14</code> · StageSurface <code>#161C24</code> · StageText <code>#F5F7FA</code> / 80% dim · StageWork <code>#46A2FF</code> · StageRest <code>#3BD6C3</code></td><td>The stage tokens are appearance-invariant single values — their own token set, <b>not</b> a forced-dark <code>colorScheme</code> override hack on system colors (DESIGN.md §2 "The stage does not participate").</td></tr>
+  </table></div>
+
+  <div class="stagecompare">
+    <div class="stagecard">
+      <div class="lbl" style="color:#46A2FF">Work · Set 2 of 3</div>
+      <div class="cd">0:19</div>
+      <div style="font-size:16px;font-weight:700;margin-top:2px">Bridge</div>
+      <div style="font-size:11.5px;color:rgba(245,247,250,.80);margin-top:2px">Countdown leads the layout · azure accents</div>
+      <div class="progress" style="margin-top:12px"><i style="width:34%;background:#46A2FF"></i></div>
+    </div>
+    <div class="stagecard">
+      <div class="lbl" style="color:#3BD6C3">Rest · 0:12</div>
+      <div style="font-size:26px;font-weight:700;margin-top:10px">Next: Russian Twist</div>
+      <div style="font-size:11.5px;color:rgba(245,247,250,.80);margin-top:2px">Next-up leads the layout · mint accents · countdown secondary</div>
+      <div class="progress" style="margin-top:12px"><i style="width:57%;background:#3BD6C3"></i></div>
+    </div>
+  </div>
+  <div class="notes" style="margin-top:16px">
+    <h4>The rules</h4>
+    <ul>
+      <li><b>Work vs rest is encoded twice</b> — segment hue (StageWork vs StageRest) <i>and</i> layout (work leads with the countdown; rest leads with the next workout name). Never hue alone (DESIGN.md `across_the_room.state_identity`) — the state must survive color-blindness and glare.</li>
+      <li><b>On the stage, work and rest use appearance-invariant accents</b> — <code>StageWork #46A2FF</code> / <code>StageRest #3BD6C3</code> — because the canvas is permanently dark. Browsing surfaces continue using the adaptive Pulse Azure and Recover Mint pairs.</li>
+      <li><b>Hues are accents, never floods:</b> the segment hue lives in the kicker, progress bar, and pause button — the canvas stays <code>#0B0F14</code> and the countdown stays StageText <code>#F5F7FA</code> (contrast ≈ 17:1, comfortably past the ≥ 7:1 rule).</li>
+      <li><b>Get-ready wears mint</b>, not azure: it is a breathing segment ("step back now"), and mint's meaning is exactly that.</li>
+    </ul>
+  </div>
+</section>
+<!-- ============================================================ -->
+<section id="onboarding">
+  <div class="kicker">Screen group 1</div>
+  <h2>Onboarding — one screen, then inside</h2>
+  <p class="lede">Onboarding does exactly two things: say what the app is, and get the user inside fast (PRD §5.1). One welcome screen, one button. On first launch the app seeds three starter routines — short, medium, long — so the Routines home is never an empty dead end and the first play-through can happen within seconds.</p>
+
+  <div class="screen">
+    <div class="phones">
+      <figure class="shot"><div class="phone"><div class="frame"><div class="scr">
+        <div class="island"></div>
+        <div class="sbar"><span>9:41</span><span class="sicons"><span class="cell"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="batt"></span></span></div>
+        <div class="ob">
+          <div class="appicon"><svg class="ic" width="42" height="42"><use href="#i-play"/></svg></div>
+          <div class="obh">StepBack</div>
+          <div class="obsub">Build your routine once. Then press play, step back, and follow.</div>
+          <div class="obrows">
+            <div class="obrow"><div class="ic"><svg class="ic" width="19" height="19"><use href="#i-list"/></svg></div><div><b>Compose</b><span>Pick workouts from the gallery into your own routine — times, sets, rests.</span></div></div>
+            <div class="obrow"><div class="ic"><svg class="ic" width="19" height="19"><use href="#i-play"/></svg></div><div><b>Play</b><span>One tap starts the whole routine. The screen stays awake.</span></div></div>
+            <div class="obrow"><div class="ic"><svg class="ic" width="19" height="19"><use href="#i-speaker"/></svg></div><div><b>Follow</b><span>Voice and tones guide every move — no need to touch the screen again.</span></div></div>
+          </div>
+          <div class="obfoot">
+            <div class="privnote"><svg class="ic" width="13" height="13"><use href="#i-lock"/></svg><span>No accounts. Your routines sync only to your private iCloud.</span></div>
+            <div class="cta">Get Started</div>
+          </div>
+        </div>
+      </div></div></div><figcaption><b>Welcome</b> — the only onboarding screen. App icon, the one-line promise, the three-row mental model (Compose → Play → Follow), privacy footnote, one button that says what it does.</figcaption></figure>
+    </div>
+    <div class="notes">
+      <h4>Why it's right</h4>
+      <ul>
+        <li><b>No feature tour, no permission pre-prompts.</b> The three rows <i>are</i> the app's entire mental model; anything more would violate tenet 1. Copy is calm and second-person (DESIGN.md §8).</li>
+        <li><b>Seeded starters do the real onboarding.</b> Bootstrap seeds <b>Quick Core</b> (short), <b>Everyday Reset</b> (medium), and <b>Full-Body Forty</b> (long) before this cover is dismissed, built only from catalog workouts and defined as data alongside the catalog. They are ordinary routines after seeding: editable, deletable, no special casing (PRD §5.1).</li>
+        <li><b>Seeding is idempotent across devices:</b> seed only when the store has no routines at all, so CloudKit-synced content wins over re-seeding. Onboarding-seen state is <code>@AppStorage</code>, never CloudKit.</li>
+        <li><b>Tokens:</b> icon tile rows use PulseAzureSoft fills with PulseAzure glyphs; the CTA is the app's one accent. No red, no gradients beyond the app icon artwork itself.</li>
+      </ul>
+      <h4>Build it with</h4>
+      <ul>
+        <li>Full-screen cover shown once on <code>@AppStorage("welcomeSeen")</code>; bootstrap owns idempotent seeding, while Get Started only records welcome-seen and dismisses.</li>
+        <li>All strings from the String Catalog, including the privacy footnote (PRD §3.1).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section id="routines">
+  <div class="kicker">Tab 1</div>
+  <h2>Routines home — play is one tap from launch</h2>
+  <p class="lede">The home answers three glanceable questions — what do I have, when did I last do it, how consistent am I — and puts <b>Play directly on every card</b> (PRD §5.2). Once the first session exists, a compact motivation strip sits above the grid: day streak and this week's active minutes. Before that, the strip is omitted rather than showing zeroes. Two numbers, one line, no charts, no rings.</p>
+
+  <div class="screen wide">
+    <div class="padwrap"><figure class="shot wide"><div class="ipad"><div class="ipadframe land"><div class="ipadscr">
+      <div class="isbar"><span>9:41 · Tue Jul 7</span><span class="sicons"><span class="cell"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="batt"></span></span></div>
+      <div class="padtabs glass">
+        <div class="padtab on"><svg class="ic" width="14" height="14"><use href="#i-play"/></svg>Routines</div>
+        <div class="padtab"><svg class="ic" width="14" height="14"><use href="#i-list"/></svg>Gallery</div>
+        <div class="padtab"><svg class="ic" width="14" height="14"><use href="#i-gear"/></svg>Settings</div>
+      </div>
+      <div class="navlg pad" style="padding-top:38px"><div class="navrow"><span class="lt">Routines</span>
+        <div class="navbtns"><div class="navbtn"><svg class="ic" width="15" height="15"><use href="#i-plus"/></svg></div></div></div></div>
+      <div class="content">
+        <div class="mstrip">
+          <div class="mstat"><div class="mi"><svg class="ic" width="15" height="15"><use href="#i-flame"/></svg></div><div><b>4-day streak</b><span>Best 11</span></div></div>
+          <div class="mstat"><div class="mi"><svg class="ic" width="15" height="15"><use href="#i-clock"/></svg></div><div><b>62 min this week</b><span>3 sessions</span></div></div>
+        </div>
+        <div class="rgrid">
+          <div class="rcard">
+            <div class="grow">
+              <div class="rname">Everyday Reset</div>
+              <div class="rdur">24 <small>min</small></div>
+              <div class="rmeta">12 workouts
+                <span class="rdots"><i style="background:#5856D6"></i><i style="background:#FF9500"></i><i style="background:#96419B"></i><i style="background:#B26B00"></i><i style="background:#5D6B85"></i></span></div>
+              <div class="rstats">Last done Today · 21×</div>
+            </div>
+            <div class="rside"><div class="playbtn"><svg class="ic" width="17" height="17"><use href="#i-play"/></svg></div></div>
+          </div>
+          <div class="rcard">
+            <div class="grow">
+              <div class="rname">Morning Core</div>
+              <div class="rdur">5<small> min</small> 30<small> s</small></div>
+              <div class="rmeta">5 workouts
+                <span class="rdots"><i style="background:#96419B"></i><i style="background:#FF9500"></i><i style="background:#B26B00"></i></span></div>
+              <div class="rstats">Last done 2 days ago · 14×</div>
+            </div>
+            <div class="rside"><div class="playbtn"><svg class="ic" width="17" height="17"><use href="#i-play"/></svg></div></div>
+          </div>
+          <div class="rcard">
+            <div class="grow">
+              <div class="rname">Quick Core</div>
+              <div class="rdur">7 <small>min</small></div>
+              <div class="rmeta">4 workouts
+                <span class="rdots"><i style="background:#FF9500"></i><i style="background:#5856D6"></i></span></div>
+              <div class="rstats">Last done 5 days ago · 3×</div>
+            </div>
+            <div class="rside"><div class="playbtn"><svg class="ic" width="17" height="17"><use href="#i-play"/></svg></div></div>
+          </div>
+          <div class="rcard">
+            <div class="grow">
+              <div class="rname">Full-Body Forty</div>
+              <div class="rdur">38 <small>min</small></div>
+              <div class="rmeta">14 workouts
+                <span class="rdots"><i style="background:#5856D6"></i><i style="background:#AF52DE"></i><i style="background:#1E96D1"></i><i style="background:#96419B"></i><i style="background:#B26B00"></i></span></div>
+              <div class="rstats">Last done 1 week ago · 6×</div>
+            </div>
+            <div class="rside"><div class="playbtn"><svg class="ic" width="17" height="17"><use href="#i-play"/></svg></div></div>
+          </div>
+        </div>
+        <div class="scrim-fade"></div>
+      </div>
+    </div></div></div>
+    <figcaption><b>Routines home, iPad regular width.</b> Adaptive two-column grid (never a stretched single column — DESIGN.md §5), motivation strip as one quiet row, hero-stat duration per card in rounded semibold tabular, inline circular PulseAzure Play. Most recently played first. The floating top pill is the iPadOS 26 system tab bar — system material, no custom background.</figcaption></figure></div>
+
+    <div class="phones" style="margin-top:26px">
+      <figure class="shot"><div class="phone"><div class="frame"><div class="scr">
+        <div class="island"></div>
+        <div class="sbar"><span>9:41</span><span class="sicons"><span class="cell"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="batt"></span></span></div>
+        <div class="navlg"><div class="navrow"><span class="lt">Routines</span>
+          <div class="navbtns"><div class="navbtn"><svg class="ic" width="15" height="15"><use href="#i-plus"/></svg></div></div></div></div>
+        <div class="content">
+          <div class="mstrip">
+            <div class="mstat"><div class="mi"><svg class="ic" width="15" height="15"><use href="#i-flame"/></svg></div><div><b>4-day streak</b><span>Best 11</span></div></div>
+            <div class="mstat"><div class="mi"><svg class="ic" width="15" height="15"><use href="#i-clock"/></svg></div><div><b>62 min</b><span>this week</span></div></div>
+          </div>
+          <div class="rcard" style="margin-bottom:10px">
+            <div class="grow">
+              <div class="rname">Everyday Reset</div>
+              <div class="rdur">24 <small>min</small></div>
+              <div class="rmeta">12 workouts
+                <span class="rdots"><i style="background:#5856D6"></i><i style="background:#FF9500"></i><i style="background:#96419B"></i><i style="background:#B26B00"></i></span></div>
+              <div class="rstats">Last done Today · 21×</div>
+            </div>
+            <div class="rside"><div class="playbtn"><svg class="ic" width="17" height="17"><use href="#i-play"/></svg></div></div>
+          </div>
+          <div class="rcard" style="margin-bottom:10px">
+            <div class="grow">
+              <div class="rname">Morning Core</div>
+              <div class="rdur">5<small> min</small> 30<small> s</small></div>
+              <div class="rmeta">5 workouts
+                <span class="rdots"><i style="background:#96419B"></i><i style="background:#FF9500"></i><i style="background:#B26B00"></i></span></div>
+              <div class="rstats">Last done 2 days ago · 14×</div>
+            </div>
+            <div class="rside"><div class="playbtn"><svg class="ic" width="17" height="17"><use href="#i-play"/></svg></div></div>
+          </div>
+          <div class="rcard">
+            <div class="grow">
+              <div class="rname">Quick Core</div>
+              <div class="rdur">7 <small>min</small></div>
+              <div class="rmeta">4 workouts
+                <span class="rdots"><i style="background:#FF9500"></i><i style="background:#5856D6"></i></span></div>
+              <div class="rstats">Last done 5 days ago · 3×</div>
+            </div>
+            <div class="rside"><div class="playbtn"><svg class="ic" width="17" height="17"><use href="#i-play"/></svg></div></div>
+          </div>
+          <div class="scrim-fade"></div>
+        </div>
+        <div class="tabzone">
+          <div class="tabbar glass">
+            <div class="tab on"><svg class="ic" width="21" height="21"><use href="#i-play"/></svg>Routines</div>
+            <div class="tab"><svg class="ic" width="21" height="21"><use href="#i-list"/></svg>Gallery</div>
+            <div class="tab"><svg class="ic" width="21" height="21"><use href="#i-gear"/></svg>Settings</div>
+          </div>
+        </div>
+      </div></div></div><figcaption><b>Routines home, iPhone.</b> The same hierarchy in one column — size classes, not device branches. Floating system tab bar at the bottom, PulseAzure active tab.</figcaption></figure>
+
+      <figure class="shot"><div class="phone"><div class="frame"><div class="scr">
+        <div class="island"></div>
+        <div class="sbar"><span>9:41</span><span class="sicons"><span class="cell"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="batt"></span></span></div>
+        <div class="navlg"><div class="navrow"><span class="lt">Routines</span>
+          <div class="navbtns"><div class="navbtn"><svg class="ic" width="15" height="15"><use href="#i-plus"/></svg></div></div></div></div>
+        <div class="content" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-bottom:90px">
+          <div class="wv" style="width:64px;height:64px;border-radius:16px;background:var(--accent-soft);color:var(--accent);display:flex"><svg class="ic" width="30" height="30"><use href="#i-play"/></svg></div>
+          <div style="font-size:17px;font-weight:700;margin-top:14px">No routines yet</div>
+          <div style="font-size:12.5px;color:var(--ios-sec);margin-top:5px;max-width:210px;line-height:1.45">Pick workouts from the gallery and press play — that's the whole app.</div>
+          <div style="display:flex;align-items:center;gap:6px;background:var(--accent);color:#fff;border-radius:13px;padding:9px 18px;font-size:13.5px;font-weight:650;margin-top:18px"><svg class="ic" width="13" height="13"><use href="#i-plus"/></svg>New Routine</div>
+          <div style="font-size:12.5px;font-weight:600;color:var(--accent);margin-top:14px">Restore starter routines</div>
+        </div>
+        <div class="tabzone">
+          <div class="tabbar glass">
+            <div class="tab on"><svg class="ic" width="21" height="21"><use href="#i-play"/></svg>Routines</div>
+            <div class="tab"><svg class="ic" width="21" height="21"><use href="#i-list"/></svg>Gallery</div>
+            <div class="tab"><svg class="ic" width="21" height="21"><use href="#i-gear"/></svg>Settings</div>
+          </div>
+        </div>
+      </div></div></div><figcaption><b>Empty state</b> — only reachable by deleting all starters. <code>ContentUnavailableView</code> shape: icon tile, one-line title, guidance, primary <b>New Routine</b>, secondary <b>Restore starter routines</b> (PRD §5.2). Never a blank list, never a dead end.</figcaption></figure>
+
+      <div class="notes">
+        <h4>Card anatomy (DESIGN.md §4 "Routine card")</h4>
+        <ul>
+          <li><b>Name</b> (body medium) → <b>hero duration</b> (hero-stat role, tabular) → <b>workout count + category-mix dots</b> (non-interactive hue dots, one per distinct category, catalog order) → <b>stats footnote</b> "Last done 2 days ago · 14×" (relative date via Foundation, count via plural-aware format string).</li>
+          <li><b>Never-played routines stay honest:</b> the stats footnote reads <b>"Not played yet"</b> until the first session exists.</li>
+          <li><b>The inline Play button is the one-tap-from-launch promise</b> (PRD §5.2, acceptance #1): card tap navigates to detail, Play tap goes straight to the pre-roll. Two distinct targets, both ≥ 44 pt.</li>
+          <li><b>Delete never rides a card gesture.</b> It lives in routine detail and context menus, with the system destructive role and confirmation (DESIGN.md §5) — the only red in the app.</li>
+          <li><b>Empty state</b> (only possible if the user deletes the starters): <code>ContentUnavailableView</code>-shaped — icon tile, "No routines yet", one line of guidance, primary action <b>New Routine</b>, secondary <b>Restore starter routines</b> (PRD §5.2). Restore inserts fresh copies of only the missing starter identifiers, so repeated restores are safe and existing starters are untouched.</li>
+        </ul>
+        <h4>Motivation strip rules</h4>
+        <ul>
+          <li>One compact row, two quiet stat pairs — <b>not a card, not a chart, no rings</b> (DESIGN.md §4). Streak counts days with ≥ 1 completed session, computed from local calendar days at read time (PRD §7).</li>
+          <li>The strip is hidden until the first-ever session row exists; the initial routine grid needs no dead chrome or zero-value shame state.</li>
+          <li>A broken streak simply shows the new number — no shame states, no "you lost it" copy.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section id="plans">
+  <div class="kicker">Tab 1 · Plans</div>
+  <h2>Weekly plans — Today first, My Week always visible</h2>
+  <p class="lede">A plan is seven weekday buckets, each holding zero or more routines; empty days are Rest. The selected <b>My Week</b> schedule leads Routines with one Today card, while one quiet row below the routine list is the only management entry. There are no cursors, week numbers, Skip, Start/Stop, or completion lifecycle.</p>
+
+  <div class="phones">
+    <figure class="shot"><div class="phone"><div class="frame"><div class="scr">
+      <div class="island"></div>
+      <div class="sbar"><span>9:41</span><span class="sicons"><span class="cell"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="batt"></span></span></div>
+      <div class="navlg"><div class="navrow"><span class="lt">Routines</span><div class="navbtns"><div class="navbtn"><svg class="ic" width="15" height="15"><use href="#i-plus"/></svg></div></div></div></div>
+      <div class="content">
+        <div class="rcard" style="display:block;margin-bottom:18px;border-radius:18px;padding:16px">
+          <div style="font-size:10.5px;font-weight:750;letter-spacing:.07em;color:var(--accent)">TODAY · WEDNESDAY</div>
+          <div style="font-size:21px;font-weight:750;margin-top:9px">Push Day</div>
+          <div style="font-size:28px;font-weight:760;margin-top:2px">32 min</div>
+          <div style="display:flex;justify-content:space-between;color:var(--ios-sec);font-size:11px;margin-top:12px"><span style="color:var(--accent)">✓ M</span><span>• T</span><span style="color:var(--accent)">◉ W</span><span>• T</span><span>○ F</span><span style="opacity:.35">◌ S</span><span style="opacity:.35">◌ S</span></div>
+          <div style="display:flex;align-items:center;justify-content:center;background:var(--accent);color:#fff;border-radius:50%;width:42px;height:42px;margin-top:13px;margin-left:auto"><svg class="ic" width="14" height="14"><use href="#i-play"/></svg></div>
+        </div>
+        <div class="rcard" style="padding:13px 15px"><div style="color:var(--accent);margin-right:11px">▣</div><div class="grow"><div class="rname" style="font-size:14px">My Week · Normal Week</div><div class="rstats">Open the seven-day overview</div></div><svg class="ic" width="14" height="14" style="color:var(--ios-ter)"><use href="#i-chev"/></svg></div>
+      </div>
+      <div class="tabzone"><div class="tabbar glass"><div class="tab on"><svg class="ic" width="21" height="21"><use href="#i-play"/></svg>Routines</div><div class="tab"><svg class="ic" width="21" height="21"><use href="#i-list"/></svg>Gallery</div><div class="tab"><svg class="ic" width="21" height="21"><use href="#i-gear"/></svg>Settings</div></div></div>
+    </div></div></div><figcaption><b>My Week home.</b> Today precedes motivation and routine cards on the standard 18 pt grouped surface. The strip reads authored days plus derived completions; Play is the only action. At AX3+ the strip becomes “3 of 5 days done this week.” Rest uses Recover Mint Soft; done and repair are quiet state variants.</figcaption></figure>
+
+    <figure class="shot"><div class="phone"><div class="frame"><div class="scr">
+      <div class="island"></div>
+      <div class="sbar"><span>9:41</span><span class="sicons"><span class="cell"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="batt"></span></span></div>
+      <div class="navinline"><span class="back">Cancel</span><span class="ttl">Edit Plan</span><span style="color:var(--accent);font-weight:700">Save</span></div>
+      <div class="content" style="padding-top:10px">
+        <div class="list" style="margin-bottom:14px"><div class="row"><div class="grow"><div class="t">Normal Week</div><div class="sub">Pick a routine for each day.</div></div></div></div>
+        <div style="font-size:12px;font-weight:700;color:var(--ios-sec);text-transform:uppercase;margin:0 14px 6px">Monday</div>
+        <div class="list" style="margin-bottom:14px">
+          <div class="row"><svg class="ic" width="15" height="15" style="color:var(--ios-ter);margin-right:10px"><use href="#i-grip"/></svg><div class="grow"><div class="t">Push Day</div></div></div>
+          <div class="row" style="color:var(--accent);font-weight:650"><svg class="ic" width="14" height="14" style="margin-right:8px"><use href="#i-plus"/></svg>Add Routine</div>
+        </div>
+        <div style="font-size:12px;font-weight:700;color:var(--ios-sec);text-transform:uppercase;margin:0 14px 6px">Tuesday</div>
+        <div class="list" style="margin-bottom:14px"><div class="row"><div class="grow"><div class="t" style="color:var(--ios-sec)">Rest</div></div></div><div class="row" style="color:var(--accent);font-weight:650"><svg class="ic" width="14" height="14" style="margin-right:8px"><use href="#i-plus"/></svg>Add Routine</div></div>
+        <div style="font-size:12px;font-weight:700;color:var(--ios-sec);text-transform:uppercase;margin:0 14px 6px">Wednesday</div>
+        <div class="list" style="margin-bottom:14px"><div class="row"><svg class="ic" width="15" height="15" style="color:var(--ios-ter);margin-right:10px"><use href="#i-grip"/></svg><div class="grow"><div class="t">Pull Day</div></div></div><div class="row" style="color:var(--accent);font-weight:650"><svg class="ic" width="14" height="14" style="margin-right:8px"><use href="#i-plus"/></svg>Add Routine</div></div>
+        <div style="font-size:12px;color:var(--ios-sec);margin:0 14px">Thursday through Sunday continue in the same fixed-section grammar.</div>
+      </div>
+    </div></div></div><figcaption><b>Seven-day editor.</b> A system List/Form sheet with seven fixed locale-ordered day sections. Routines reorder only inside their day and retain replace/delete actions; empty sections visibly read Rest. The repeat toggle, week actions, Add Week, and weekday-label menus are gone.</figcaption></figure>
+  </div>
+
+  <div class="notes">
+    <h4>Interaction and state rules</h4>
+    <ul>
+      <li><b>One My Week selection.</b> The first saved plan is selected automatically. Other overviews offer Set as My Week; deleting the current plan leaves a chooser instead of promoting another plan.</li>
+      <li><b>Done is read-time truth:</b> each slot matches one completed session of that routine on that local day. Ad-hoc runs count, duplicate slots require duplicate sessions, and abandoned runs never count.</li>
+      <li><b>Overview and picker:</b> overview has seven day rows with today accented, Rest visible, and removed-routine snapshots preserved. The plain picker appears for multiple plans with quiet “5 days · Push, Pull, Legs…” summaries.</li>
+      <li><b>VoiceOver:</b> Today is one descriptive group with Play as its action; the strip is one summary element, never seven dots. Overview rows combine weekday, routines, duration, and done state.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section id="routine-detail">
+  <div class="kicker">Tab 1 · Push</div>
+  <h2>Routine detail — the list reads exactly as it plays</h2>
+  <p class="lede">Total duration is the screen's one hero number. Below it, the step list is a faithful preview of the compiled timeline (PRD §6.2): work rows with their timing summaries, and every rest rendered <i>between</i> rows as its own quiet Recover-Mint row. What you read here is literally what the player will run.</p>
+
+  <div class="screen">
+    <div class="phones">
+      <figure class="shot"><div class="phone"><div class="frame tall"><div class="scr">
+        <div class="island"></div>
+        <div class="sbar"><span>9:41</span><span class="sicons"><span class="cell"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="batt"></span></span></div>
+        <div class="navinline"><span class="back"><svg class="ic" width="15" height="15"><use href="#i-chevl"/></svg>Routines</span><span class="ttl">Morning Core</span>
+          <div class="navbtns"><div class="navbtn"><svg class="ic" width="14" height="14"><use href="#i-more"/></svg></div></div></div>
+        <div class="content">
+          <div class="heroblock">
+            <div class="herostat">5<small> min</small> 30<small> s</small></div>
+            <div class="herosub">5 workouts · Last done 2 days ago · 14×</div>
+            <div class="herosub">Edited by agent</div>
+          </div>
+          <div class="step">
+            <div class="wv s38" style="background:rgba(150,65,155,.13);color:#96419B"><svg class="ic" width="19" height="19"><use href="#c-legs"/></svg></div>
+            <div class="grow"><div class="t">Bridge</div><div class="sum">30 s × 3 · 10 s between sets</div></div>
+          </div>
+          <div class="rest"><svg class="ic" width="12" height="12"><use href="#i-clock"/></svg>Rest · 15 s</div>
+          <div class="step">
+            <div class="wv s38" style="background:rgba(150,65,155,.13);color:#96419B"><svg class="ic" width="19" height="19"><use href="#c-legs"/></svg></div>
+            <div class="grow"><div class="t">Squats</div><div class="sum">30 s × 2</div></div>
+          </div>
+          <div class="rest"><svg class="ic" width="12" height="12"><use href="#i-clock"/></svg>Rest · 15 s</div>
+          <div class="step">
+            <div class="wv s38" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="19" height="19"><use href="#c-core"/></svg></div>
+            <div class="grow"><div class="t">Russian Twist</div><div class="sum">30 s</div></div>
+          </div>
+          <div class="rest"><svg class="ic" width="12" height="12"><use href="#i-clock"/></svg>Rest · 20 s</div>
+          <div class="step">
+            <div class="wv s38" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="19" height="19"><use href="#c-core"/></svg></div>
+            <div class="grow"><div class="t">Bicycle Crunch</div><div class="sum">30 s · ~20 reps</div></div>
+          </div>
+          <div class="rest"><svg class="ic" width="12" height="12"><use href="#i-clock"/></svg>Rest · 20 s</div>
+          <div class="step">
+            <div class="wv s38" style="background:rgba(178,107,0,.13);color:#B26B00"><svg class="ic" width="19" height="19"><use href="#c-cardio"/></svg></div>
+            <div class="grow"><div class="t">Mountain Climbers</div><div class="sum">30 s</div></div>
+          </div>
+          <div class="scrim-fade" style="height:130px"></div>
+        </div>
+        <div style="position:absolute;left:14px;right:14px;bottom:12px;z-index:50">
+          <div class="bigplay"><svg class="ic" width="16" height="16"><use href="#i-play"/></svg>Play</div>
+          <div class="secactions">
+            <div class="secbtn">Edit</div>
+            <div class="secbtn"><svg class="ic" width="12" height="12" style="display:inline-block;vertical-align:-1.5px;margin-right:4px"><use href="#i-dup"/></svg>Duplicate</div>
+          </div>
+        </div>
+      </div></div></div><figcaption><b>Routine detail — the §5.4 sample routine.</b> Hero total 5 min 30 s (the compiled timeline sum: 110 + 15 + 60 + 15 + 30 + 20 + 30 + 20 + 30 s), stats footnote, mint rest rows between steps, one PulseAzure Play, Edit/Duplicate secondary. Delete lives in the ··· menu with the system destructive role.</figcaption></figure>
+    </div>
+    <div class="notes">
+      <h4>Design decisions</h4>
+      <ul>
+        <li><b>One source of truth for the total:</b> the hero number is the compiled timeline's sum — the same integer-seconds figure shown on the card, in the builder's live total, and as the player's overall progress denominator (PRD §6.2). If they ever disagree, that's a bug, not a rounding choice.</li>
+        <li><b>Rest rows are RecoverMintSoft with primary text and a RecoverMint icon</b> — mint remains the rest identity without carrying small readable text. They render <i>between</i> steps because that's where they happen; trailing rest is omitted (a routine never ends on a rest).</li>
+        <li><b>Duplicate is a first-class secondary action</b> because copy-then-tweak is the natural way to iterate on a routine (PRD §5.2). Edit opens the builder pre-populated; Delete confirms and preserves session history via name snapshots (PRD §4.4).</li>
+        <li><b>Agent provenance is deliberately quiet:</b> an agent-created or agent-edited routine adds one footnote in the summary group. It is context, not an alert or activity feed.</li>
+        <li><b>Rep guidance renders inline in the summary</b> ("30 s · ~20 reps") in the footnote role — guidance only, never a timing input (PRD §6.1).</li>
+        <li><b>WorkoutVisual small tiles</b> (1:1, category-hue soft fill ≈ hue at 13% over surface, hue glyph) — the same media-ready component as gallery and stage; photos drop into these exact slots later without reflow (PRD §4.7).</li>
+      </ul>
+      <h4>Accessibility</h4>
+      <ul>
+        <li>Each step row is one VoiceOver element: "Bridge, 30 seconds, 3 sets, 10 seconds between sets." Rest rows read "Rest, 15 seconds."</li>
+        <li>At accessibility Dynamic Type sizes the timing summary wraps below the name; the hero stat scales with its text style and stays the only large number.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- ============================================================ -->
+<section id="gallery">
+  <div class="kicker">Tab 2</div>
+  <h2>Gallery — a library, not a queue</h2>
+  <p class="lede">The full workout catalog (≥ 80 built-ins across eight categories) plus the user's own additions, organized by category and searchable. Browsing never mutates a routine until the user explicitly adds (PRD §5.3). Every tile is the media-ready <code>WorkoutVisual</code> slot: today a monogram, later a photo or video loop — same slot, zero reflow.</p>
+
+  <div class="screen wide">
+    <div class="padwrap"><figure class="shot wide"><div class="ipad"><div class="ipadframe land"><div class="ipadscr">
+      <div class="isbar"><span>9:41 · Tue Jul 7</span><span class="sicons"><span class="cell"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="batt"></span></span></div>
+      <div class="padtabs glass">
+        <div class="padtab"><svg class="ic" width="14" height="14"><use href="#i-play"/></svg>Routines</div>
+        <div class="padtab on"><svg class="ic" width="14" height="14"><use href="#i-list"/></svg>Gallery</div>
+        <div class="padtab"><svg class="ic" width="14" height="14"><use href="#i-gear"/></svg>Settings</div>
+      </div>
+      <div class="navlg pad" style="padding-top:38px"><div class="navrow"><span class="lt">Gallery</span>
+        <div class="navbtns"><div class="navbtn"><svg class="ic" width="15" height="15"><use href="#i-plus"/></svg></div></div></div></div>
+      <div class="content">
+        <div class="search"><svg class="ic" width="14" height="14"><use href="#i-search"/></svg>Search 83 workouts</div>
+        <div class="gsechead"><span style="color:#FF9500"><svg class="ic" width="16" height="16"><use href="#c-core"/></svg></span><span class="n">Core</span><span class="cnt">14 workouts</span><svg class="ic chev" width="13" height="13"><use href="#i-chev"/></svg></div>
+        <div class="gtiles">
+          <div class="gtile"><div class="tile" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="26" height="26"><use href="#c-core"/></svg></div><div class="n">Russian Twist</div></div>
+          <div class="gtile"><div class="tile" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="26" height="26"><use href="#c-core"/></svg></div><div class="n">Bicycle Crunch</div></div>
+          <div class="gtile"><div class="tile" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="26" height="26"><use href="#c-core"/></svg></div><div class="n">Plank</div></div>
+          <div class="gtile"><div class="tile" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="26" height="26"><use href="#c-core"/></svg></div><div class="n">Superman</div></div>
+          <div class="gtile"><div class="tile" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="26" height="26"><use href="#c-core"/></svg></div><div class="n">Bird Dog</div></div>
+          <div class="gtile"><div class="tile" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="26" height="26"><use href="#c-core"/></svg></div><div class="n">Dead Bug</div></div>
+        </div>
+        <div class="gsechead"><span style="color:#96419B"><svg class="ic" width="16" height="16"><use href="#c-legs"/></svg></span><span class="n">Legs &amp; Glutes</span><span class="cnt">12 workouts · 1 yours</span><svg class="ic chev" width="13" height="13"><use href="#i-chev"/></svg></div>
+        <div class="gtiles">
+          <div class="gtile"><div class="tile" style="background:rgba(150,65,155,.13);color:#96419B"><svg class="ic" width="26" height="26"><use href="#c-legs"/></svg></div><div class="n">Squats</div></div>
+          <div class="gtile"><div class="tile" style="background:rgba(150,65,155,.13);color:#96419B"><svg class="ic" width="26" height="26"><use href="#c-legs"/></svg></div><div class="n">Bridge</div></div>
+          <div class="gtile"><div class="tile" style="background:rgba(150,65,155,.13);color:#96419B"><svg class="ic" width="26" height="26"><use href="#c-legs"/></svg></div><div class="n">Lunge</div></div>
+          <div class="gtile"><div class="tile" style="background:rgba(150,65,155,.13);color:#96419B"><svg class="ic" width="26" height="26"><use href="#c-legs"/></svg></div><div class="n">Wall Sit</div><div class="sub">Yours</div></div>
+          <div class="gtile"><div class="tile" style="background:rgba(150,65,155,.13);color:#96419B"><svg class="ic" width="26" height="26"><use href="#c-legs"/></svg></div><div class="n">Glute Kickback</div></div>
+          <div class="gtile"><div class="tile" style="background:rgba(150,65,155,.13);color:#96419B"><svg class="ic" width="26" height="26"><use href="#c-legs"/></svg></div><div class="n">Calf Raise</div></div>
+        </div>
+        <div class="gsechead"><span style="color:#B26B00"><svg class="ic" width="16" height="16"><use href="#c-cardio"/></svg></span><span class="n">Cardio</span><span class="cnt">10 workouts</span><svg class="ic chev" width="13" height="13"><use href="#i-chev"/></svg></div>
+        <div class="gtiles">
+          <div class="gtile"><div class="tile" style="background:rgba(178,107,0,.13);color:#B26B00"><svg class="ic" width="26" height="26"><use href="#c-cardio"/></svg></div><div class="n">Mountain Climbers</div></div>
+          <div class="gtile"><div class="tile" style="background:rgba(178,107,0,.13);color:#B26B00"><svg class="ic" width="26" height="26"><use href="#c-cardio"/></svg></div><div class="n">Jumping Jacks</div></div>
+          <div class="gtile"><div class="tile" style="background:rgba(178,107,0,.13);color:#B26B00"><svg class="ic" width="26" height="26"><use href="#c-cardio"/></svg></div><div class="n">High Knees</div></div>
+          <div class="gtile"><div class="tile" style="background:rgba(178,107,0,.13);color:#B26B00"><svg class="ic" width="26" height="26"><use href="#c-cardio"/></svg></div><div class="n">Burpees</div></div>
+          <div class="gtile"><div class="tile" style="background:rgba(178,107,0,.13);color:#B26B00"><svg class="ic" width="26" height="26"><use href="#c-cardio"/></svg></div><div class="n">Skaters</div></div>
+          <div class="gtile"><div class="tile add"><svg class="ic" width="22" height="22"><use href="#i-plus"/></svg></div><div class="n" style="color:var(--ios-sec)">Add your own</div></div>
+        </div>
+        <div class="scrim-fade" style="height:60px"></div>
+      </div>
+    </div></div></div>
+    <figcaption><b>Gallery, iPad regular width.</b> Category sections in fixed catalog order, adaptive 1:1 monogram tiles, <code>.searchable</code> across all workouts, custom workouts inline in their category with a quiet "Yours" caption — same card shape, never a different one (DESIGN.md §4 "Gallery card"). The dashed <b>Add your own</b> tile is the G2 affordance.</figcaption></figure></div>
+
+    <div class="notes" style="margin-top:14px">
+      <h4>The media-ready contract, annotated</h4>
+      <ul>
+        <li><b>Every tile above is the <code>WorkoutVisual</code> slot</b> (PRD §4.7): 1:1 aspect, concentric radius, category-hue soft fill (hue at ~13% over surface — the same recipe as PulseAzureSoft) with the category SF Symbol as the placeholder glyph. When media ships, photos/video loops resolve via <code>mediaKey</code> into <b>these exact slots</b> — same size, same radius, zero reflow. Feature code never asks "is there media?"; it asks the component to render the workout.</li>
+        <li><b>Monogram = category identity</b>, deliberately: until per-workout media exists, a per-workout illustration would be fake. The hue + symbol pair is honest, scannable, and identical everywhere the workout appears (gallery, builder row, detail, stage).</li>
+        <li><b>Search</b> covers built-ins and custom workouts by localized name; results keep category grouping. Empty search result: <code>ContentUnavailableView.search</code>.</li>
+        <li><b>Custom workouts</b> are marked "Yours" in the caption slot, never with a different card shape or color. Deleting one that routines reference is allowed — steps keep working via the name snapshot (PRD §4.2).</li>
+        <li>On iPhone the same grid runs 3-up; category headers become navigation into full category pages in compact width.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section id="workout-detail">
+  <div class="kicker">Tab 2 · Push</div>
+  <h2>Workout detail — lightweight, one screen</h2>
+  <p class="lede">Media slot, name, category, focus-area chips, and one action: <b>Add to Routine</b>. For custom workouts this screen also carries notes and Edit/Delete (PRD §5.3).</p>
+
+  <div class="screen">
+    <div class="phones">
+      <figure class="shot"><div class="phone"><div class="frame"><div class="scr">
+        <div class="island"></div>
+        <div class="sbar"><span>9:41</span><span class="sicons"><span class="cell"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="batt"></span></span></div>
+        <div class="navinline"><span class="back"><svg class="ic" width="15" height="15"><use href="#i-chevl"/></svg>Gallery</span><span class="ttl">Russian Twist</span><span style="width:30px"></span></div>
+        <div class="content">
+          <div class="wv" style="width:100%;aspect-ratio:4/3;border-radius:18px;background:rgba(255,149,0,.13);color:#FF9500;margin-bottom:14px;flex-direction:column;gap:8px;display:flex">
+            <svg class="ic" width="52" height="52"><use href="#c-core"/></svg>
+            <span style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.75">Core</span>
+          </div>
+          <div style="font-size:22px;font-weight:700;letter-spacing:-.02em">Russian Twist</div>
+          <div style="display:flex;gap:6px;margin-top:9px">
+            <span style="display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:5px 11px;font-size:11px;font-weight:650;background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="12" height="12"><use href="#c-core"/></svg>Core</span>
+            <span style="border-radius:999px;padding:5px 11px;font-size:11px;font-weight:600;background:var(--ios-fill);color:var(--ios-sec)">Obliques</span>
+            <span style="border-radius:999px;padding:5px 11px;font-size:11px;font-weight:600;background:var(--ios-fill);color:var(--ios-sec)">Balance</span>
+          </div>
+          <div class="card" style="margin-top:16px">
+            <div class="row"><div class="grow"><div class="t" style="color:var(--ios-sec);font-weight:450;font-size:12.5px">Appears in <b style="color:var(--ios-label)">2 routines</b> · Morning Core, Everyday Reset</div></div></div>
+          </div>
+        </div>
+        <div style="position:absolute;left:14px;right:14px;bottom:12px;z-index:50">
+          <div class="bigplay"><svg class="ic" width="15" height="15"><use href="#i-plus"/></svg>Add to Routine</div>
+        </div>
+      </div></div></div><figcaption><b>Workout detail.</b> The 4:3 <code>WorkoutVisual</code> header is the reserved media region (PRD §4.7 slot table) — a photo or looping video drops in here later at this exact aspect. Category chip in the category hue; focus-area chips in quiet system fill.</figcaption></figure>
+
+      <figure class="shot"><div class="phone"><div class="frame"><div class="scr" style="background:#c9c9ce">
+        <div class="island"></div>
+        <div style="height:64px"></div>
+        <div style="flex:1;background:var(--ios-grouped);border-radius:24px 24px 0 0;box-shadow:0 -8px 30px rgba(0,0,0,.25);display:flex;flex-direction:column">
+          <div style="width:36px;height:4.5px;border-radius:3px;background:rgba(60,60,67,.3);margin:7px auto 2px"></div>
+          <div class="navinline"><span class="back" style="color:var(--ios-sec)">Cancel</span><span class="ttl">New Workout</span><span class="back" style="font-weight:650;opacity:.4">Save</span></div>
+          <div class="content">
+            <div class="card">
+              <div class="row"><div class="grow"><div style="font-size:10.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ios-sec)">Name</div><div style="font-size:15px;font-weight:600;margin-top:1px">Wall Sit<span style="display:inline-block;width:1.5px;height:14px;background:var(--accent);margin-left:1px;vertical-align:-2px"></span></div></div></div>
+            </div>
+            <div class="sechead">Category</div>
+            <div class="card">
+              <div class="row"><div class="wv s28" style="background:rgba(88,86,214,.13);color:#5856D6"><svg class="ic" width="15" height="15"><use href="#c-full"/></svg></div><div class="grow"><div class="t">Full Body</div></div></div>
+              <div class="row"><div class="wv s28" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="15" height="15"><use href="#c-core"/></svg></div><div class="grow"><div class="t">Core</div></div></div>
+              <div class="row"><div class="wv s28" style="background:rgba(150,65,155,.13);color:#96419B"><svg class="ic" width="15" height="15"><use href="#c-legs"/></svg></div><div class="grow"><div class="t">Legs &amp; Glutes</div></div><svg class="ic" width="15" height="15" style="color:var(--accent)"><use href="#i-check"/></svg></div>
+              <div class="row"><div class="wv s28" style="background:rgba(178,107,0,.13);color:#B26B00"><svg class="ic" width="15" height="15"><use href="#c-cardio"/></svg></div><div class="grow"><div class="t">Cardio</div></div></div>
+            </div>
+            <div class="sechead">Notes · optional</div>
+            <div class="card"><div class="row"><div class="grow"><div class="s" style="font-size:13px">Back flat against the wall, thighs parallel.</div></div></div></div>
+          </div>
+        </div>
+      </div></div></div><figcaption><b>Add your own workout</b> (G2) — a small sheet: name, one fixed category (default Full Body), optional notes. That's the whole form; the new workout appears in its gallery category with the "Yours" caption and in the builder picker immediately. No custom colors, no custom icons — users never pick hues (DESIGN.md §2).</figcaption></figure>
+    </div>
+    <div class="notes">
+      <h4>Decisions</h4>
+      <ul>
+        <li><b>Add to Routine</b> opens a small sheet: choose an existing routine or <b>New Routine</b> (which opens the builder with this workout as step 1). Browsing never mutates a routine until this explicit add — the gallery is a library (PRD §5.3).</li>
+        <li><b>4:3 header ratio</b> comes from the DESIGN.md `media_readiness.slots` table (<code>workout_detail: "4:3"</code>); gallery cards are 1:1, builder rows 1:1 small, stage region 4:3. These four ratios are the whole media contract.</li>
+        <li><b>Focus-area chips</b> come from catalog <code>focusAreas</code> ids with localized names — display-only in v1 (future filtering, PRD §4.1).</li>
+        <li><b>Custom workout variant:</b> same layout plus a notes paragraph and Edit/Delete in the toolbar; Delete uses the destructive role and explains that routines keep the name snapshot.</li>
+        <li>Instructions text is deferred (<code>instructionsKey</code> reserved, PRD §10) — no empty "How to" section ships; the screen is complete without it.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section id="builder">
+  <div class="kicker">The make-or-break screen</div>
+  <h2>Routine builder — composing feels like arranging index cards</h2>
+  <p class="lede">The "never a chore" promise lives or dies here (PRD §0.3, §5.4). The step list reads exactly like the routine will play — rest rows between steps — with drag handles, inline per-step controls in 5 s increments, and a floating glass bar holding <b>Add Workouts</b> and the live computed total. The mockup shows the §5.4 sample routine mid-edit, with the Bridge step expanded.</p>
+
+  <div class="screen wide">
+    <div class="padwrap"><figure class="shot wide"><div class="ipad"><div class="ipadframe land"><div class="ipadscr">
+      <div class="isbar"><span>9:41 · Tue Jul 7</span><span class="sicons"><span class="cell"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="batt"></span></span></div>
+      <div class="navinline" style="padding-top:8px"><span class="back">Cancel</span><span class="ttl">Edit Routine</span><span class="back" style="font-weight:650">Save</span></div>
+      <div class="content" style="max-width:560px;margin:0 auto;width:100%">
+        <div class="card" style="margin-bottom:10px"><div class="row"><div class="grow"><div style="font-size:10.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ios-sec)">Name</div><div style="font-size:15px;font-weight:600;margin-top:1px">Morning Core</div></div></div></div>
+        <div class="step">
+          <svg class="ic grip" width="15" height="15"><use href="#i-grip"/></svg>
+          <div class="wv s28" style="background:rgba(150,65,155,.13);color:#96419B"><svg class="ic" width="15" height="15"><use href="#c-legs"/></svg></div>
+          <div class="grow"><div class="t">Bridge</div><div class="sum">30 s × 3 · 10 s between sets</div></div>
+          <svg class="ic" width="13" height="13" style="color:var(--accent);transform:rotate(90deg)"><use href="#i-chev"/></svg>
+        </div>
+        <div class="stepedit">
+          <div class="editrow"><span class="el">Work</span><div class="stp"><span>−</span><b>30 s</b><span>+</span></div></div>
+          <div class="editrow"><span class="el">Sets</span><div class="stp"><span>−</span><b>3</b><span>+</span></div></div>
+          <div class="editrow"><span class="el">Rest between sets</span><div class="stp"><span>−</span><b>10 s</b><span>+</span></div></div>
+          <div class="editrow"><span class="el">Rep guidance</span><div class="stp"><span>−</span><b>Off</b><span>+</span></div></div>
+          <div class="editrow"><span class="el">Rest after</span><div class="stp"><span>−</span><b>15 s</b><span>+</span></div></div>
+        </div>
+        <div class="step">
+          <svg class="ic grip" width="15" height="15"><use href="#i-grip"/></svg>
+          <div class="wv s28" style="background:rgba(150,65,155,.13);color:#96419B"><svg class="ic" width="15" height="15"><use href="#c-legs"/></svg></div>
+          <div class="grow"><div class="t">Squats</div><div class="sum">30 s × 2</div></div>
+          <svg class="ic chev" width="13" height="13"><use href="#i-chev"/></svg>
+        </div>
+        <div class="rest"><svg class="ic" width="12" height="12"><use href="#i-clock"/></svg>Rest · 15 s</div>
+        <div class="step">
+          <svg class="ic grip" width="15" height="15"><use href="#i-grip"/></svg>
+          <div class="wv s28" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="15" height="15"><use href="#c-core"/></svg></div>
+          <div class="grow"><div class="t">Russian Twist</div><div class="sum">30 s</div></div>
+          <svg class="ic chev" width="13" height="13"><use href="#i-chev"/></svg>
+        </div>
+        <div class="rest"><svg class="ic" width="12" height="12"><use href="#i-clock"/></svg>Rest · 20 s</div>
+        <div class="step">
+          <svg class="ic grip" width="15" height="15"><use href="#i-grip"/></svg>
+          <div class="wv s28" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="15" height="15"><use href="#c-core"/></svg></div>
+          <div class="grow"><div class="t">Bicycle Crunch</div><div class="sum">30 s · ~20 reps</div></div>
+          <svg class="ic chev" width="13" height="13"><use href="#i-chev"/></svg>
+        </div>
+        <div class="rest"><svg class="ic" width="12" height="12"><use href="#i-clock"/></svg>Rest · 20 s</div>
+        <div class="step">
+          <svg class="ic grip" width="15" height="15"><use href="#i-grip"/></svg>
+          <div class="wv s28" style="background:rgba(178,107,0,.13);color:#B26B00"><svg class="ic" width="15" height="15"><use href="#c-cardio"/></svg></div>
+          <div class="grow"><div class="t">Mountain Climbers</div><div class="sum">30 s</div></div>
+          <svg class="ic chev" width="13" height="13"><use href="#i-chev"/></svg>
+        </div>
+      </div>
+      <div class="fab glass">
+        <div class="addw"><svg class="ic" width="14" height="14"><use href="#i-plus"/></svg>Add Workouts</div>
+        <div class="tot">Total<b>5 min 30 s</b></div>
+      </div>
+    </div></div></div>
+    <figcaption><b>Builder with the §5.4 sample routine, Bridge expanded.</b> Note the missing rest row between Bridge and Squats — Bridge's rest-after (15 s) is being edited inside the expanded controls, so it renders there instead of as a row; collapsed steps show their rest-after as the quiet mint row. The floating bar is one of the app's two permitted custom glass elements (DESIGN.md §6).</figcaption></figure></div>
+
+    <div class="phones" style="margin-top:26px">
+      <figure class="shot"><div class="phone"><div class="frame tall"><div class="scr">
+        <div class="island"></div>
+        <div class="sbar"><span>9:41</span><span class="sicons"><span class="cell"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="batt"></span></span></div>
+        <div class="navlg"><div class="navrow"><span class="lt" style="opacity:.35">Edit Routine</span></div></div>
+        <div class="sheet">
+          <div class="grab"></div>
+          <h3>Add Workouts</h3>
+          <div class="search" style="margin-bottom:8px"><svg class="ic" width="14" height="14"><use href="#i-search"/></svg>Search</div>
+          <div class="pchips">
+            <span class="pchip">All</span>
+            <span class="pchip on"><svg class="ic" width="11" height="11"><use href="#c-core"/></svg>Core</span>
+            <span class="pchip"><svg class="ic" width="11" height="11"><use href="#c-legs"/></svg>Legs &amp; Glutes</span>
+            <span class="pchip"><svg class="ic" width="11" height="11"><use href="#c-cardio"/></svg>Cardio</span>
+            <span class="pchip"><svg class="ic" width="11" height="11"><use href="#c-full"/></svg>Full…</span>
+          </div>
+          <div class="picklist">
+            <div class="pickrow">
+              <div class="wv s28" style="background:rgba(150,65,155,.13);color:#96419B"><svg class="ic" width="15" height="15"><use href="#c-legs"/></svg></div>
+              <span class="t">Bridge</span><div class="pcheck on"><svg class="ic" width="12" height="12"><use href="#i-check"/></svg></div>
+            </div>
+            <div class="pickrow">
+              <div class="wv s28" style="background:rgba(150,65,155,.13);color:#96419B"><svg class="ic" width="15" height="15"><use href="#c-legs"/></svg></div>
+              <span class="t">Squats</span><div class="pcheck on"><svg class="ic" width="12" height="12"><use href="#i-check"/></svg></div>
+            </div>
+            <div class="pickrow">
+              <div class="wv s28" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="15" height="15"><use href="#c-core"/></svg></div>
+              <span class="t">Russian Twist</span><div class="pcheck on"><svg class="ic" width="12" height="12"><use href="#i-check"/></svg></div>
+            </div>
+            <div class="pickrow">
+              <div class="wv s28" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="15" height="15"><use href="#c-core"/></svg></div>
+              <span class="t">Bicycle Crunch</span><div class="pcheck on"><svg class="ic" width="12" height="12"><use href="#i-check"/></svg></div>
+            </div>
+            <div class="pickrow">
+              <div class="wv s28" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="15" height="15"><use href="#c-core"/></svg></div>
+              <span class="t">Plank</span><div class="pcheck"></div>
+            </div>
+            <div class="pickrow">
+              <div class="wv s28" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="15" height="15"><use href="#c-core"/></svg></div>
+              <span class="t">Superman</span><div class="pcheck"></div>
+            </div>
+          </div>
+          <div class="traybar">
+            <div class="tray"><span class="lbl">Selected</span>
+              <div class="wv s28" style="background:rgba(150,65,155,.13);color:#96419B"><svg class="ic" width="14" height="14"><use href="#c-legs"/></svg></div>
+              <div class="wv s28" style="background:rgba(150,65,155,.13);color:#96419B"><svg class="ic" width="14" height="14"><use href="#c-legs"/></svg></div>
+              <div class="wv s28" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="14" height="14"><use href="#c-core"/></svg></div>
+              <div class="wv s28" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="14" height="14"><use href="#c-core"/></svg></div>
+            </div>
+            <div class="addbtn">Add 4 Workouts</div>
+          </div>
+        </div>
+      </div></div></div><figcaption><b>Gallery picker sheet</b> — category chips (selected chip in PulseAzureSoft), search, multi-select rows with azure checks, a visible tray of the selection, and one button that says exactly what it does: "Add 4 Workouts" (DESIGN.md §8 — never "Continue"). System sheet with grabber and detents.</figcaption></figure>
+
+      <div class="notes">
+        <h4>Why this builder wins the "never a chore" bet</h4>
+        <ul>
+          <li><b>Multi-select in one pass:</b> the §5.4 sample — five workouts — lands in the list with one sheet visit. New steps arrive with smart defaults (30 s work, 1 set, no set-rest, 15 s rest-after), and <b>the previous step's values become the defaults for the next add</b> within a session, because routines are rhythmic (PRD §5.4).</li>
+          <li><b>Steppers and wheels, never keyboards:</b> all durations move in 5 s increments; sets in 1s; rep guidance in 5s with an Off position. Free-text seconds would be friction and a localization hazard.</li>
+          <li><b>The live total is always visible</b> in the floating bar and updates with every change — the user calibrates a "40-minute routine" while composing. It is the same compiled figure shown everywhere else (PRD §6.2).</li>
+          <li><b>Reorder with standard drag handles;</b> rest-after values travel with their step, so the mint rows follow their owners (DESIGN.md §4 "Rest row").</li>
+          <li><b>Save validates one thing only:</b> ≥ 1 step and a non-empty name (a default name like "Routine 3" is suggested). There is no way to build an invalid routine — everything else has defaults.</li>
+          <li><b>Timing summary grammar</b> is a format string: "30 s × 3 · 10 s between sets", with "~20 reps" appended when guidance is set. Tabular numerals keep the column aligned.</li>
+          <li>In regular width the builder pairs the step list with the picker side-by-side instead of a covering sheet (DESIGN.md §5); the iPhone gets the sheet shown here.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============================================================ -->
+<section id="player">
+  <div class="kicker">The product's signature</div>
+  <h2>Live player — the stage</h2>
+  <p class="lede">Full-screen cover; the device becomes a wall-side coach. Designed landscape-iPad-first (PRD §5.5), on the appearance-invariant stage tokens. Exactly one hero — the countdown, in the app's single fixed-size type exception — and every state below is verified at 3 m in a lit and a dim room before the player is called done (DESIGN.md `across_the_room.verification`). All frames show the §5.4 sample routine, "Morning Core", mid-play.</p>
+
+  <h3>Work segment — countdown leads</h3>
+  <div class="screen wide">
+    <div class="padwrap"><figure class="shot wide"><div class="ipad"><div class="ipadframe stagefr"><div class="stagescr">
+      <div class="stg-sbar"><span>Morning Core</span><span>9:41</span></div>
+      <div class="stg-main">
+        <div class="stg-col">
+          <div class="stg-kicker">Work · Set 2 of 2</div>
+          <div class="cd hero">0:19</div>
+          <div class="stg-name">Squats</div>
+          <div class="stg-sub">Workout 2 of 5</div>
+        </div>
+        <div class="stg-media" style="width:296px;background:rgba(214,120,219,.16);color:#D678DB">
+          <svg class="ic" width="64" height="64"><use href="#c-legs"/></svg>
+          <span style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.75">Legs &amp; Glutes</span>
+        </div>
+      </div>
+      <div class="stg-foot">
+        <div class="progress"><i style="width:50%"></i></div>
+        <div class="ptimes"><span>2:46</span><span>−2:44</span></div>
+        <div class="ctlbar">
+          <div class="ctl"><svg class="ic" width="20" height="20"><use href="#i-bwd"/></svg></div>
+          <div class="ctl big"><svg class="ic" width="26" height="26"><use href="#i-pause"/></svg></div>
+          <div class="ctl"><svg class="ic" width="20" height="20"><use href="#i-fwd"/></svg></div>
+          <div class="ctl end">End</div>
+        </div>
+      </div>
+    </div></div></div>
+    <figcaption><b>Work segment, iPad landscape.</b> The countdown is stage numerals — SF Pro Rounded heavy, tabular, ≈ 29% of stage height here (rule: ≥ 25%) — in StageText <code>#F5F7FA</code> on StageCanvas (≈ 17:1, rule ≥ 7:1). StageWork <code>#46A2FF</code> carries the segment identity in the kicker, progress fill, and pause button — accents, never a canvas flood. The 4:3 <code>WorkoutVisual</code> region sits beside the countdown; a video loop of squats drops in here later. In the final 5 s, "Next: Russian Twist" replaces the "Workout 2 of 5" line and the numeral pulses with the 3-2-1 beeps.</figcaption></figure></div>
+  </div>
+
+  <h3>Rest segment — the layout inverts</h3>
+  <div class="screen wide">
+    <div class="padwrap"><figure class="shot wide"><div class="ipad"><div class="ipadframe stagefr"><div class="stagescr">
+      <div class="stg-sbar"><span>Morning Core</span><span>9:41</span></div>
+      <div class="stg-main">
+        <div class="stg-media" style="width:320px;background:rgba(255,159,10,.16);color:#FF9F0A">
+          <svg class="ic" width="68" height="68"><use href="#c-core"/></svg>
+          <span style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.75">Core</span>
+        </div>
+        <div class="stg-col">
+          <div class="stg-kicker rest">Rest</div>
+          <div class="stg-name next">Next: Russian Twist</div>
+          <div class="stg-sub">30 s · Workout 3 of 5</div>
+          <div class="cd sub" style="margin-top:14px;color:#3BD6C3">0:12</div>
+        </div>
+      </div>
+      <div class="stg-foot">
+        <div class="progress rest"><i style="width:57%"></i></div>
+        <div class="ptimes"><span>3:08</span><span>−2:22</span></div>
+        <div class="ctlbar">
+          <div class="ctl"><svg class="ic" width="20" height="20"><use href="#i-bwd"/></svg></div>
+          <div class="ctl big" style="background:#3BD6C3"><svg class="ic" width="26" height="26"><use href="#i-pause"/></svg></div>
+          <div class="ctl"><svg class="ic" width="20" height="20"><use href="#i-fwd"/></svg></div>
+          <div class="ctl end">End</div>
+        </div>
+      </div>
+    </div></div></div>
+    <figcaption><b>Rest segment, iPad landscape.</b> Work vs rest is encoded twice, per the `across_the_room.state_identity` rule: the hue shifts to RecoverMint <b>and</b> the layout inverts — "Next: Russian Twist" leads at title scale with its <code>WorkoutVisual</code> tile, the rest countdown is large but secondary. Rest is when the user looks at the screen (PRD §5.5), so the next movement is the headline. Voice says "Rest — next: Russian Twist" as the segment starts. Set-rest and get-ready segments use this same mint composition.</figcaption></figure></div>
+  </div>
+
+  <h3>Pre-roll — time to step back</h3>
+  <div class="screen wide">
+    <div class="padwrap"><figure class="shot wide"><div class="ipad"><div class="ipadframe stagefr"><div class="stagescr">
+      <div class="stg-sbar"><span>Morning Core</span><span>9:41</span></div>
+      <div class="stg-main">
+        <div class="stg-media" style="width:320px;background:rgba(214,120,219,.16);color:#D678DB">
+          <svg class="ic" width="68" height="68"><use href="#c-legs"/></svg>
+          <span style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.75">Legs &amp; Glutes</span>
+        </div>
+        <div class="stg-col">
+          <div class="stg-kicker rest">Get ready</div>
+          <div class="stg-name next">First: Bridge</div>
+          <div class="stg-sub">30 s × 3 · Workout 1 of 5</div>
+          <div class="cd sub" style="margin-top:14px;color:#3BD6C3">0:05</div>
+        </div>
+      </div>
+      <div class="stg-foot">
+        <div class="progress rest"><i style="width:0%"></i></div>
+        <div class="ptimes"><span>0:00</span><span>−5:30</span></div>
+        <div class="ctlbar">
+          <div class="ctl"><svg class="ic" width="20" height="20"><use href="#i-bwd"/></svg></div>
+          <div class="ctl big" style="background:#3BD6C3"><svg class="ic" width="26" height="26"><use href="#i-pause"/></svg></div>
+          <div class="ctl"><svg class="ic" width="20" height="20"><use href="#i-fwd"/></svg></div>
+          <div class="ctl end">End</div>
+        </div>
+      </div>
+    </div></div></div>
+    <figcaption><b>Pre-roll, iPad landscape.</b> The get-ready segment (default 5 s, configurable in Settings) uses the rest composition and RecoverMint — it is a breathing segment whose whole job is "step back now" (PRD §5.5). Voice announces "Get ready — first: Bridge" as the cover appears, so the user can put the iPad down and walk away before the first work tone. Progress starts at zero: get-ready is not part of the routine's compiled 5 min 30 s.</figcaption></figure></div>
+  </div>
+
+  <h3>Compact stage &amp; completion</h3>
+  <div class="screen">
+    <div class="phones">
+      <figure class="shot"><div class="phone"><div class="frame"><div class="scr"><div class="stagescr">
+        <div class="island"></div>
+        <div class="stg-sbar" style="height:40px;padding-top:20px"><span>Morning Core</span><span>9:41</span></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 20px;min-height:0">
+          <div class="stg-kicker" style="font-size:11px">Work · Set 2 of 2</div>
+          <div class="cd" style="font-size:96px;margin-top:2px">0:19</div>
+          <div class="stg-name" style="font-size:25px">Squats</div>
+          <div class="stg-sub" style="font-size:13px">Workout 2 of 5</div>
+          <div class="stg-media" style="width:190px;background:rgba(214,120,219,.16);color:#D678DB;margin-top:16px">
+            <svg class="ic" width="42" height="42"><use href="#c-legs"/></svg>
+          </div>
+        </div>
+        <div class="stg-foot" style="padding:0 18px 14px">
+          <div class="progress"><i style="width:50%"></i></div>
+          <div class="ptimes"><span>2:46</span><span>−2:44</span></div>
+          <div class="ctlbar compact">
+            <div class="ctl"><svg class="ic" width="17" height="17"><use href="#i-bwd"/></svg></div>
+            <div class="ctl big"><svg class="ic" width="22" height="22"><use href="#i-pause"/></svg></div>
+            <div class="ctl"><svg class="ic" width="17" height="17"><use href="#i-fwd"/></svg></div>
+            <div class="ctl end" style="height:46px">End</div>
+          </div>
+        </div>
+      </div></div></div></div><figcaption><b>Work segment, iPhone portrait.</b> Same hierarchy stacked: countdown above the <code>WorkoutVisual</code> region (DESIGN.md §10). Controls stay oversized — the phone may be propped too.</figcaption></figure>
+
+      <figure class="shot"><div class="phone"><div class="frame"><div class="scr"><div class="stagescr">
+        <div class="island"></div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 24px;text-align:center">
+          <div class="stg-kicker" style="font-size:11px">Nice work</div>
+          <div class="done-hero" style="margin-top:8px">5<small> min</small> 30<small> s</small></div>
+          <div class="stg-name" style="font-size:21px;margin-top:10px">Morning Core</div>
+          <div class="stg-sub" style="font-size:13px">5 workouts completed</div>
+          <div style="display:flex;gap:20px;margin-top:22px">
+            <div style="text-align:center"><div style="font-size:19px;font-weight:700;font-variant-numeric:tabular-nums">5 days</div><div style="font-size:10.5px;color:var(--dim)">Streak</div></div>
+            <div style="width:.5px;background:rgba(245,247,250,.18)"></div>
+            <div style="text-align:center"><div style="font-size:19px;font-weight:700;font-variant-numeric:tabular-nums">15×</div><div style="font-size:10.5px;color:var(--dim)">Completed</div></div>
+          </div>
+        </div>
+        <div style="flex:none;padding:0 22px 26px">
+          <div class="donebtn">Done</div>
+          <div class="donebtn ghost">Go Again</div>
+        </div>
+      </div></div></div></div><figcaption><b>Completion.</b> Hero active minutes count up once (≤ 800 ms, opacity-only under Reduce Motion); updated streak and times-completed beneath. Calm, celebratory, over in a second — no confetti (DESIGN.md `motion.completion`). A partial session shows a smaller acknowledgment ("You did 3 min — saved to history"), never a guilt trip.</figcaption></figure>
+
+      <div class="notes">
+        <h4>Across-the-room rules (all cited from DESIGN.md `across_the_room`)</h4>
+        <ul>
+          <li><b>Exactly one hero:</b> the countdown, ≥ 25% of stage height on iPad landscape, stage-numerals role (the app's single fixed-size exception). Nothing else on the stage competes in size — ever.</li>
+          <li><b>Minimums:</b> workout name ≥ title scale, set indicator and next-up ≥ headline scale, progress bar full-width and ≥ 6 pt tall, all stage text ≥ 7:1 contrast on StageCanvas (including StageTextDim at 80% opacity).</li>
+          <li><b>State identity is doubled:</b> hue (azure/mint) and layout (countdown-led vs next-up-led). A color-blind user in a glary room still knows whether to move or breathe.</li>
+          <li><b>Verification is part of done:</b> 3 m test, lit room and dim room, both segment types, iPad landscape + portrait and iPhone (PRD acceptance #4).</li>
+        </ul>
+        <h4>Behavior contract (PRD §5.5–§6.4)</h4>
+        <ul>
+          <li><b>Pre-roll:</b> 5 s "Get ready" (configurable) in the mint composition, first workout announced by voice — time to step back.</li>
+          <li><b>Controls:</b> pause/resume (largest, segment hue), skip, back (restart segment; twice = previous), End (confirms). All ≥ 64 pt targets on the StageSurface glass bar — the second of the two permitted custom glass elements. Mac: space / arrows / ⎋.</li>
+          <li><b>Audio:</b> name announced at each work start (with set position when sets &gt; 1), "Rest" + next name at rest starts, 3-2-1 beeps before every transition, distinct work-start tone. Ducks politely under the user's music; never stops it (PRD §6.4). Voice and tones independently toggleable.</li>
+          <li><b>Never sleeps, never loses progress:</b> idle timer disabled while playing; backgrounding auto-pauses and resumes at the same segment with a fresh 3-2-1 (PRD §6.3). Rotation is free; the layout adapts, never locks.</li>
+          <li><b>No haptics on transitions</b> — the device is across the room; sound is the channel (DESIGN.md `haptics`).</li>
+          <li>Elapsed/remaining are integer seconds from the compiled timeline — the same source of truth as every displayed total (PRD §6.2); the progress denominator is the routine's 5 min 30 s.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="verdict"><b>Where the design effort went:</b> everything on the stage exists to be read at 3–4 m or heard. If a proposed addition (calories, heart rate, a motivational quote) can't justify itself at that distance, it doesn't go on the stage — it goes nowhere, because the PRD explicitly cut it.</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="settings">
+  <div class="kicker">Tab 3</div>
+  <h2>Settings — minimal, honest</h2>
+  <p class="lede">The core player controls, two lines of truth, and one Mac-only agent-access section. No account, no sign-in, no premium (PRD §5.6).</p>
+
+  <div class="screen">
+    <div class="phones">
+      <figure class="shot"><div class="phone"><div class="frame tall"><div class="scr">
+        <div class="island"></div>
+        <div class="sbar"><span>9:41</span><span class="sicons"><span class="cell"><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span><span class="batt"></span></span></div>
+        <div class="navlg"><div class="navrow"><span class="lt">Settings</span></div></div>
+        <div class="content">
+          <div class="sechead">Audio</div>
+          <div class="card">
+            <div class="row"><div class="wv s28" style="background:var(--accent-soft);color:var(--accent)"><svg class="ic" width="15" height="15"><use href="#i-speaker"/></svg></div><div class="grow"><div class="t">Voice announcements</div><div class="s">Workout names, rests, completion</div></div><div class="tgl on"></div></div>
+            <div class="row"><div class="wv s28" style="background:var(--accent-soft);color:var(--accent)"><svg class="ic" width="15" height="15"><use href="#i-tone"/></svg></div><div class="grow"><div class="t">Countdown tones</div><div class="s">3-2-1 beeps and transitions</div></div><div class="tgl on"></div></div>
+          </div>
+          <div class="sechead">Player</div>
+          <div class="card">
+            <div class="row"><div class="wv s28" style="background:var(--rmint-soft);color:var(--rmint)"><svg class="ic" width="15" height="15"><use href="#i-clock"/></svg></div><div class="grow"><div class="t">Get ready</div><div class="s">Before the first workout</div></div><div class="v" style="color:var(--ios-label);font-weight:600">5 s</div><svg class="ic chev" width="13" height="13"><use href="#i-chev"/></svg></div>
+          </div>
+          <div class="sechead">iCloud</div>
+          <div class="card">
+            <div class="row"><div class="wv s28" style="background:var(--accent-soft);color:var(--accent)"><svg class="ic" width="15" height="15"><use href="#i-cloud"/></svg></div><div class="grow"><div class="t">Sync</div><div class="s">Up to date</div></div><svg class="ic" width="14" height="14" style="color:var(--rmint)"><use href="#i-check"/></svg></div>
+          </div>
+          <div class="footnote"><svg class="ic" width="11" height="11" style="display:inline-block;vertical-align:-1.5px;margin-right:4px;color:var(--accent)"><use href="#i-lock"/></svg>No accounts. Everything stays in your private iCloud.</div>
+          <div class="sechead">Agent Access · Mac</div>
+          <div class="card">
+            <div class="row"><div class="wv s28" style="background:var(--accent-soft);color:var(--accent)"><svg class="ic" width="15" height="15"><use href="#i-gear"/></svg></div><div class="grow"><div class="t">Allow agent changes</div></div><div class="tgl on"></div></div>
+            <div class="row"><div class="wv s28" style="background:var(--ios-fill);color:var(--ios-sec)"><svg class="ic" width="15" height="15"><use href="#i-list"/></svg></div><div class="grow"><div class="t">Show Bridge Folder in Finder</div></div><svg class="ic chev" width="13" height="13"><use href="#i-chev"/></svg></div>
+          </div>
+          <div class="footnote">Coding agents on this Mac can create and edit workouts, routines, and plans. They can never delete anything.</div>
+          <div class="footnote" style="padding-top:10px">StepBack 1.0 (12)</div>
+        </div>
+        <div class="tabzone">
+          <div class="tabbar glass">
+            <div class="tab"><svg class="ic" width="21" height="21"><use href="#i-play"/></svg>Routines</div>
+            <div class="tab"><svg class="ic" width="21" height="21"><use href="#i-list"/></svg>Gallery</div>
+            <div class="tab on"><svg class="ic" width="21" height="21"><use href="#i-gear"/></svg>Settings</div>
+          </div>
+        </div>
+      </div></div></div><figcaption><b>Settings.</b> Voice and tones as independent toggles (both on by default, PRD §6.4), get-ready duration in 5 s steps via wheel, iCloud status line, the privacy statement verbatim from PRD §5.6, and the version footer.</figcaption></figure>
+    </div>
+    <div class="notes">
+      <h4>Decisions</h4>
+      <ul>
+        <li><b>Toggles tint PulseAzure</b> — the app accent applies to switches, keeping the one-accent rule intact.</li>
+        <li><b>Get-ready row</b> pushes a wheel picker in 5 s increments (0–30 s); the mint icon tile is honest: get-ready is a breathing segment.</li>
+        <li><b>Sync status is a read-only account-status line</b>, not a control: "Checking…", "Up to date", or "iCloud unavailable — changes stay on this device" (designed degraded state, PRD §5.7). SwiftData does not expose a truthful per-sync event or last-sync timestamp, so the row never invents one. Never an error dialog.</li>
+        <li><b>Agent Access is Mac-only ordinary Form content:</b> the toggle gates the inbox immediately, the reveal button opens the app-owned bridge folder, and the footer states the non-destructive boundary. It adds no custom glass and never exposes a database path.</li>
+        <li>No "rate the app", no links farm, no analytics toggle (there is nothing to toggle — zero analytics, PRD §8).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- ============================================================ -->
+<section id="platforms">
+  <div class="kicker">Everywhere-equal</div>
+  <h2>Platform adaptation — iPhone &amp; native Mac</h2>
+  <p class="lede">The iPhone and Mac apps are the same product, not ports (DESIGN.md §10). Size classes and platform idioms drive every difference; there are no device-type branches in feature code. The iPhone adaptations are shown inline in each section above; the Mac shell is sketched here.</p>
+
+  <div class="screen wide">
+    <figure class="shot wide">
+      <div class="macwin">
+        <div class="mactool">
+          <div class="macdot"></div>
+          <div class="mactitle">StepBack</div>
+          <div class="grow"></div>
+          <div class="maciconbtn"><svg class="ic" width="15" height="15"><use href="#i-plus"/></svg></div>
+          <div class="maciconbtn"><svg class="ic" width="15" height="15"><use href="#i-play"/></svg></div>
+        </div>
+        <div class="macbody">
+          <div class="macside">
+            <div class="macsection">Library</div>
+            <div class="macitem on"><div class="mi" style="background:var(--accent-soft);color:var(--accent)"><svg class="ic" width="13" height="13"><use href="#i-play"/></svg></div><span>Routines</span><div class="mm">4</div></div>
+            <div class="macitem"><div class="mi" style="background:var(--ios-fill);color:var(--ios-sec)"><svg class="ic" width="13" height="13"><use href="#i-list"/></svg></div><span>Gallery</span><div class="mm">83</div></div>
+            <div class="macitem"><div class="mi" style="background:var(--ios-fill);color:var(--ios-sec)"><svg class="ic" width="13" height="13"><use href="#i-gear"/></svg></div><span>Settings</span></div>
+          </div>
+          <div class="maccontent">
+            <div class="macsection">Routines</div>
+            <div class="macrow on"><div class="wv s28" style="background:rgba(88,86,214,.13);color:#5856D6"><svg class="ic" width="14" height="14"><use href="#c-full"/></svg></div><div style="flex:1;min-width:0"><b>Everyday Reset</b><span>24 min · 12 workouts · Today</span></div></div>
+            <div class="macrow"><div class="wv s28" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="14" height="14"><use href="#c-core"/></svg></div><div style="flex:1;min-width:0"><b>Morning Core</b><span>5 min 30 s · 5 workouts · 2 days ago</span></div></div>
+            <div class="macrow"><div class="wv s28" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="14" height="14"><use href="#c-core"/></svg></div><div style="flex:1;min-width:0"><b>Quick Core</b><span>7 min · 4 workouts · 5 days ago</span></div></div>
+            <div class="macrow"><div class="wv s28" style="background:rgba(88,86,214,.13);color:#5856D6"><svg class="ic" width="14" height="14"><use href="#c-full"/></svg></div><div style="flex:1;min-width:0"><b>Full-Body Forty</b><span>38 min · 14 workouts · 1 week ago</span></div></div>
+          </div>
+          <div class="macdetail">
+            <div style="font-size:17px;font-weight:700">Everyday Reset</div>
+            <div style="font-size:26px;font-weight:600;font-variant-numeric:tabular-nums;margin-top:4px">24 <span style="font-size:14px;color:#6e6e73">min</span></div>
+            <div style="font-size:11px;color:#6e6e73;margin-top:2px">12 workouts · Last done Today · 21×</div>
+            <div style="display:flex;gap:8px;margin:12px 0 14px">
+              <div style="display:flex;align-items:center;gap:6px;background:var(--accent);color:#fff;border-radius:9px;padding:6px 16px;font-size:12.5px;font-weight:650;box-shadow:0 3px 10px rgba(11,99,229,.3)"><svg class="ic" width="12" height="12"><use href="#i-play"/></svg>Play</div>
+              <div style="background:var(--ios-fill);border-radius:9px;padding:6px 13px;font-size:12.5px;font-weight:600;color:var(--accent)">Edit</div>
+              <div style="background:var(--ios-fill);border-radius:9px;padding:6px 13px;font-size:12.5px;font-weight:600;color:var(--accent)">Duplicate</div>
+            </div>
+            <div class="macrow"><div class="wv s28" style="background:rgba(88,86,214,.13);color:#5856D6"><svg class="ic" width="14" height="14"><use href="#c-full"/></svg></div><div style="flex:1"><b>Jumping Jacks</b><span>45 s × 2</span></div></div>
+            <div style="display:flex;align-items:center;gap:6px;background:var(--rmint-soft);color:var(--rmint);border-radius:8px;padding:4px 10px;margin-bottom:5px;font-size:10.5px;font-weight:650">Rest · 15 s</div>
+            <div class="macrow"><div class="wv s28" style="background:rgba(255,149,0,.13);color:#FF9500"><svg class="ic" width="14" height="14"><use href="#c-core"/></svg></div><div style="flex:1"><b>Plank</b><span>45 s × 3 · 15 s between sets</span></div></div>
+            <div style="display:flex;align-items:center;gap:6px;background:var(--rmint-soft);color:var(--rmint);border-radius:8px;padding:4px 10px;margin-bottom:5px;font-size:10.5px;font-weight:650">Rest · 20 s</div>
+            <div class="macrow"><div class="wv s28" style="background:rgba(150,65,155,.13);color:#96419B"><svg class="ic" width="14" height="14"><use href="#c-legs"/></svg></div><div style="flex:1"><b>Lunge</b><span>30 s × 2 · ~12 reps</span></div></div>
+          </div>
+        </div>
+      </div>
+      <figcaption><b>Mac shell.</b> <code>NavigationSplitView</code> — sidebar (Routines / Gallery / Settings), content column (routine list or gallery grid), detail (routine or workout detail with the same hero + step-list anatomy). <code>AccentColor</code> aliases PulseAzure for selection and focus.</figcaption>
+    </figure>
+  </div>
+
+  <div class="tablewrap"><table class="spec">
+    <tr><th>Area</th><th>Mac contract</th><th>iPhone contract</th></tr>
+    <tr><td>Shell</td><td><code>NavigationSplitView</code> three-column; toolbar + menu commands for New Routine, Add Workout, Play.</td><td><code>TabView</code>, three tabs, large titles at roots, floating bottom tab bar.</td></tr>
+    <tr><td><b>The stage</b></td><td>Opens as a <b>separate resizable window scene</b> — a proper stage, not a stretched sheet. Same composition rules; the countdown scales to the window (stage-numerals role is viewport-scaled by definition). Keyboard: <b>space</b> pause/resume, <b>← / →</b> back/skip, <b>⎋</b> end (confirms). PRD acceptance #12.</td><td><code>fullScreenCover</code>; portrait leads with the countdown above the <code>WorkoutVisual</code> region; controls stay oversized; rotation free.</td></tr>
+    <tr><td>Builder</td><td>Sheet within the window; picker as side-by-side column at width.</td><td>Full-height sheet; picker as a second sheet with detents.</td></tr>
+    <tr><td>State</td><td>Mac-only state (window frames, sidebar width) stays out of the synced model.</td><td>Same SwiftData store, same CloudKit container — sync per G9.</td></tr>
+    <tr><td>Idioms</td><td>Hover states, context menus on rows, menu-bar commands.</td><td>Haptics on save/complete (device in hand), context menus on cards.</td></tr>
+  </table></div>
+</section>
+
+<!-- ============================================================ -->
+<section id="mapping">
+  <div class="kicker">Handoff</div>
+  <h2>Screen → SwiftUI mapping</h2>
+  <p class="lede">The construct behind every mockup element, for the implementing agent. Verify each API against current Apple docs before locking (PRD §0.2; use <code>apple-platform-think</code>).</p>
+  <div class="tablewrap"><table class="spec">
+    <tr><th>Mockup element</th><th>SwiftUI construct</th><th>Notes</th></tr>
+    <tr><td>App shell</td><td><code>TabView</code> + <code>Tab</code> (iPhone/iPad); <code>NavigationSplitView</code> (Mac)</td><td>Three tabs; size-class-driven, zero device-type branches (PRD §3).</td></tr>
+    <tr><td>Welcome screen</td><td>Full-screen cover on <code>@AppStorage("welcomeSeen")</code></td><td>Bootstrap completes idempotent starter seeding before presentation; Get Started records welcome-seen and dismisses.</td></tr>
+    <tr><td>Motivation strip</td><td>Plain <code>HStack</code> of two stat pairs above the list</td><td>Not a card, not a chart; values from derived-stats math in the core package (PRD §4.6).</td></tr>
+    <tr><td>Routines grid</td><td><code>LazyVGrid</code> with adaptive columns in regular width; <code>List</code>-like single column compact</td><td>Sort: most recently played first. Card Play = separate <code>Button</code> from the card's navigation.</td></tr>
+    <tr><td>Today plan card</td><td>Prominent grouped-surface <code>VStack</code> + <code>ViewThatFits</code> name/duration</td><td>Weekly status derives from plan slots plus completed session-day facts in core; duration comes from <code>TimelineCompiler</code>. Standard surface, one Play, AX strip summary.</td></tr>
+    <tr><td>My Week overview / picker</td><td>Inset-grouped <code>List</code> day rows / plain <code>List</code> plan rows</td><td>Seven locale-ordered absolute weekdays; My Week is a single selection marker, not activation progress.</td></tr>
+    <tr><td>Plan editor</td><td>System <code>List</code> with seven fixed day sections and reorderable slot rows</td><td>In-memory <code>@Observable</code> draft; one save-or-rollback transaction. Weekday headings use localized standalone symbols; empty buckets render Rest.</td></tr>
+    <tr><td>Routine card Play → stage</td><td><code>fullScreenCover</code> (iOS/iPadOS); window scene (Mac)</td><td>Play → pre-roll &lt; 300 ms (PRD §8); idle timer disabled for the cover's lifetime.</td></tr>
+    <tr><td>Routine detail step list</td><td><code>List</code>/<code>ScrollView</code> of step rows + rest rows</td><td>Rows rendered from the same compiled timeline used by the player — one source of truth.</td></tr>
+    <tr><td>Empty states (all)</td><td><code>ContentUnavailableView</code></td><td>Icon tile, one-line title, guidance, one primary action (DESIGN.md §4).</td></tr>
+    <tr><td>Gallery</td><td>Sectioned <code>LazyVGrid</code> + <code>.searchable</code></td><td>Search across catalog + custom workouts; catalog decoded once from bundled JSON.</td></tr>
+    <tr><td>WorkoutVisual (every tile)</td><td>One shared component resolving <code>workoutID → mediaKey?</code></td><td>Today: monogram tile (category hue soft fill + SF Symbol). Later: image/video in the same slot. The only way any screen renders a workout visual (PRD §4.7).</td></tr>
+    <tr><td>Builder step list + reorder</td><td><code>List</code> with <code>.onMove</code> drag handles (edit-mode-free reorder)</td><td>Rest-after travels with its step; <code>sortIndex</code> reindexed on move.</td></tr>
+    <tr><td>Step editor controls</td><td><code>Stepper</code>s / wheel <code>Picker</code>s, 5 s increments</td><td>Never free-text seconds; expanded inline below the row (disclosure).</td></tr>
+    <tr><td>Builder floating bar</td><td>Custom glass capsule via <code>glassEffect</code>-style material, overlaid at bottom</td><td>Custom glass element 1 of 2 (DESIGN.md §6). Live total recomputed per edit from the timeline compiler.</td></tr>
+    <tr><td>Gallery picker</td><td><code>sheet</code> with <code>presentationDetents</code>; chips + <code>.searchable</code>; multi-select</td><td>Commits all selections with smart defaults in one Add; <code>.selection</code> haptic per pick.</td></tr>
+    <tr><td>Stage layout</td><td>Custom layout on <code>StageCanvas</code>; <code>.containerBackground</code>/full-bleed <code>ZStack</code></td><td>Stage tokens are their own asset-catalog set with a single Any appearance — not a forced dark scheme.</td></tr>
+    <tr><td>Stage countdown</td><td>Viewport-scaled SF Pro Rounded heavy, <code>.monospacedDigit()</code></td><td>The single Dynamic Type exception; scaled from stage geometry (≥ 25% height), pulses last 3 s synced to beeps.</td></tr>
+    <tr><td>Stage control bar</td><td>Custom glass on StageSurface; buttons ≥ 64 pt; <code>.keyboardShortcut(.space)</code>, arrows, escape on Mac</td><td>Custom glass element 2 of 2.</td></tr>
+    <tr><td>Screen wake</td><td>Idle timer disabled while the player scene is active</td><td>Re-enabled on completion/end/background (PRD §3).</td></tr>
+    <tr><td>Player engine</td><td>Pure timeline compiler + runner over an injected clock protocol (core package)</td><td>Segments recomputed from a monotonic reference — never chained <code>Timer</code>s (PRD §8). Audio cues scheduled by the tested runner.</td></tr>
+    <tr><td>Audio cues</td><td><code>AVSpeechSynthesizer</code> + short tones behind a protocol; ducking audio-session category</td><td>Templates in the String Catalog; never stops the user's music (PRD §6.4).</td></tr>
+    <tr><td>Completion count-up</td><td>One settle animation ≤ 800 ms; <code>.sensoryFeedback(.success)</code></td><td>Opacity-only under Reduce Motion. Haptic fires here because the user is walking back to the device.</td></tr>
+    <tr><td>Settings</td><td>Grouped <code>Form</code>; <code>Toggle</code>s tinted by <code>AccentColor</code>; wheel picker for get-ready</td><td>iCloud status via <code>CKContainer.accountStatus</code>-equivalent, rendered as a read-only line.</td></tr>
+    <tr><td>Persistence</td><td>SwiftData + CloudKit mirroring (private DB)</td><td>All relationships optional with inverses, no <code>.unique</code>, defaults everywhere (PRD §3).</td></tr>
+    <tr><td>Strings &amp; formats</td><td>String Catalog for every user-facing string incl. spoken templates; <code>Duration.UnitsFormatStyle</code>, relative dates</td><td>Adding a language = pure translation task (G12); pseudolocalization must pass (acceptance #13).</td></tr>
+  </table></div>
+
+  <h3>Evidence trail</h3>
+  <ul style="font-size:13.5px;color:var(--note)">
+    <li>PRD.md v1.0 — every goal G1–G12 and every §5 screen is represented above; §5.4's sample routine is the literal content of the detail, builder, and player mockups; §6.1's time-driven model shapes the whole stage.</li>
+    <li>DESIGN.md frontmatter — every hex value in these mockups byte-matches a token (PulseAzure, RecoverMint, stage set, eight category hues); the `across_the_room`, `glass_budget`, `stage_numerals`, and `haptics` rulesets are quoted where they constrain a decision.</li>
+    <li>Layout precedence per PRD §0.1: this file wins on layout; DESIGN.md wins on tokens and rules. If a conflict is found, amend one of them in the same change — never silently deviate (house anti-drift rule).</li>
+  </ul>
+</section>
+
+</div>

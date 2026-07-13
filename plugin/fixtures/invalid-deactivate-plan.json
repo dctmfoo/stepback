@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 2,
+  "commandID": "b5555555-5555-4555-8555-555555555555",
+  "verb": "deactivatePlan",
+  "payload": { "id": "plan-1" }
+}

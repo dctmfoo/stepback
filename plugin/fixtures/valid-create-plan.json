@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 2,
+  "commandID": "a3333333-3333-4333-8333-333333333333",
+  "verb": "createPlan",
+  "payload": {
+    "name": "Weekly Core",
+    "days": [
+      {
+        "weekday": 1,
+        "slots": [
+          { "routineRef": { "fromCommand": "a2222222-2222-4222-8222-222222222222" } }
+        ]
+      },
+      { "weekday": 2, "slots": [] },
+      { "weekday": 3, "slots": [] },
+      { "weekday": 4, "slots": [] },
+      { "weekday": 5, "slots": [] },
+      { "weekday": 6, "slots": [] },
+      { "weekday": 7, "slots": [] }
+    ]
+  }
+}

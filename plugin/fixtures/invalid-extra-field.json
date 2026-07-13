@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 2,
+  "commandID": "b4444444-4444-4444-8444-444444444444",
+  "verb": "createCustomWorkout",
+  "payload": {
+    "name": "Unsafe",
+    "categoryID": "core",
+    "deleteOthers": true
+  }
+}

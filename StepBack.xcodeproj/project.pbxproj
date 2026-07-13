@@ -1,0 +1,1593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00C4D5D546B6D1E6879AB4D9 /* RoutineLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A120B54DD2F08A0C0CAC08 /* RoutineLibrary.swift */; };
+		00CAC82292A6D5062E361475 /* StepBackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023608F63978F9D1668F5AFC /* StepBackApp.swift */; };
+		01C6A4EF93DCA57414A6443F /* PersistenceTestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278C52F1593B97EE506D1201 /* PersistenceTestSupport.swift */; };
+		0319745A44F7DBB5E1B2A461 /* PlayerAnnouncementSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60622AFBE4A3816FF91EAA8A /* PlayerAnnouncementSink.swift */; };
+		039556A0278CABF76561FBAF /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8D13B5CE233958C911C766 /* Models.swift */; };
+		06065DE9D0723A8F3B0A7705 /* WorkoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5F9FDB53251663ADC3DEF /* WorkoutItem.swift */; };
+		0742896FE039CC5A0CCD7D7C /* GalleryRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E33D00D85067323E0A321AE /* GalleryRoute.swift */; };
+		076F7B7B55591113191B09C7 /* PlayerWakeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2BF2C7B270CB9D6778B3C /* PlayerWakeService.swift */; };
+		0C3196A2EF869215A77FE5FC /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CCF87A607A7272B199E45A /* WorkoutDetailView.swift */; };
+		0E83CB97B7EEC368D15C5798 /* ModelContext+Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECEB3BC54AC747837592BC2 /* ModelContext+Save.swift */; };
+		0F157732FB897D460578AEA6 /* AgentBridgeManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA601EA5A6B1AE7AB9C8BBB /* AgentBridgeManifest.swift */; };
+		10DF797644878CDFE52BAA03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8E0461E315D61E1FA93C401 /* Assets.xcassets */; };
+		129D8A529E4B53FCAFFCD868 /* AppShellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F12B3CC4D8E8CE7CA0D292 /* AppShellView.swift */; };
+		194D79A1D87F6D08203FD3C6 /* ProductionCatalogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC57F161E6C05CC443CEF78 /* ProductionCatalogTests.swift */; };
+		19F298627050CB4DCA38034F /* RoutineStepRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487F11BF7E2603FA4752646 /* RoutineStepRow.swift */; };
+		1BA4EE8DFFFD59A2C57E3B93 /* PlayerSignposting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F840B9BDB99F4E49A3516A4B /* PlayerSignposting.swift */; };
+		1C43CCA0EAF315917A46F984 /* PlayerProgressFoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ADD8AD29AE12BCC3D938C1 /* PlayerProgressFoot.swift */; };
+		1EC09265A1CD5B1E67415B39 /* StepBackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023608F63978F9D1668F5AFC /* StepBackApp.swift */; };
+		1EE787EC5EA64524AD43DC7F /* PlayerSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677AEEA10EF3C0DCB0D63682 /* PlayerSegmentView.swift */; };
+		21E43F35B86721FE300AB27C /* WorkoutVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF883D65838AAB64A21649A2 /* WorkoutVisual.swift */; };
+		221033001D39358BCBCAEB8B /* PlanEditorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4926C74B514B58A6A88E036 /* PlanEditorPresentation.swift */; };
+		284607C9FCA38C91EC16E936 /* NoopPlayerSignposter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7765F4EF5EF8B555D4F295B9 /* NoopPlayerSignposter.swift */; };
+		28F4263A21D7BFF5A41539D8 /* MacAppShellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8150FF5CDF706ACB1BDCAF25 /* MacAppShellView.swift */; };
+		2B4B238EC57B95998E1CC80D /* PlayerStageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E923FAEAC372A7927806372 /* PlayerStageView.swift */; };
+		2B737BB36EE09CA4E0383CB7 /* RoutineBuilderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7B61CC6B0B5D4D493AB9E7 /* RoutineBuilderModel.swift */; };
+		2E787CC76F0FB2460CD98698 /* GallerySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FBCA40E7DAE61B9F1F5555 /* GallerySection.swift */; };
+		2EDC6073E23158898B45AA76 /* PlayerLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF70FFE98C8B129D2DEAD14 /* PlayerLauncher.swift */; };
+		2F14512C963F48BA725E930A /* NoopPlayerSignposter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7765F4EF5EF8B555D4F295B9 /* NoopPlayerSignposter.swift */; };
+		303886BCA3FF0F27BFC79D79 /* ModelContext+Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECEB3BC54AC747837592BC2 /* ModelContext+Save.swift */; };
+		312C52EFA9924E66335625F7 /* WelcomePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155212E6EE3D1640F8AF55B2 /* WelcomePreferences.swift */; };
+		3232135A5B3A62DF62E90630 /* PlatformColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2283660DEA09936340440 /* PlatformColors.swift */; };
+		327ABD56227CD636215897FF /* RoutineStepFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4EFEB501E194C261920672 /* RoutineStepFormatting.swift */; };
+		341720C4026C97DAC160CADD /* ShapeRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = D421CAA01BED6DBD5BDDB5BA /* ShapeRadius.swift */; };
+		366405FC52D5CC9D665CECCF /* StarterRoutineDeduplicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A51FE05266298463CDA201 /* StarterRoutineDeduplicatorTests.swift */; };
+		3704337281F506CE6F8F03BE /* GallerySectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063794E7770916B041C84800 /* GallerySectionHeader.swift */; };
+		376FDA7D580981A450FA3DCF /* RoutineBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8F2AD83453ED885208F11 /* RoutineBuilderView.swift */; };
+		37903F9FB36B09B8441E8995 /* RoutineCategoryDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9902BE9C54070842E0D01D /* RoutineCategoryDots.swift */; };
+		391472599B782E030675C181 /* PlayerControlBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E8D478F209612C88CD5FB1 /* PlayerControlBar.swift */; };
+		3A7AD3A2CF6EB58F9BD593D7 /* PlayerCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C186CD3F3272BED3DCAFBAA /* PlayerCompletionView.swift */; };
+		3AAD32BA86837B97EF15F4CC /* CloudAccountStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1E7F1C2BA1E4253991224 /* CloudAccountStatusModel.swift */; };
+		3AB3FF32CFAFE0F9A6386FC3 /* WeeklyPlanDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A41E7831775D6BDA838142 /* WeeklyPlanDayRow.swift */; };
+		3D064CDAB1BEEBF526690467 /* PlayerCompletionStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F98A2C9DB4CE0DD9481BF /* PlayerCompletionStatsView.swift */; };
+		3DA4AAF68931A61BC153D06D /* SystemSessionDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92329DBD4E12D14139C54D4 /* SystemSessionDateProvider.swift */; };
+		4135EAB3D4B7983DD39CDDB2 /* RoutineCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A580CD4774BF44D2990F63 /* RoutineCard.swift */; };
+		41A6B8C26A725FF6089E3CAF /* PlayerControlBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E8D478F209612C88CD5FB1 /* PlayerControlBar.swift */; };
+		427BE546700D208EF0F6580B /* InFlightSessionMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4637373527B6278F7CF4D210 /* InFlightSessionMarker.swift */; };
+		43654370AEDD624BC19DEE3B /* CategoryStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775B51E893211A9A201D06A /* CategoryStyle.swift */; };
+		448611F7059C741BC3D7C3F0 /* MacDetailRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86201FF0383452EB1B0E1620 /* MacDetailRoute.swift */; };
+		44C32D69C00959EC75C75DFC /* PlayerSessionRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B97628157B2C3EFAB8C305 /* PlayerSessionRecorder.swift */; };
+		44D0FA3AF953CDE00A0CA334 /* GalleryRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E33D00D85067323E0A321AE /* GalleryRoute.swift */; };
+		4628C2DBDA468B5F9D2618DE /* PlayerCompletionStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBEB35653C1EDB4E93348D /* PlayerCompletionStats.swift */; };
+		491E4C18BA74FB55BDC7B43E /* CloudKitAccountStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905BFA580AF15F17C6C66C05 /* CloudKitAccountStatusService.swift */; };
+		4A2344070A06F7368976CC79 /* RoutineCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A580CD4774BF44D2990F63 /* RoutineCard.swift */; };
+		4A52183641FFDED9C276FD50 /* StepBackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E1A1F153DD793B55B2AADA /* StepBackUITests.swift */; };
+		4A8DB15E1120038415CED8C6 /* StepBackBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA87D1D39B3612200F4F5613 /* StepBackBootstrap.swift */; };
+		4CA54EA1A4A9FAA59AD28F00 /* PlanWeeklyScheduleMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A6F175D7BBEE576A3E9472 /* PlanWeeklyScheduleMigrator.swift */; };
+		4CBDCB7E58B78EADA73D5B7A /* StepBackModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358802FCA9D4B4F5E7974709 /* StepBackModelContainer.swift */; };
+		4CE639832507E751803C6383 /* PlayerProgressFoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30ADD8AD29AE12BCC3D938C1 /* PlayerProgressFoot.swift */; };
+		4D2DDF0447B90B05B6F8732B /* PlayerLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF70FFE98C8B129D2DEAD14 /* PlayerLauncher.swift */; };
+		4E2EC2C585CB4DBE835BD8E6 /* CloudAccountAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA80C5B5743ECBE7911CBC /* CloudAccountAvailability.swift */; };
+		4FEC22CA4503309ED77CCDC3 /* StringCatalogSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31174EB13E7CFDCC678267A2 /* StringCatalogSourceTests.swift */; };
+		503374684AE745E022FB320D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8E0461E315D61E1FA93C401 /* Assets.xcassets */; };
+		52029581E688FBA78CDB1C92 /* RoutineBuilderFloatingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EB9F56FCBC93BF2302C37 /* RoutineBuilderFloatingBar.swift */; };
+		54C31CAC9850DC1CC708893B /* MacSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5CF4DB3AD0F26176F13A28 /* MacSidebar.swift */; };
+		56D72BF9A1DC2261024EAE68 /* WorkoutTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830A55B0D6E427D5EDFD364A /* WorkoutTile.swift */; };
+		5731D381FE9EF81CB9C3B3BF /* MotivationStrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E1AE2D3208EDEA49283321 /* MotivationStrip.swift */; };
+		57D54F764C47E89DC169C949 /* WorkoutVisual.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF883D65838AAB64A21649A2 /* WorkoutVisual.swift */; };
+		57EBC0712C296FB6EDCEE319 /* RoutineBuilderStepEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B70ED92CE7FF2BC3CC50AA /* RoutineBuilderStepEditor.swift */; };
+		5B5124B02B6521CCC0213360 /* PlanEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA40617A4C960EFE4F08FDD /* PlanEditorView.swift */; };
+		5C25FCF97EF7E45E574D5084 /* AddToRoutineSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF209E6264AEF1DC3E5E092 /* AddToRoutineSheet.swift */; };
+		5C748E2BBEA8405042CF1C9C /* UserDefaultsInFlightSessionMarkerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EE95E24F17BA56CADF7B5A /* UserDefaultsInFlightSessionMarkerStore.swift */; };
+		5D62CDBF31CC91F241DA44FE /* AddCustomWorkoutTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272113685BBC787CF3FA902 /* AddCustomWorkoutTile.swift */; };
+		5EC55DFEAECA2D60F8783896 /* ShapeRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = D421CAA01BED6DBD5BDDB5BA /* ShapeRadius.swift */; };
+		5F7F2EAAFFC2BA46D17FFCC2 /* RoutineBuilderFloatingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EB9F56FCBC93BF2302C37 /* RoutineBuilderFloatingBar.swift */; };
+		5FBBEA43681D7211F77A3AF9 /* ColorTokenContrastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C5668721400D86CCAAB5C3 /* ColorTokenContrastTests.swift */; };
+		5FEAE92B1C411CF30D2A8DF7 /* PlayerCompletionStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBEB35653C1EDB4E93348D /* PlayerCompletionStats.swift */; };
+		622439D35549A8FC40785285 /* AppSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8A3978327F3430A2D8FC6E /* AppSection.swift */; };
+		63017C363437110DD559D449 /* PlayerPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F59D68FFF5527BFBFB69F5 /* PlayerPreferences.swift */; };
+		6514B31863DE0FB5BEF39A16 /* TabAppShellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11A9CDAF4C9E27EC92D58B4 /* TabAppShellView.swift */; };
+		654CC24B23FB85EFBF653D7E /* WelcomePreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155212E6EE3D1640F8AF55B2 /* WelcomePreferences.swift */; };
+		671E95F3FF185592711F11B4 /* CategoryChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29619CD0FA6699F0F1F94F85 /* CategoryChip.swift */; };
+		69AF0E6A125C71152580F3F3 /* RoutineBuilderModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874BA8C660F2BAA7A5976ED5 /* RoutineBuilderModelTests.swift */; };
+		6A284162CD35667DC121E710 /* PlanEditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709649B565157B7D004A22A2 /* PlanEditorModel.swift */; };
+		6A4EA3D2A75EEFFC386944BE /* AgentBridgeManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA601EA5A6B1AE7AB9C8BBB /* AgentBridgeManifest.swift */; };
+		6A5EB5209D9D82506C30ACF3 /* RoutineLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A120B54DD2F08A0C0CAC08 /* RoutineLibrary.swift */; };
+		6A8710B22348E64D2BDB4510 /* MacSectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C3050BADE3EA9737BDDC10 /* MacSectionContent.swift */; };
+		6A8E4700107B676A7256DAC1 /* StarterRoutineDeduplicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F014C27BDFB501ED258EC5 /* StarterRoutineDeduplicator.swift */; };
+		6AFC3470CD0550C65C0DD4A8 /* WelcomeFeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DB1B8E15FBA09759339F4C /* WelcomeFeatureRow.swift */; };
+		6B61B7CCDD9B48EC678242FA /* WorkoutCatalogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67A7CCCB5C57C01BA651854 /* WorkoutCatalogService.swift */; };
+		6C4FEFB9A6D84FC2F5AE98D8 /* StarterRoutineSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F8B86A06CCF3BA0131E4B /* StarterRoutineSeeder.swift */; };
+		6CC22EECC1D2F576B0C36216 /* MacDetailRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86201FF0383452EB1B0E1620 /* MacDetailRoute.swift */; };
+		6ECF065C073703220BD6D0B0 /* PlatformColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2283660DEA09936340440 /* PlatformColors.swift */; };
+		70DE9FA2682F5D833CE29EAC /* StepBackMacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA8868AD79461C857B59D8 /* StepBackMacUITests.swift */; };
+		7163773331C3E02A5A2431FD /* WorkoutLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9569D98242FCF87D24DF80EE /* WorkoutLibrary.swift */; };
+		7193280697336E8A560354F0 /* WelcomeFeatureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DB1B8E15FBA09759339F4C /* WelcomeFeatureRow.swift */; };
+		7232B92E967BE3BEDA525F66 /* PlanEditorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4926C74B514B58A6A88E036 /* PlanEditorPresentation.swift */; };
+		744777CBE10EF7161E12C7FE /* PlayerSessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE42F7940F0735DFFB0AB338 /* PlayerSessionModel.swift */; };
+		744AFB75EAA18F066B4B3B02 /* CloudAccountStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEF7AE824B7116584141BBB /* CloudAccountStatusService.swift */; };
+		74E49C0A4CE39E2985AFD9A3 /* GeneratedToneSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC422E3278DE86A7619AD5 /* GeneratedToneSink.swift */; };
+		76A0F3D7E52B95E8806553B1 /* CategoryStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775B51E893211A9A201D06A /* CategoryStyle.swift */; };
+		7801969B6F8ACE7B171F600D /* WelcomeAndCloudStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90A9BBDE22658EE74592B52 /* WelcomeAndCloudStatusTests.swift */; };
+		79858D20667F592494144A3D /* PlayerWakeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2BF2C7B270CB9D6778B3C /* PlayerWakeService.swift */; };
+		7A104B6486A8208083657E78 /* CategoryChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29619CD0FA6699F0F1F94F85 /* CategoryChip.swift */; };
+		7B9B939685DF3822A2A68530 /* SystemPlayerSignposter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A038BA502A7F3236C901CAB2 /* SystemPlayerSignposter.swift */; };
+		7BDB68A72B8F98A2A760DD0F /* PlayerSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677AEEA10EF3C0DCB0D63682 /* PlayerSegmentView.swift */; };
+		7D18873AD78A15C5DAFEC57E /* RoutineStepFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4EFEB501E194C261920672 /* RoutineStepFormatting.swift */; };
+		7FBD5A569C9ED8A81AFFDE65 /* AgentBridgeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8F8243D08EFBC013D6DF0C /* AgentBridgeService.swift */; };
+		803DD96E1824155456A91D7F /* SystemSessionDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92329DBD4E12D14139C54D4 /* SystemSessionDateProvider.swift */; };
+		8081A92AFBA2F60A3F4A7D56 /* PlayerWindowRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7E4B1CB545027FD8021F4 /* PlayerWindowRoot.swift */; };
+		82EE65934A11B1488EDF91EF /* RoutinesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE816E5057C6DF4B2DBBD9AA /* RoutinesHomeView.swift */; };
+		83FB65D1EA5EA0E0A18F5467 /* PlanWeeklyScheduleMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A6F175D7BBEE576A3E9472 /* PlanWeeklyScheduleMigrator.swift */; };
+		850D2E432632AE3D1B1D97C0 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B4A2E3A29249E21CD70041 /* WelcomeView.swift */; };
+		853A742B2E064D174D4D2BFC /* RoutineCategoryDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9902BE9C54070842E0D01D /* RoutineCategoryDots.swift */; };
+		856D40AFA34D9BAC307BB3EA /* CategoryWorkoutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA92EA5037B9948FF17B012 /* CategoryWorkoutsView.swift */; };
+		85B2A1528DE1068CC2055986 /* StepBackCore in Frameworks */ = {isa = PBXBuildFile; productRef = 538D7E673B12B22C8CEAA1A0 /* StepBackCore */; };
+		86554C2F5C8C3E9AF225B403 /* PlayerStageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175A54019E51246C0BFDB73 /* PlayerStageColors.swift */; };
+		8877FD56ADCB2B1A89C0CD20 /* InFlightSessionMarkerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63392DC7C1140141ABD9C796 /* InFlightSessionMarkerStore.swift */; };
+		88A64D7A0A6EC3A2DFFA803D /* PlayerStageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E923FAEAC372A7927806372 /* PlayerStageView.swift */; };
+		8918C34726B4B9EA4AB95230 /* RoutinesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE816E5057C6DF4B2DBBD9AA /* RoutinesHomeView.swift */; };
+		8978F0234FBF8D524E988F78 /* PlanRoutinePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0EB62FBB9D4057B3B0C287 /* PlanRoutinePicker.swift */; };
+		8A5F4FB43BBC4EEA9C2530D5 /* FixedCloudAccountStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD515D613AEC7082FE9B62C /* FixedCloudAccountStatusService.swift */; };
+		8AA4B7E5DF9214CC3DA2E7CE /* SessionDateProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAAA459EB90651822D3C47 /* SessionDateProviding.swift */; };
+		8ABC478A68B474DC7850C23D /* RoutineBuilderWorkoutPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EFD46261CC312B7C60E37D /* RoutineBuilderWorkoutPicker.swift */; };
+		8AFC5CD1103CE4E1D1BB1717 /* PersistenceModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371B02A1D26ACDF229544BEB /* PersistenceModelTests.swift */; };
+		8BD3A7FD4CCBBC86B6612788 /* TabAppShellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11A9CDAF4C9E27EC92D58B4 /* TabAppShellView.swift */; };
+		8C9631BAA1B88DD95550D68F /* DisplayFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31865D798E11645AAE9741F8 /* DisplayFormatters.swift */; };
+		8D5041D8F2C150FC82D72841 /* PlatformNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E212491A0C7A9908991495 /* PlatformNavigation.swift */; };
+		8DE2EB9D0A68A4A12E212AC6 /* WorkoutTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830A55B0D6E427D5EDFD364A /* WorkoutTile.swift */; };
+		8E5E77DDFC10F05B4CB164CA /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C3567BDE13046388508F5 /* GalleryView.swift */; };
+		8F2FD14DBF589A229B187328 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C3567BDE13046388508F5 /* GalleryView.swift */; };
+		90BAA5CE3175D2BF1E8DA0CB /* SettingsControlLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30063A32571E0FDE8E91672A /* SettingsControlLabel.swift */; };
+		90DCE097388823F8E35CF001 /* StarterRoutineDeduplicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F014C27BDFB501ED258EC5 /* StarterRoutineDeduplicator.swift */; };
+		911BAF6C916597C53E0A602A /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18489B1B0D9B63867882F42F /* L10n.swift */; };
+		923AD8E2F6EC79A8F71AE83F /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CCF87A607A7272B199E45A /* WorkoutDetailView.swift */; };
+		9636BE4BC14E40C9C2CD4BB0 /* RoutineStepRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487F11BF7E2603FA4752646 /* RoutineStepRow.swift */; };
+		974A4494390D969AD12200FB /* AgentBridgeFolderRevealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61500DD527EB75E738A193AD /* AgentBridgeFolderRevealer.swift */; };
+		986C702369429BE81DB97403 /* StepBackPerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32A7C81517DC2DA3448327C /* StepBackPerformanceTests.swift */; };
+		990534B86F1BA0E974197C6A /* PlayerSessionRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B97628157B2C3EFAB8C305 /* PlayerSessionRecorder.swift */; };
+		993202346E94E15A4C9408AC /* PlanDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB67D9413E3B98D63C68B6E /* PlanDetailView.swift */; };
+		99DD2A332231D986FB884CDF /* WorkoutLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9569D98242FCF87D24DF80EE /* WorkoutLibrary.swift */; };
+		9A4D77302A7B7E9A7C5BFA53 /* RoutineRestRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E4C63295736CEA9B596B5E /* RoutineRestRow.swift */; };
+		9C404245FE092AB302498912 /* StepBackAccessibilityAuditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8375CD5C14F6444B3E5A8C /* StepBackAccessibilityAuditTests.swift */; };
+		9C60A1B769CFB02EEED88446 /* PlanLaunchContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184133F73659F8AC3BA50F4D /* PlanLaunchContext.swift */; };
+		9C6D8A1A5E383DF42EC9C3B2 /* BrowsingModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2C505586468BEFC0D595DE /* BrowsingModelTests.swift */; };
+		9F188B9AB94F0AF78717C7FE /* RoutineBuilderWorkoutPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EFD46261CC312B7C60E37D /* RoutineBuilderWorkoutPicker.swift */; };
+		9F710B6EF41986B53FDAD052 /* PlayerStageRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D9400C781F7121ACBD717E /* PlayerStageRoot.swift */; };
+		A05EF539CB68743743C570A1 /* AgentBridgeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578C8D6CD1D732AF4920D5B /* AgentBridgeProtocol.swift */; };
+		A45F556024C58865ED0C7C3E /* CustomEditorRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7282369927CF9F9C397DBF27 /* CustomEditorRequest.swift */; };
+		A76748935460609FBA1B9930 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18489B1B0D9B63867882F42F /* L10n.swift */; };
+		AA6E0451DE549EC0E3B04789 /* InFlightSessionMarkerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63392DC7C1140141ABD9C796 /* InFlightSessionMarkerStore.swift */; };
+		AB0456709F3E08388F5646F6 /* PlanLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0AB5770404FCCB25235821 /* PlanLibrary.swift */; };
+		AB8456A5B4F7F653C72798B9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F298E53E8D97109DD78D6 /* SettingsView.swift */; };
+		AE007592A8ECB0B16C76F6CA /* AppSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8A3978327F3430A2D8FC6E /* AppSection.swift */; };
+		AF0255A959C82CB4FD881930 /* PlayerPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F59D68FFF5527BFBFB69F5 /* PlayerPreferences.swift */; };
+		AF267B5CA0A52BCDFA9971D6 /* GallerySectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063794E7770916B041C84800 /* GallerySectionHeader.swift */; };
+		B0564FF1C8C23770F1AEFA8E /* PlatformNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E212491A0C7A9908991495 /* PlatformNavigation.swift */; };
+		B162F7B85ABB8ADE22D542AB /* AgentBridgePluginContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558E2480503D9BEB9C013327 /* AgentBridgePluginContractTests.swift */; };
+		B375792DF676AF3C419BBB3E /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3B4A2E3A29249E21CD70041 /* WelcomeView.swift */; };
+		B43A5C847EA25F5B02896A00 /* PlansListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5EC1EF3F07BE19FEC8A6 /* PlansListView.swift */; };
+		B54CE345A8236249CB439CDF /* RoutineBuilderPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B387C1A4B8E1AC13437EC77 /* RoutineBuilderPresentation.swift */; };
+		B6D53F6A390206E8B3C522E7 /* AgentBridgeFolderRevealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61500DD527EB75E738A193AD /* AgentBridgeFolderRevealer.swift */; };
+		B6F6EB55DC3A5FC25F1C399E /* PlanPersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775ED6934F3AA36EE76067F1 /* PlanPersistenceTests.swift */; };
+		B989830E2F36CBA813FB975A /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8D13B5CE233958C911C766 /* Models.swift */; };
+		BA61AE0B04FE699C7A67B793 /* StepBackCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1C83A3D3FE377943420A9802 /* StepBackCore */; };
+		BBE4D401455FCA8C741C446E /* RoutineRestRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E4C63295736CEA9B596B5E /* RoutineRestRow.swift */; };
+		BC1B16CB4A79CB8A48C1C72E /* WorkoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D5F9FDB53251663ADC3DEF /* WorkoutItem.swift */; };
+		BE2619D3C47CBCF99E5BC0FB /* PlanEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA40617A4C960EFE4F08FDD /* PlanEditorView.swift */; };
+		BE85F20FBABF84470727EE0B /* AddToRoutineSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF209E6264AEF1DC3E5E092 /* AddToRoutineSheet.swift */; };
+		BF75BA3499150800DAF1C697 /* StepBackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A768744A74588460D6F47B /* StepBackTests.swift */; };
+		BF806DC5FA3660EE4213F3BE /* CloudKitAccountStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905BFA580AF15F17C6C66C05 /* CloudKitAccountStatusService.swift */; };
+		C183D00D62D5F25031DD2844 /* RoutineBuilderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7B61CC6B0B5D4D493AB9E7 /* RoutineBuilderModel.swift */; };
+		C1C069C5E4D834702146A13F /* CloudAccountStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEF7AE824B7116584141BBB /* CloudAccountStatusService.swift */; };
+		C2386DDBE3694CA58DC65854 /* PlayerCompletionStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56F98A2C9DB4CE0DD9481BF /* PlayerCompletionStatsView.swift */; };
+		C5BEB1D989B27E9DAC7F35C8 /* MacSectionContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C3050BADE3EA9737BDDC10 /* MacSectionContent.swift */; };
+		C6C5E71D2548FB920FAB852D /* PlanLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0AB5770404FCCB25235821 /* PlanLibrary.swift */; };
+		C86A8DB34E84C997D5542AC6 /* RoutineBuilderStepEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B70ED92CE7FF2BC3CC50AA /* RoutineBuilderStepEditor.swift */; };
+		C89E68D5DB9D5C175DFCB636 /* AddCustomWorkoutTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272113685BBC787CF3FA902 /* AddCustomWorkoutTile.swift */; };
+		CDBFFB82BFAFABAEE2B20843 /* WorkoutCatalogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67A7CCCB5C57C01BA651854 /* WorkoutCatalogService.swift */; };
+		CE24B3E41AA25EAECBCBFF55 /* CategoryWorkoutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA92EA5037B9948FF17B012 /* CategoryWorkoutsView.swift */; };
+		CE80618EDF98132595CDD24F /* MacSidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5CF4DB3AD0F26176F13A28 /* MacSidebar.swift */; };
+		CEC8786FB1A7EDD415847027 /* CloudAccountAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FFA80C5B5743ECBE7911CBC /* CloudAccountAvailability.swift */; };
+		D08B30F1AEC179BC2DEF269F /* InFlightSessionMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4637373527B6278F7CF4D210 /* InFlightSessionMarker.swift */; };
+		D195F1705C4623B09B46C920 /* PlayerAudioSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B9BE25B096864518B7F539 /* PlayerAudioSession.swift */; };
+		D4ED19DA7F921D35F448996D /* RoutineStepDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABDCD324370DBC1FF2D266 /* RoutineStepDefaults.swift */; };
+		D5E37093B281E25CE4485660 /* MotivationStrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E1AE2D3208EDEA49283321 /* MotivationStrip.swift */; };
+		D74147B4C9040CDFC8F7DC42 /* StarterRoutineSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8F8B86A06CCF3BA0131E4B /* StarterRoutineSeeder.swift */; };
+		D7D996FF236D1CC90AF74FF6 /* SettingsControlLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30063A32571E0FDE8E91672A /* SettingsControlLabel.swift */; };
+		D82422433D3E5D1D8ADA5F1B /* PlayerSessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE42F7940F0735DFFB0AB338 /* PlayerSessionModel.swift */; };
+		D8E9BB7D7BF11831CDCA70DE /* RoutineBuilderStepBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E14279BD73876D0CCDC32D /* RoutineBuilderStepBlock.swift */; };
+		DA5926F4F94DD7DBECC0BFCB /* TodayPlanCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FB06C96F5686CF260DA8AF /* TodayPlanCard.swift */; };
+		DB5867605772BE5FD8187622 /* RoutineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536C0807F3424D56760C38F9 /* RoutineDetailView.swift */; };
+		DB60B91712AAA22D5CBB59CA /* RoutineBuilderPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B387C1A4B8E1AC13437EC77 /* RoutineBuilderPresentation.swift */; };
+		DB6334A286695F63665E2F47 /* SessionDateProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAAA459EB90651822D3C47 /* SessionDateProviding.swift */; };
+		DC52EC8473CA4ABA5B29384A /* CustomEditorRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7282369927CF9F9C397DBF27 /* CustomEditorRequest.swift */; };
+		DD5949AEDEE80A18895EA9DB /* PlanEditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709649B565157B7D004A22A2 /* PlanEditorModel.swift */; };
+		DDA98C4A4A48FDD0CE01F86C /* PlayerWindowRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A7E4B1CB545027FD8021F4 /* PlayerWindowRoot.swift */; };
+		DE97A1C77A85E224306F92B0 /* PlanDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB67D9413E3B98D63C68B6E /* PlanDetailView.swift */; };
+		DEC48253CA37333DD4CA3790 /* GeneratedToneSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FC422E3278DE86A7619AD5 /* GeneratedToneSink.swift */; };
+		DEE698DFE6AF1A22D1B7AEAE /* PlayerSessionRecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DE18D5E811DBD2C020FAB5 /* PlayerSessionRecorderTests.swift */; };
+		DFBE1BC67D7EC22ECAB3211C /* PlanRoutinePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0EB62FBB9D4057B3B0C287 /* PlanRoutinePicker.swift */; };
+		DFCC78DCBF2D2562CDFCBC32 /* StepBackMacAccessibilityAuditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC2EC45C4F01C0390EC0F8 /* StepBackMacAccessibilityAuditTests.swift */; };
+		E1FD869EF83133A81DA2D321 /* PlayerPartialCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1AA0876E78612C1103F65 /* PlayerPartialCompletionView.swift */; };
+		E2F68EADEBFEE76839233AF5 /* PlayerStageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175A54019E51246C0BFDB73 /* PlayerStageColors.swift */; };
+		E43C39E84E15895BCD46B69C /* PlayerSessionModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403BE909BBD5B31CB94BF5E6 /* PlayerSessionModelTests.swift */; };
+		E4B0B86671F7B8791B771D70 /* PlayerAnnouncementSink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60622AFBE4A3816FF91EAA8A /* PlayerAnnouncementSink.swift */; };
+		E4F1E65F04FD5DAA818EBF62 /* PlayerStageRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D9400C781F7121ACBD717E /* PlayerStageRoot.swift */; };
+		E565AABCA0FE4BA2DDBD9130 /* PlanLaunchContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184133F73659F8AC3BA50F4D /* PlanLaunchContext.swift */; };
+		E6E3692689125C07D247AF3C /* workout-catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = 97688A7B5AF0B9B79E989AD6 /* workout-catalog.json */; };
+		E76129A40CB679462F06368E /* RoutineBuilderStepBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E14279BD73876D0CCDC32D /* RoutineBuilderStepBlock.swift */; };
+		EAE734D0D5A1B0F5A95A76A8 /* PlansListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116E5EC1EF3F07BE19FEC8A6 /* PlansListView.swift */; };
+		EB3D6241887E52D542180BBF /* AgentBridgeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8F8243D08EFBC013D6DF0C /* AgentBridgeService.swift */; };
+		EBA76E92924137052D16139C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 314A1557BE7C48430EB5A605 /* Localizable.xcstrings */; };
+		EBC269B94BC4B966C3BA6237 /* SystemPlayerSignposter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A038BA502A7F3236C901CAB2 /* SystemPlayerSignposter.swift */; };
+		EC8E07A693822F42D1F26570 /* StepBackModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358802FCA9D4B4F5E7974709 /* StepBackModelContainer.swift */; };
+		ECFF560911670B6CAC7A1980 /* StarterRoutineSeederTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A129DAF255F9B09FA7D0DA0A /* StarterRoutineSeederTests.swift */; };
+		ED453B16ED3143296C66D467 /* RoutineBuilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8F2AD83453ED885208F11 /* RoutineBuilderView.swift */; };
+		EE75F440DC9A73CFDA65F15F /* WeeklyPlanDayRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A41E7831775D6BDA838142 /* WeeklyPlanDayRow.swift */; };
+		EE819960E7839288609E78AC /* PlayerCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C186CD3F3272BED3DCAFBAA /* PlayerCompletionView.swift */; };
+		EF2DDE5B930ACBAD0D34AEDD /* AgentBridgeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578C8D6CD1D732AF4920D5B /* AgentBridgeProtocol.swift */; };
+		F0A5AC9FAD61399C0650D3EF /* PlayerPartialCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF1AA0876E78612C1103F65 /* PlayerPartialCompletionView.swift */; };
+		F12BC9CC65987D2581FB581D /* RoutineDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536C0807F3424D56760C38F9 /* RoutineDetailView.swift */; };
+		F197D90DEC3D7AFF8A3EC668 /* AppShellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F12B3CC4D8E8CE7CA0D292 /* AppShellView.swift */; };
+		F247684BCD2C70CCFB38F1AB /* CloudAccountStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC1E7F1C2BA1E4253991224 /* CloudAccountStatusModel.swift */; };
+		F24F1070007AEF1D0D6502AF /* FixedCloudAccountStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD515D613AEC7082FE9B62C /* FixedCloudAccountStatusService.swift */; };
+		F2561BD8A3F349A964F07EB1 /* PlayerTimingIntegrityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB8C041C59FFF7952B18407 /* PlayerTimingIntegrityTests.swift */; };
+		F2B2BB545DF6F0182557B6E4 /* PlayerSignposting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F840B9BDB99F4E49A3516A4B /* PlayerSignposting.swift */; };
+		F34178EA40CD5BAA94FB74A3 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 314A1557BE7C48430EB5A605 /* Localizable.xcstrings */; };
+		F3C8B8064A8E7BA3F1FB71E5 /* CustomWorkoutEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5DF2B9320E1A4302BDF44 /* CustomWorkoutEditor.swift */; };
+		F47D9A92194254DE9AC84C60 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17F298E53E8D97109DD78D6 /* SettingsView.swift */; };
+		F79C87708AEFB03ADBAC4D3F /* DisplayFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31865D798E11645AAE9741F8 /* DisplayFormatters.swift */; };
+		F9671CE836BAD651438B3F45 /* PlayerAudioSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B9BE25B096864518B7F539 /* PlayerAudioSession.swift */; };
+		FAC5BB37E903FD9B804D3714 /* workout-catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = 97688A7B5AF0B9B79E989AD6 /* workout-catalog.json */; };
+		FB27C37FD9722F3DEAF38570 /* MacAppShellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8150FF5CDF706ACB1BDCAF25 /* MacAppShellView.swift */; };
+		FC00072C096B47D7CF9EB3FE /* CustomWorkoutEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5DF2B9320E1A4302BDF44 /* CustomWorkoutEditor.swift */; };
+		FC014BCD042F09614DB06438 /* RoutineStepDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19ABDCD324370DBC1FF2D266 /* RoutineStepDefaults.swift */; };
+		FC180A9E21994E3A95CFC6A1 /* GallerySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FBCA40E7DAE61B9F1F5555 /* GallerySection.swift */; };
+		FC28CCB1C6787F3A0E35C186 /* UserDefaultsInFlightSessionMarkerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01EE95E24F17BA56CADF7B5A /* UserDefaultsInFlightSessionMarkerStore.swift */; };
+		FDB4A2D9F9D3E2BD81CBDE79 /* StepBackBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA87D1D39B3612200F4F5613 /* StepBackBootstrap.swift */; };
+		FE454A7C7B7E34D44BC1423E /* TodayPlanCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FB06C96F5686CF260DA8AF /* TodayPlanCard.swift */; };
+		FFBB11DAE73A202CC3F38DDB /* AgentBridgeServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECCAC7250708B24CA348654 /* AgentBridgeServiceTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9066358E6ED2276D82EDC317 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0CA39756C4A5914D4F7268C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0CAB4F2430D9C0B761CF496;
+			remoteInfo = StepBack;
+		};
+		9CBB1C70AF574256591252B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0CA39756C4A5914D4F7268C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A0CAB4F2430D9C0B761CF496;
+			remoteInfo = StepBack;
+		};
+		CC3DFD0171AB9CB60298C62D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0CA39756C4A5914D4F7268C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B92A60287648D44718B2201;
+			remoteInfo = StepBackMac;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		003BCD2D5738A86ED1B865BA /* StepBackCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = StepBackCore; path = StepBackCore; sourceTree = SOURCE_ROOT; };
+		01EE95E24F17BA56CADF7B5A /* UserDefaultsInFlightSessionMarkerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsInFlightSessionMarkerStore.swift; sourceTree = "<group>"; };
+		023608F63978F9D1668F5AFC /* StepBackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBackApp.swift; sourceTree = "<group>"; };
+		063794E7770916B041C84800 /* GallerySectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallerySectionHeader.swift; sourceTree = "<group>"; };
+		09FB06C96F5686CF260DA8AF /* TodayPlanCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPlanCard.swift; sourceTree = "<group>"; };
+		0E2C505586468BEFC0D595DE /* BrowsingModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsingModelTests.swift; sourceTree = "<group>"; };
+		10C3050BADE3EA9737BDDC10 /* MacSectionContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSectionContent.swift; sourceTree = "<group>"; };
+		116E5EC1EF3F07BE19FEC8A6 /* PlansListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansListView.swift; sourceTree = "<group>"; };
+		1487F11BF7E2603FA4752646 /* RoutineStepRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineStepRow.swift; sourceTree = "<group>"; };
+		14F59D68FFF5527BFBFB69F5 /* PlayerPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPreferences.swift; sourceTree = "<group>"; };
+		155212E6EE3D1640F8AF55B2 /* WelcomePreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePreferences.swift; sourceTree = "<group>"; };
+		168C3567BDE13046388508F5 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		175EB9F56FCBC93BF2302C37 /* RoutineBuilderFloatingBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineBuilderFloatingBar.swift; sourceTree = "<group>"; };
+		184133F73659F8AC3BA50F4D /* PlanLaunchContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanLaunchContext.swift; sourceTree = "<group>"; };
+		18489B1B0D9B63867882F42F /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		19ABDCD324370DBC1FF2D266 /* RoutineStepDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineStepDefaults.swift; sourceTree = "<group>"; };
+		1B0EB62FBB9D4057B3B0C287 /* PlanRoutinePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanRoutinePicker.swift; sourceTree = "<group>"; };
+		1ECCAC7250708B24CA348654 /* AgentBridgeServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentBridgeServiceTests.swift; sourceTree = "<group>"; };
+		23DE18D5E811DBD2C020FAB5 /* PlayerSessionRecorderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSessionRecorderTests.swift; sourceTree = "<group>"; };
+		2611C29C19FBEA4C837B51EF /* StepBackMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepBackMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		26A120B54DD2F08A0C0CAC08 /* RoutineLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineLibrary.swift; sourceTree = "<group>"; };
+		278C52F1593B97EE506D1201 /* PersistenceTestSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceTestSupport.swift; sourceTree = "<group>"; };
+		29619CD0FA6699F0F1F94F85 /* CategoryChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryChip.swift; sourceTree = "<group>"; };
+		29A6F175D7BBEE576A3E9472 /* PlanWeeklyScheduleMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanWeeklyScheduleMigrator.swift; sourceTree = "<group>"; };
+		2B8A3978327F3430A2D8FC6E /* AppSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSection.swift; sourceTree = "<group>"; };
+		2EF1AA0876E78612C1103F65 /* PlayerPartialCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPartialCompletionView.swift; sourceTree = "<group>"; };
+		30063A32571E0FDE8E91672A /* SettingsControlLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsControlLabel.swift; sourceTree = "<group>"; };
+		30ADD8AD29AE12BCC3D938C1 /* PlayerProgressFoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerProgressFoot.swift; sourceTree = "<group>"; };
+		31174EB13E7CFDCC678267A2 /* StringCatalogSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringCatalogSourceTests.swift; sourceTree = "<group>"; };
+		314A1557BE7C48430EB5A605 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		31865D798E11645AAE9741F8 /* DisplayFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayFormatters.swift; sourceTree = "<group>"; };
+		32A51FE05266298463CDA201 /* StarterRoutineDeduplicatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterRoutineDeduplicatorTests.swift; sourceTree = "<group>"; };
+		3323B11E7A5E1F71C95DCD59 /* StepBackMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StepBackMac.entitlements; sourceTree = "<group>"; };
+		33FBCA40E7DAE61B9F1F5555 /* GallerySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallerySection.swift; sourceTree = "<group>"; };
+		34A41E7831775D6BDA838142 /* WeeklyPlanDayRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyPlanDayRow.swift; sourceTree = "<group>"; };
+		3578C8D6CD1D732AF4920D5B /* AgentBridgeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentBridgeProtocol.swift; sourceTree = "<group>"; };
+		358802FCA9D4B4F5E7974709 /* StepBackModelContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBackModelContainer.swift; sourceTree = "<group>"; };
+		371B02A1D26ACDF229544BEB /* PersistenceModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceModelTests.swift; sourceTree = "<group>"; };
+		3B387C1A4B8E1AC13437EC77 /* RoutineBuilderPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineBuilderPresentation.swift; sourceTree = "<group>"; };
+		403BE909BBD5B31CB94BF5E6 /* PlayerSessionModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSessionModelTests.swift; sourceTree = "<group>"; };
+		40EBEB35653C1EDB4E93348D /* PlayerCompletionStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCompletionStats.swift; sourceTree = "<group>"; };
+		43CCF87A607A7272B199E45A /* WorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
+		44E1A1F153DD793B55B2AADA /* StepBackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBackUITests.swift; sourceTree = "<group>"; };
+		4637373527B6278F7CF4D210 /* InFlightSessionMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InFlightSessionMarker.swift; sourceTree = "<group>"; };
+		46ED8A21F9D36A90E3306D55 /* StepBackTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = StepBackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ECEB3BC54AC747837592BC2 /* ModelContext+Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelContext+Save.swift"; sourceTree = "<group>"; };
+		4EF209E6264AEF1DC3E5E092 /* AddToRoutineSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToRoutineSheet.swift; sourceTree = "<group>"; };
+		52B8F2AD83453ED885208F11 /* RoutineBuilderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineBuilderView.swift; sourceTree = "<group>"; };
+		536C0807F3424D56760C38F9 /* RoutineDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineDetailView.swift; sourceTree = "<group>"; };
+		53FC422E3278DE86A7619AD5 /* GeneratedToneSink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedToneSink.swift; sourceTree = "<group>"; };
+		558E2480503D9BEB9C013327 /* AgentBridgePluginContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentBridgePluginContractTests.swift; sourceTree = "<group>"; };
+		55C5668721400D86CCAAB5C3 /* ColorTokenContrastTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTokenContrastTests.swift; sourceTree = "<group>"; };
+		55D9400C781F7121ACBD717E /* PlayerStageRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStageRoot.swift; sourceTree = "<group>"; };
+		57B9BE25B096864518B7F539 /* PlayerAudioSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerAudioSession.swift; sourceTree = "<group>"; };
+		58E4C63295736CEA9B596B5E /* RoutineRestRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineRestRow.swift; sourceTree = "<group>"; };
+		5C4EFEB501E194C261920672 /* RoutineStepFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineStepFormatting.swift; sourceTree = "<group>"; };
+		5C8F8B86A06CCF3BA0131E4B /* StarterRoutineSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterRoutineSeeder.swift; sourceTree = "<group>"; };
+		5CB8C041C59FFF7952B18407 /* PlayerTimingIntegrityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTimingIntegrityTests.swift; sourceTree = "<group>"; };
+		5E33D00D85067323E0A321AE /* GalleryRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryRoute.swift; sourceTree = "<group>"; };
+		60622AFBE4A3816FF91EAA8A /* PlayerAnnouncementSink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerAnnouncementSink.swift; sourceTree = "<group>"; };
+		61500DD527EB75E738A193AD /* AgentBridgeFolderRevealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentBridgeFolderRevealer.swift; sourceTree = "<group>"; };
+		62E212491A0C7A9908991495 /* PlatformNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformNavigation.swift; sourceTree = "<group>"; };
+		62F12B3CC4D8E8CE7CA0D292 /* AppShellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShellView.swift; sourceTree = "<group>"; };
+		63392DC7C1140141ABD9C796 /* InFlightSessionMarkerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InFlightSessionMarkerStore.swift; sourceTree = "<group>"; };
+		677AEEA10EF3C0DCB0D63682 /* PlayerSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSegmentView.swift; sourceTree = "<group>"; };
+		6FEF7AE824B7116584141BBB /* CloudAccountStatusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAccountStatusService.swift; sourceTree = "<group>"; };
+		709649B565157B7D004A22A2 /* PlanEditorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanEditorModel.swift; sourceTree = "<group>"; };
+		7282369927CF9F9C397DBF27 /* CustomEditorRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEditorRequest.swift; sourceTree = "<group>"; };
+		775ED6934F3AA36EE76067F1 /* PlanPersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanPersistenceTests.swift; sourceTree = "<group>"; };
+		7765F4EF5EF8B555D4F295B9 /* NoopPlayerSignposter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoopPlayerSignposter.swift; sourceTree = "<group>"; };
+		78EFD46261CC312B7C60E37D /* RoutineBuilderWorkoutPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineBuilderWorkoutPicker.swift; sourceTree = "<group>"; };
+		7AF70FFE98C8B129D2DEAD14 /* PlayerLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLauncher.swift; sourceTree = "<group>"; };
+		7C186CD3F3272BED3DCAFBAA /* PlayerCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCompletionView.swift; sourceTree = "<group>"; };
+		7DA92EA5037B9948FF17B012 /* CategoryWorkoutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryWorkoutsView.swift; sourceTree = "<group>"; };
+		8150FF5CDF706ACB1BDCAF25 /* MacAppShellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacAppShellView.swift; sourceTree = "<group>"; };
+		830A55B0D6E427D5EDFD364A /* WorkoutTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTile.swift; sourceTree = "<group>"; };
+		85A2283660DEA09936340440 /* PlatformColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformColors.swift; sourceTree = "<group>"; };
+		86201FF0383452EB1B0E1620 /* MacDetailRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacDetailRoute.swift; sourceTree = "<group>"; };
+		874BA8C660F2BAA7A5976ED5 /* RoutineBuilderModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineBuilderModelTests.swift; sourceTree = "<group>"; };
+		8AA601EA5A6B1AE7AB9C8BBB /* AgentBridgeManifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentBridgeManifest.swift; sourceTree = "<group>"; };
+		8B34EA0A09EA53292718A615 /* StepBackUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = StepBackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C0AB5770404FCCB25235821 /* PlanLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanLibrary.swift; sourceTree = "<group>"; };
+		8D7B61CC6B0B5D4D493AB9E7 /* RoutineBuilderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineBuilderModel.swift; sourceTree = "<group>"; };
+		8E923FAEAC372A7927806372 /* PlayerStageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStageView.swift; sourceTree = "<group>"; };
+		8FFA80C5B5743ECBE7911CBC /* CloudAccountAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAccountAvailability.swift; sourceTree = "<group>"; };
+		905BFA580AF15F17C6C66C05 /* CloudKitAccountStatusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitAccountStatusService.swift; sourceTree = "<group>"; };
+		9569D98242FCF87D24DF80EE /* WorkoutLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutLibrary.swift; sourceTree = "<group>"; };
+		95B70ED92CE7FF2BC3CC50AA /* RoutineBuilderStepEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineBuilderStepEditor.swift; sourceTree = "<group>"; };
+		97688A7B5AF0B9B79E989AD6 /* workout-catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "workout-catalog.json"; sourceTree = "<group>"; };
+		9FA40617A4C960EFE4F08FDD /* PlanEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanEditorView.swift; sourceTree = "<group>"; };
+		A038BA502A7F3236C901CAB2 /* SystemPlayerSignposter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemPlayerSignposter.swift; sourceTree = "<group>"; };
+		A11A9CDAF4C9E27EC92D58B4 /* TabAppShellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabAppShellView.swift; sourceTree = "<group>"; };
+		A129DAF255F9B09FA7D0DA0A /* StarterRoutineSeederTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterRoutineSeederTests.swift; sourceTree = "<group>"; };
+		A1A768744A74588460D6F47B /* StepBackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBackTests.swift; sourceTree = "<group>"; };
+		A1B2BF2C7B270CB9D6778B3C /* PlayerWakeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWakeService.swift; sourceTree = "<group>"; };
+		A3776C829FB11907CC7E87F9 /* StepBack.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = StepBack.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8D5F9FDB53251663ADC3DEF /* WorkoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutItem.swift; sourceTree = "<group>"; };
+		AE30C620F49D0503B571943C /* StepBackMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepBackMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF8D13B5CE233958C911C766 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		B17F298E53E8D97109DD78D6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B56F98A2C9DB4CE0DD9481BF /* PlayerCompletionStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCompletionStatsView.swift; sourceTree = "<group>"; };
+		B92329DBD4E12D14139C54D4 /* SystemSessionDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSessionDateProvider.swift; sourceTree = "<group>"; };
+		BC5CF4DB3AD0F26176F13A28 /* MacSidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSidebar.swift; sourceTree = "<group>"; };
+		BCB67D9413E3B98D63C68B6E /* PlanDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailView.swift; sourceTree = "<group>"; };
+		C1A7E4B1CB545027FD8021F4 /* PlayerWindowRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWindowRoot.swift; sourceTree = "<group>"; };
+		C2DB1B8E15FBA09759339F4C /* WelcomeFeatureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeFeatureRow.swift; sourceTree = "<group>"; };
+		C371F1E411479CE185E82D96 /* StepBack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StepBack.entitlements; sourceTree = "<group>"; };
+		C3B4A2E3A29249E21CD70041 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		C3B97628157B2C3EFAB8C305 /* PlayerSessionRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSessionRecorder.swift; sourceTree = "<group>"; };
+		C4926C74B514B58A6A88E036 /* PlanEditorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanEditorPresentation.swift; sourceTree = "<group>"; };
+		C67A7CCCB5C57C01BA651854 /* WorkoutCatalogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCatalogService.swift; sourceTree = "<group>"; };
+		C6E1AE2D3208EDEA49283321 /* MotivationStrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationStrip.swift; sourceTree = "<group>"; };
+		C8E0461E315D61E1FA93C401 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C90A9BBDE22658EE74592B52 /* WelcomeAndCloudStatusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeAndCloudStatusTests.swift; sourceTree = "<group>"; };
+		CA87D1D39B3612200F4F5613 /* StepBackBootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBackBootstrap.swift; sourceTree = "<group>"; };
+		CCBA8868AD79461C857B59D8 /* StepBackMacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBackMacUITests.swift; sourceTree = "<group>"; };
+		CEAC2EC45C4F01C0390EC0F8 /* StepBackMacAccessibilityAuditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBackMacAccessibilityAuditTests.swift; sourceTree = "<group>"; };
+		CEBAAA459EB90651822D3C47 /* SessionDateProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDateProviding.swift; sourceTree = "<group>"; };
+		D32A7C81517DC2DA3448327C /* StepBackPerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBackPerformanceTests.swift; sourceTree = "<group>"; };
+		D3E5DF2B9320E1A4302BDF44 /* CustomWorkoutEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWorkoutEditor.swift; sourceTree = "<group>"; };
+		D421CAA01BED6DBD5BDDB5BA /* ShapeRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeRadius.swift; sourceTree = "<group>"; };
+		DE816E5057C6DF4B2DBBD9AA /* RoutinesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinesHomeView.swift; sourceTree = "<group>"; };
+		DEC57F161E6C05CC443CEF78 /* ProductionCatalogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionCatalogTests.swift; sourceTree = "<group>"; };
+		DF883D65838AAB64A21649A2 /* WorkoutVisual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutVisual.swift; sourceTree = "<group>"; };
+		E175A54019E51246C0BFDB73 /* PlayerStageColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStageColors.swift; sourceTree = "<group>"; };
+		E1F014C27BDFB501ED258EC5 /* StarterRoutineDeduplicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterRoutineDeduplicator.swift; sourceTree = "<group>"; };
+		E272113685BBC787CF3FA902 /* AddCustomWorkoutTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomWorkoutTile.swift; sourceTree = "<group>"; };
+		E7A580CD4774BF44D2990F63 /* RoutineCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCard.swift; sourceTree = "<group>"; };
+		E8E14279BD73876D0CCDC32D /* RoutineBuilderStepBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineBuilderStepBlock.swift; sourceTree = "<group>"; };
+		EB8375CD5C14F6444B3E5A8C /* StepBackAccessibilityAuditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepBackAccessibilityAuditTests.swift; sourceTree = "<group>"; };
+		EE42F7940F0735DFFB0AB338 /* PlayerSessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSessionModel.swift; sourceTree = "<group>"; };
+		EFC1E7F1C2BA1E4253991224 /* CloudAccountStatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAccountStatusModel.swift; sourceTree = "<group>"; };
+		F1E8D478F209612C88CD5FB1 /* PlayerControlBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlBar.swift; sourceTree = "<group>"; };
+		F775B51E893211A9A201D06A /* CategoryStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStyle.swift; sourceTree = "<group>"; };
+		F840B9BDB99F4E49A3516A4B /* PlayerSignposting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSignposting.swift; sourceTree = "<group>"; };
+		FB9902BE9C54070842E0D01D /* RoutineCategoryDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineCategoryDots.swift; sourceTree = "<group>"; };
+		FD8F8243D08EFBC013D6DF0C /* AgentBridgeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentBridgeService.swift; sourceTree = "<group>"; };
+		FFD515D613AEC7082FE9B62C /* FixedCloudAccountStatusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedCloudAccountStatusService.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0A1DD180EBAAA386E0268267 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA61AE0B04FE699C7A67B793 /* StepBackCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C71FBC292391E609733C2D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85B2A1528DE1068CC2055986 /* StepBackCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07C5390C17CFED73A629EF04 /* Plans */ = {
+			isa = PBXGroup;
+			children = (
+				BCB67D9413E3B98D63C68B6E /* PlanDetailView.swift */,
+				709649B565157B7D004A22A2 /* PlanEditorModel.swift */,
+				C4926C74B514B58A6A88E036 /* PlanEditorPresentation.swift */,
+				9FA40617A4C960EFE4F08FDD /* PlanEditorView.swift */,
+				184133F73659F8AC3BA50F4D /* PlanLaunchContext.swift */,
+				8C0AB5770404FCCB25235821 /* PlanLibrary.swift */,
+				1B0EB62FBB9D4057B3B0C287 /* PlanRoutinePicker.swift */,
+				116E5EC1EF3F07BE19FEC8A6 /* PlansListView.swift */,
+				09FB06C96F5686CF260DA8AF /* TodayPlanCard.swift */,
+				34A41E7831775D6BDA838142 /* WeeklyPlanDayRow.swift */,
+			);
+			path = Plans;
+			sourceTree = "<group>";
+		};
+		0BD7824BFA952E9594EDAD16 /* StepBackMacUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CEAC2EC45C4F01C0390EC0F8 /* StepBackMacAccessibilityAuditTests.swift */,
+				CCBA8868AD79461C857B59D8 /* StepBackMacUITests.swift */,
+			);
+			path = StepBackMacUITests;
+			sourceTree = "<group>";
+		};
+		0E95F6750299E779D7899FB2 /* Shell */ = {
+			isa = PBXGroup;
+			children = (
+				2B8A3978327F3430A2D8FC6E /* AppSection.swift */,
+				62F12B3CC4D8E8CE7CA0D292 /* AppShellView.swift */,
+				8150FF5CDF706ACB1BDCAF25 /* MacAppShellView.swift */,
+				86201FF0383452EB1B0E1620 /* MacDetailRoute.swift */,
+				10C3050BADE3EA9737BDDC10 /* MacSectionContent.swift */,
+				BC5CF4DB3AD0F26176F13A28 /* MacSidebar.swift */,
+				A11A9CDAF4C9E27EC92D58B4 /* TabAppShellView.swift */,
+			);
+			path = Shell;
+			sourceTree = "<group>";
+		};
+		2F4A76D66CC928FE834AF949 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				C2DB1B8E15FBA09759339F4C /* WelcomeFeatureRow.swift */,
+				155212E6EE3D1640F8AF55B2 /* WelcomePreferences.swift */,
+				C3B4A2E3A29249E21CD70041 /* WelcomeView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		328AC7A124227F2129075DE9 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				E272113685BBC787CF3FA902 /* AddCustomWorkoutTile.swift */,
+				4EF209E6264AEF1DC3E5E092 /* AddToRoutineSheet.swift */,
+				7DA92EA5037B9948FF17B012 /* CategoryWorkoutsView.swift */,
+				7282369927CF9F9C397DBF27 /* CustomEditorRequest.swift */,
+				D3E5DF2B9320E1A4302BDF44 /* CustomWorkoutEditor.swift */,
+				5E33D00D85067323E0A321AE /* GalleryRoute.swift */,
+				33FBCA40E7DAE61B9F1F5555 /* GallerySection.swift */,
+				063794E7770916B041C84800 /* GallerySectionHeader.swift */,
+				168C3567BDE13046388508F5 /* GalleryView.swift */,
+				43CCF87A607A7272B199E45A /* WorkoutDetailView.swift */,
+				9569D98242FCF87D24DF80EE /* WorkoutLibrary.swift */,
+				830A55B0D6E427D5EDFD364A /* WorkoutTile.swift */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
+		43811FFACD2386CBA0DBF601 /* StepBackUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EB8375CD5C14F6444B3E5A8C /* StepBackAccessibilityAuditTests.swift */,
+				D32A7C81517DC2DA3448327C /* StepBackPerformanceTests.swift */,
+				44E1A1F153DD793B55B2AADA /* StepBackUITests.swift */,
+			);
+			path = StepBackUITests;
+			sourceTree = "<group>";
+		};
+		54B8F668AE4F1998FA293D5A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				61500DD527EB75E738A193AD /* AgentBridgeFolderRevealer.swift */,
+				8FFA80C5B5743ECBE7911CBC /* CloudAccountAvailability.swift */,
+				EFC1E7F1C2BA1E4253991224 /* CloudAccountStatusModel.swift */,
+				6FEF7AE824B7116584141BBB /* CloudAccountStatusService.swift */,
+				905BFA580AF15F17C6C66C05 /* CloudKitAccountStatusService.swift */,
+				FFD515D613AEC7082FE9B62C /* FixedCloudAccountStatusService.swift */,
+				30063A32571E0FDE8E91672A /* SettingsControlLabel.swift */,
+				B17F298E53E8D97109DD78D6 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		70D66CF240DE8D4C63F0AA7D /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				4637373527B6278F7CF4D210 /* InFlightSessionMarker.swift */,
+				63392DC7C1140141ABD9C796 /* InFlightSessionMarkerStore.swift */,
+				4ECEB3BC54AC747837592BC2 /* ModelContext+Save.swift */,
+				AF8D13B5CE233958C911C766 /* Models.swift */,
+				29A6F175D7BBEE576A3E9472 /* PlanWeeklyScheduleMigrator.swift */,
+				C3B97628157B2C3EFAB8C305 /* PlayerSessionRecorder.swift */,
+				CEBAAA459EB90651822D3C47 /* SessionDateProviding.swift */,
+				E1F014C27BDFB501ED258EC5 /* StarterRoutineDeduplicator.swift */,
+				5C8F8B86A06CCF3BA0131E4B /* StarterRoutineSeeder.swift */,
+				CA87D1D39B3612200F4F5613 /* StepBackBootstrap.swift */,
+				358802FCA9D4B4F5E7974709 /* StepBackModelContainer.swift */,
+				B92329DBD4E12D14139C54D4 /* SystemSessionDateProvider.swift */,
+				01EE95E24F17BA56CADF7B5A /* UserDefaultsInFlightSessionMarkerStore.swift */,
+				C67A7CCCB5C57C01BA651854 /* WorkoutCatalogService.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		8E9F2F521DA515E90D911F6D /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				175EB9F56FCBC93BF2302C37 /* RoutineBuilderFloatingBar.swift */,
+				8D7B61CC6B0B5D4D493AB9E7 /* RoutineBuilderModel.swift */,
+				3B387C1A4B8E1AC13437EC77 /* RoutineBuilderPresentation.swift */,
+				E8E14279BD73876D0CCDC32D /* RoutineBuilderStepBlock.swift */,
+				95B70ED92CE7FF2BC3CC50AA /* RoutineBuilderStepEditor.swift */,
+				52B8F2AD83453ED885208F11 /* RoutineBuilderView.swift */,
+				78EFD46261CC312B7C60E37D /* RoutineBuilderWorkoutPicker.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		9F4355B614F2345D07CDC98D /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				003BCD2D5738A86ED1B865BA /* StepBackCore */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		A293BBF174FF42FEAC03533E /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				8E9F2F521DA515E90D911F6D /* Builder */,
+				328AC7A124227F2129075DE9 /* Gallery */,
+				2F4A76D66CC928FE834AF949 /* Onboarding */,
+				07C5390C17CFED73A629EF04 /* Plans */,
+				B2208C88D77E96AF32B30546 /* Player */,
+				ABD4392D7C66746D48F4C53A /* Routines */,
+				54B8F668AE4F1998FA293D5A /* Settings */,
+				A7F2B19BB8C0A950DDBB0512 /* Shared */,
+				0E95F6750299E779D7899FB2 /* Shell */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		A7F2B19BB8C0A950DDBB0512 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				29619CD0FA6699F0F1F94F85 /* CategoryChip.swift */,
+				F775B51E893211A9A201D06A /* CategoryStyle.swift */,
+				31865D798E11645AAE9741F8 /* DisplayFormatters.swift */,
+				18489B1B0D9B63867882F42F /* L10n.swift */,
+				85A2283660DEA09936340440 /* PlatformColors.swift */,
+				62E212491A0C7A9908991495 /* PlatformNavigation.swift */,
+				7AF70FFE98C8B129D2DEAD14 /* PlayerLauncher.swift */,
+				58E4C63295736CEA9B596B5E /* RoutineRestRow.swift */,
+				19ABDCD324370DBC1FF2D266 /* RoutineStepDefaults.swift */,
+				5C4EFEB501E194C261920672 /* RoutineStepFormatting.swift */,
+				1487F11BF7E2603FA4752646 /* RoutineStepRow.swift */,
+				D421CAA01BED6DBD5BDDB5BA /* ShapeRadius.swift */,
+				A8D5F9FDB53251663ADC3DEF /* WorkoutItem.swift */,
+				DF883D65838AAB64A21649A2 /* WorkoutVisual.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		AAFDEB01F8F445A32BEBF684 /* StepBackTests */ = {
+			isa = PBXGroup;
+			children = (
+				558E2480503D9BEB9C013327 /* AgentBridgePluginContractTests.swift */,
+				1ECCAC7250708B24CA348654 /* AgentBridgeServiceTests.swift */,
+				0E2C505586468BEFC0D595DE /* BrowsingModelTests.swift */,
+				55C5668721400D86CCAAB5C3 /* ColorTokenContrastTests.swift */,
+				371B02A1D26ACDF229544BEB /* PersistenceModelTests.swift */,
+				278C52F1593B97EE506D1201 /* PersistenceTestSupport.swift */,
+				775ED6934F3AA36EE76067F1 /* PlanPersistenceTests.swift */,
+				403BE909BBD5B31CB94BF5E6 /* PlayerSessionModelTests.swift */,
+				23DE18D5E811DBD2C020FAB5 /* PlayerSessionRecorderTests.swift */,
+				5CB8C041C59FFF7952B18407 /* PlayerTimingIntegrityTests.swift */,
+				DEC57F161E6C05CC443CEF78 /* ProductionCatalogTests.swift */,
+				874BA8C660F2BAA7A5976ED5 /* RoutineBuilderModelTests.swift */,
+				32A51FE05266298463CDA201 /* StarterRoutineDeduplicatorTests.swift */,
+				A129DAF255F9B09FA7D0DA0A /* StarterRoutineSeederTests.swift */,
+				A1A768744A74588460D6F47B /* StepBackTests.swift */,
+				31174EB13E7CFDCC678267A2 /* StringCatalogSourceTests.swift */,
+				C90A9BBDE22658EE74592B52 /* WelcomeAndCloudStatusTests.swift */,
+			);
+			path = StepBackTests;
+			sourceTree = "<group>";
+		};
+		ABD4392D7C66746D48F4C53A /* Routines */ = {
+			isa = PBXGroup;
+			children = (
+				C6E1AE2D3208EDEA49283321 /* MotivationStrip.swift */,
+				E7A580CD4774BF44D2990F63 /* RoutineCard.swift */,
+				FB9902BE9C54070842E0D01D /* RoutineCategoryDots.swift */,
+				536C0807F3424D56760C38F9 /* RoutineDetailView.swift */,
+				26A120B54DD2F08A0C0CAC08 /* RoutineLibrary.swift */,
+				DE816E5057C6DF4B2DBBD9AA /* RoutinesHomeView.swift */,
+			);
+			path = Routines;
+			sourceTree = "<group>";
+		};
+		B2208C88D77E96AF32B30546 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				53FC422E3278DE86A7619AD5 /* GeneratedToneSink.swift */,
+				7765F4EF5EF8B555D4F295B9 /* NoopPlayerSignposter.swift */,
+				60622AFBE4A3816FF91EAA8A /* PlayerAnnouncementSink.swift */,
+				57B9BE25B096864518B7F539 /* PlayerAudioSession.swift */,
+				40EBEB35653C1EDB4E93348D /* PlayerCompletionStats.swift */,
+				B56F98A2C9DB4CE0DD9481BF /* PlayerCompletionStatsView.swift */,
+				7C186CD3F3272BED3DCAFBAA /* PlayerCompletionView.swift */,
+				F1E8D478F209612C88CD5FB1 /* PlayerControlBar.swift */,
+				2EF1AA0876E78612C1103F65 /* PlayerPartialCompletionView.swift */,
+				14F59D68FFF5527BFBFB69F5 /* PlayerPreferences.swift */,
+				30ADD8AD29AE12BCC3D938C1 /* PlayerProgressFoot.swift */,
+				677AEEA10EF3C0DCB0D63682 /* PlayerSegmentView.swift */,
+				EE42F7940F0735DFFB0AB338 /* PlayerSessionModel.swift */,
+				F840B9BDB99F4E49A3516A4B /* PlayerSignposting.swift */,
+				E175A54019E51246C0BFDB73 /* PlayerStageColors.swift */,
+				55D9400C781F7121ACBD717E /* PlayerStageRoot.swift */,
+				8E923FAEAC372A7927806372 /* PlayerStageView.swift */,
+				A1B2BF2C7B270CB9D6778B3C /* PlayerWakeService.swift */,
+				C1A7E4B1CB545027FD8021F4 /* PlayerWindowRoot.swift */,
+				A038BA502A7F3236C901CAB2 /* SystemPlayerSignposter.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		B76930AAF0B194F65ADD8367 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C8E0461E315D61E1FA93C401 /* Assets.xcassets */,
+				314A1557BE7C48430EB5A605 /* Localizable.xcstrings */,
+				97688A7B5AF0B9B79E989AD6 /* workout-catalog.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CD80E836058B8C1643707785 /* StepBack */ = {
+			isa = PBXGroup;
+			children = (
+				C371F1E411479CE185E82D96 /* StepBack.entitlements */,
+				023608F63978F9D1668F5AFC /* StepBackApp.swift */,
+				3323B11E7A5E1F71C95DCD59 /* StepBackMac.entitlements */,
+				FC524D993C887C51EBE9FEAD /* AgentBridge */,
+				A293BBF174FF42FEAC03533E /* Features */,
+				70D66CF240DE8D4C63F0AA7D /* Persistence */,
+				B76930AAF0B194F65ADD8367 /* Resources */,
+			);
+			path = StepBack;
+			sourceTree = "<group>";
+		};
+		E2EB077B5D723D722B8466D4 = {
+			isa = PBXGroup;
+			children = (
+				9F4355B614F2345D07CDC98D /* Packages */,
+				CD80E836058B8C1643707785 /* StepBack */,
+				0BD7824BFA952E9594EDAD16 /* StepBackMacUITests */,
+				AAFDEB01F8F445A32BEBF684 /* StepBackTests */,
+				43811FFACD2386CBA0DBF601 /* StepBackUITests */,
+				F2DAB38156A3F0E1A401A280 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F2DAB38156A3F0E1A401A280 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3776C829FB11907CC7E87F9 /* StepBack.app */,
+				2611C29C19FBEA4C837B51EF /* StepBackMac.app */,
+				AE30C620F49D0503B571943C /* StepBackMacUITests.xctest */,
+				46ED8A21F9D36A90E3306D55 /* StepBackTests.xctest */,
+				8B34EA0A09EA53292718A615 /* StepBackUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FC524D993C887C51EBE9FEAD /* AgentBridge */ = {
+			isa = PBXGroup;
+			children = (
+				8AA601EA5A6B1AE7AB9C8BBB /* AgentBridgeManifest.swift */,
+				3578C8D6CD1D732AF4920D5B /* AgentBridgeProtocol.swift */,
+				FD8F8243D08EFBC013D6DF0C /* AgentBridgeService.swift */,
+			);
+			path = AgentBridge;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2B92A60287648D44718B2201 /* StepBackMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 696E8565943C6BF70DC5E003 /* Build configuration list for PBXNativeTarget "StepBackMac" */;
+			buildPhases = (
+				217184931D14851D16FFEFD3 /* Sources */,
+				8ACA4F48CF4267E3E7B7A4CF /* Resources */,
+				0A1DD180EBAAA386E0268267 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StepBackMac;
+			packageProductDependencies = (
+				1C83A3D3FE377943420A9802 /* StepBackCore */,
+			);
+			productName = StepBackMac;
+			productReference = 2611C29C19FBEA4C837B51EF /* StepBackMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2C18352036EC0158FF70EAFF /* StepBackMacUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9F0ADC6463A743043600B521 /* Build configuration list for PBXNativeTarget "StepBackMacUITests" */;
+			buildPhases = (
+				7F7C56481F9D35EF07928CBC /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3769C564194660BD0065C2F4 /* PBXTargetDependency */,
+			);
+			name = StepBackMacUITests;
+			packageProductDependencies = (
+			);
+			productName = StepBackMacUITests;
+			productReference = AE30C620F49D0503B571943C /* StepBackMacUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		66CB866C7CADFD143539EF82 /* StepBackTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80EBA241A43AEB4FA25281D3 /* Build configuration list for PBXNativeTarget "StepBackTests" */;
+			buildPhases = (
+				B6AE22974BA0AAC32A246114 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A3A228543D8579582B64AA73 /* PBXTargetDependency */,
+			);
+			name = StepBackTests;
+			packageProductDependencies = (
+			);
+			productName = StepBackTests;
+			productReference = 46ED8A21F9D36A90E3306D55 /* StepBackTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A0CAB4F2430D9C0B761CF496 /* StepBack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4878E4B61B7A8D147AF780CA /* Build configuration list for PBXNativeTarget "StepBack" */;
+			buildPhases = (
+				1FD1A2DCF59E4C369E4253BC /* Sources */,
+				D0A51A4615FA2F40CDA7ED01 /* Resources */,
+				2C71FBC292391E609733C2D9 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StepBack;
+			packageProductDependencies = (
+				538D7E673B12B22C8CEAA1A0 /* StepBackCore */,
+			);
+			productName = StepBack;
+			productReference = A3776C829FB11907CC7E87F9 /* StepBack.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FED9B040C5478169551B65B3 /* StepBackUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 387C4AE814BF3F73C8D0D0D2 /* Build configuration list for PBXNativeTarget "StepBackUITests" */;
+			buildPhases = (
+				E47D06A8B3E584BCC6D041E1 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				57A91FCC271DAAF4E926BB68 /* PBXTargetDependency */,
+			);
+			name = StepBackUITests;
+			packageProductDependencies = (
+			);
+			productName = StepBackUITests;
+			productReference = 8B34EA0A09EA53292718A615 /* StepBackUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0CA39756C4A5914D4F7268C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					2B92A60287648D44718B2201 = {
+						DevelopmentTeam = "$(STEPBACK_TEAM_ID)";
+						ProvisioningStyle = Automatic;
+					};
+					2C18352036EC0158FF70EAFF = {
+						DevelopmentTeam = "$(STEPBACK_TEAM_ID)";
+						TestTargetID = 2B92A60287648D44718B2201;
+					};
+					66CB866C7CADFD143539EF82 = {
+						DevelopmentTeam = "$(STEPBACK_TEAM_ID)";
+					};
+					A0CAB4F2430D9C0B761CF496 = {
+						DevelopmentTeam = "$(STEPBACK_TEAM_ID)";
+						ProvisioningStyle = Automatic;
+					};
+					FED9B040C5478169551B65B3 = {
+						DevelopmentTeam = "$(STEPBACK_TEAM_ID)";
+						TestTargetID = A0CAB4F2430D9C0B761CF496;
+					};
+				};
+			};
+			buildConfigurationList = 27D94A764F9062835B24C718 /* Build configuration list for PBXProject "StepBack" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = E2EB077B5D723D722B8466D4;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				FBD12567C7AE13256515277E /* XCLocalSwiftPackageReference "StepBackCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F2DAB38156A3F0E1A401A280 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0CAB4F2430D9C0B761CF496 /* StepBack */,
+				2B92A60287648D44718B2201 /* StepBackMac */,
+				2C18352036EC0158FF70EAFF /* StepBackMacUITests */,
+				66CB866C7CADFD143539EF82 /* StepBackTests */,
+				FED9B040C5478169551B65B3 /* StepBackUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8ACA4F48CF4267E3E7B7A4CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10DF797644878CDFE52BAA03 /* Assets.xcassets in Resources */,
+				F34178EA40CD5BAA94FB74A3 /* Localizable.xcstrings in Resources */,
+				FAC5BB37E903FD9B804D3714 /* workout-catalog.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0A51A4615FA2F40CDA7ED01 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				503374684AE745E022FB320D /* Assets.xcassets in Resources */,
+				EBA76E92924137052D16139C /* Localizable.xcstrings in Resources */,
+				E6E3692689125C07D247AF3C /* workout-catalog.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1FD1A2DCF59E4C369E4253BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C89E68D5DB9D5C175DFCB636 /* AddCustomWorkoutTile.swift in Sources */,
+				5C25FCF97EF7E45E574D5084 /* AddToRoutineSheet.swift in Sources */,
+				B6D53F6A390206E8B3C522E7 /* AgentBridgeFolderRevealer.swift in Sources */,
+				0F157732FB897D460578AEA6 /* AgentBridgeManifest.swift in Sources */,
+				A05EF539CB68743743C570A1 /* AgentBridgeProtocol.swift in Sources */,
+				7FBD5A569C9ED8A81AFFDE65 /* AgentBridgeService.swift in Sources */,
+				622439D35549A8FC40785285 /* AppSection.swift in Sources */,
+				129D8A529E4B53FCAFFCD868 /* AppShellView.swift in Sources */,
+				7A104B6486A8208083657E78 /* CategoryChip.swift in Sources */,
+				76A0F3D7E52B95E8806553B1 /* CategoryStyle.swift in Sources */,
+				CE24B3E41AA25EAECBCBFF55 /* CategoryWorkoutsView.swift in Sources */,
+				4E2EC2C585CB4DBE835BD8E6 /* CloudAccountAvailability.swift in Sources */,
+				3AAD32BA86837B97EF15F4CC /* CloudAccountStatusModel.swift in Sources */,
+				C1C069C5E4D834702146A13F /* CloudAccountStatusService.swift in Sources */,
+				BF806DC5FA3660EE4213F3BE /* CloudKitAccountStatusService.swift in Sources */,
+				A45F556024C58865ED0C7C3E /* CustomEditorRequest.swift in Sources */,
+				F3C8B8064A8E7BA3F1FB71E5 /* CustomWorkoutEditor.swift in Sources */,
+				F79C87708AEFB03ADBAC4D3F /* DisplayFormatters.swift in Sources */,
+				F24F1070007AEF1D0D6502AF /* FixedCloudAccountStatusService.swift in Sources */,
+				44D0FA3AF953CDE00A0CA334 /* GalleryRoute.swift in Sources */,
+				2E787CC76F0FB2460CD98698 /* GallerySection.swift in Sources */,
+				AF267B5CA0A52BCDFA9971D6 /* GallerySectionHeader.swift in Sources */,
+				8E5E77DDFC10F05B4CB164CA /* GalleryView.swift in Sources */,
+				74E49C0A4CE39E2985AFD9A3 /* GeneratedToneSink.swift in Sources */,
+				D08B30F1AEC179BC2DEF269F /* InFlightSessionMarker.swift in Sources */,
+				AA6E0451DE549EC0E3B04789 /* InFlightSessionMarkerStore.swift in Sources */,
+				911BAF6C916597C53E0A602A /* L10n.swift in Sources */,
+				FB27C37FD9722F3DEAF38570 /* MacAppShellView.swift in Sources */,
+				448611F7059C741BC3D7C3F0 /* MacDetailRoute.swift in Sources */,
+				C5BEB1D989B27E9DAC7F35C8 /* MacSectionContent.swift in Sources */,
+				54C31CAC9850DC1CC708893B /* MacSidebar.swift in Sources */,
+				303886BCA3FF0F27BFC79D79 /* ModelContext+Save.swift in Sources */,
+				B989830E2F36CBA813FB975A /* Models.swift in Sources */,
+				5731D381FE9EF81CB9C3B3BF /* MotivationStrip.swift in Sources */,
+				284607C9FCA38C91EC16E936 /* NoopPlayerSignposter.swift in Sources */,
+				993202346E94E15A4C9408AC /* PlanDetailView.swift in Sources */,
+				DD5949AEDEE80A18895EA9DB /* PlanEditorModel.swift in Sources */,
+				221033001D39358BCBCAEB8B /* PlanEditorPresentation.swift in Sources */,
+				BE2619D3C47CBCF99E5BC0FB /* PlanEditorView.swift in Sources */,
+				9C60A1B769CFB02EEED88446 /* PlanLaunchContext.swift in Sources */,
+				C6C5E71D2548FB920FAB852D /* PlanLibrary.swift in Sources */,
+				DFBE1BC67D7EC22ECAB3211C /* PlanRoutinePicker.swift in Sources */,
+				4CA54EA1A4A9FAA59AD28F00 /* PlanWeeklyScheduleMigrator.swift in Sources */,
+				B43A5C847EA25F5B02896A00 /* PlansListView.swift in Sources */,
+				3232135A5B3A62DF62E90630 /* PlatformColors.swift in Sources */,
+				B0564FF1C8C23770F1AEFA8E /* PlatformNavigation.swift in Sources */,
+				0319745A44F7DBB5E1B2A461 /* PlayerAnnouncementSink.swift in Sources */,
+				F9671CE836BAD651438B3F45 /* PlayerAudioSession.swift in Sources */,
+				4628C2DBDA468B5F9D2618DE /* PlayerCompletionStats.swift in Sources */,
+				3D064CDAB1BEEBF526690467 /* PlayerCompletionStatsView.swift in Sources */,
+				3A7AD3A2CF6EB58F9BD593D7 /* PlayerCompletionView.swift in Sources */,
+				41A6B8C26A725FF6089E3CAF /* PlayerControlBar.swift in Sources */,
+				4D2DDF0447B90B05B6F8732B /* PlayerLauncher.swift in Sources */,
+				F0A5AC9FAD61399C0650D3EF /* PlayerPartialCompletionView.swift in Sources */,
+				63017C363437110DD559D449 /* PlayerPreferences.swift in Sources */,
+				1C43CCA0EAF315917A46F984 /* PlayerProgressFoot.swift in Sources */,
+				1EE787EC5EA64524AD43DC7F /* PlayerSegmentView.swift in Sources */,
+				744777CBE10EF7161E12C7FE /* PlayerSessionModel.swift in Sources */,
+				990534B86F1BA0E974197C6A /* PlayerSessionRecorder.swift in Sources */,
+				F2B2BB545DF6F0182557B6E4 /* PlayerSignposting.swift in Sources */,
+				86554C2F5C8C3E9AF225B403 /* PlayerStageColors.swift in Sources */,
+				9F710B6EF41986B53FDAD052 /* PlayerStageRoot.swift in Sources */,
+				88A64D7A0A6EC3A2DFFA803D /* PlayerStageView.swift in Sources */,
+				076F7B7B55591113191B09C7 /* PlayerWakeService.swift in Sources */,
+				8081A92AFBA2F60A3F4A7D56 /* PlayerWindowRoot.swift in Sources */,
+				5F7F2EAAFFC2BA46D17FFCC2 /* RoutineBuilderFloatingBar.swift in Sources */,
+				C183D00D62D5F25031DD2844 /* RoutineBuilderModel.swift in Sources */,
+				B54CE345A8236249CB439CDF /* RoutineBuilderPresentation.swift in Sources */,
+				D8E9BB7D7BF11831CDCA70DE /* RoutineBuilderStepBlock.swift in Sources */,
+				C86A8DB34E84C997D5542AC6 /* RoutineBuilderStepEditor.swift in Sources */,
+				ED453B16ED3143296C66D467 /* RoutineBuilderView.swift in Sources */,
+				8ABC478A68B474DC7850C23D /* RoutineBuilderWorkoutPicker.swift in Sources */,
+				4A2344070A06F7368976CC79 /* RoutineCard.swift in Sources */,
+				37903F9FB36B09B8441E8995 /* RoutineCategoryDots.swift in Sources */,
+				DB5867605772BE5FD8187622 /* RoutineDetailView.swift in Sources */,
+				00C4D5D546B6D1E6879AB4D9 /* RoutineLibrary.swift in Sources */,
+				BBE4D401455FCA8C741C446E /* RoutineRestRow.swift in Sources */,
+				FC014BCD042F09614DB06438 /* RoutineStepDefaults.swift in Sources */,
+				327ABD56227CD636215897FF /* RoutineStepFormatting.swift in Sources */,
+				19F298627050CB4DCA38034F /* RoutineStepRow.swift in Sources */,
+				8918C34726B4B9EA4AB95230 /* RoutinesHomeView.swift in Sources */,
+				DB6334A286695F63665E2F47 /* SessionDateProviding.swift in Sources */,
+				D7D996FF236D1CC90AF74FF6 /* SettingsControlLabel.swift in Sources */,
+				AB8456A5B4F7F653C72798B9 /* SettingsView.swift in Sources */,
+				5EC55DFEAECA2D60F8783896 /* ShapeRadius.swift in Sources */,
+				90DCE097388823F8E35CF001 /* StarterRoutineDeduplicator.swift in Sources */,
+				D74147B4C9040CDFC8F7DC42 /* StarterRoutineSeeder.swift in Sources */,
+				1EC09265A1CD5B1E67415B39 /* StepBackApp.swift in Sources */,
+				FDB4A2D9F9D3E2BD81CBDE79 /* StepBackBootstrap.swift in Sources */,
+				EC8E07A693822F42D1F26570 /* StepBackModelContainer.swift in Sources */,
+				EBC269B94BC4B966C3BA6237 /* SystemPlayerSignposter.swift in Sources */,
+				803DD96E1824155456A91D7F /* SystemSessionDateProvider.swift in Sources */,
+				6514B31863DE0FB5BEF39A16 /* TabAppShellView.swift in Sources */,
+				FE454A7C7B7E34D44BC1423E /* TodayPlanCard.swift in Sources */,
+				FC28CCB1C6787F3A0E35C186 /* UserDefaultsInFlightSessionMarkerStore.swift in Sources */,
+				3AB3FF32CFAFE0F9A6386FC3 /* WeeklyPlanDayRow.swift in Sources */,
+				7193280697336E8A560354F0 /* WelcomeFeatureRow.swift in Sources */,
+				312C52EFA9924E66335625F7 /* WelcomePreferences.swift in Sources */,
+				B375792DF676AF3C419BBB3E /* WelcomeView.swift in Sources */,
+				6B61B7CCDD9B48EC678242FA /* WorkoutCatalogService.swift in Sources */,
+				923AD8E2F6EC79A8F71AE83F /* WorkoutDetailView.swift in Sources */,
+				06065DE9D0723A8F3B0A7705 /* WorkoutItem.swift in Sources */,
+				99DD2A332231D986FB884CDF /* WorkoutLibrary.swift in Sources */,
+				56D72BF9A1DC2261024EAE68 /* WorkoutTile.swift in Sources */,
+				57D54F764C47E89DC169C949 /* WorkoutVisual.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		217184931D14851D16FFEFD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D62CDBF31CC91F241DA44FE /* AddCustomWorkoutTile.swift in Sources */,
+				BE85F20FBABF84470727EE0B /* AddToRoutineSheet.swift in Sources */,
+				974A4494390D969AD12200FB /* AgentBridgeFolderRevealer.swift in Sources */,
+				6A4EA3D2A75EEFFC386944BE /* AgentBridgeManifest.swift in Sources */,
+				EF2DDE5B930ACBAD0D34AEDD /* AgentBridgeProtocol.swift in Sources */,
+				EB3D6241887E52D542180BBF /* AgentBridgeService.swift in Sources */,
+				AE007592A8ECB0B16C76F6CA /* AppSection.swift in Sources */,
+				F197D90DEC3D7AFF8A3EC668 /* AppShellView.swift in Sources */,
+				671E95F3FF185592711F11B4 /* CategoryChip.swift in Sources */,
+				43654370AEDD624BC19DEE3B /* CategoryStyle.swift in Sources */,
+				856D40AFA34D9BAC307BB3EA /* CategoryWorkoutsView.swift in Sources */,
+				CEC8786FB1A7EDD415847027 /* CloudAccountAvailability.swift in Sources */,
+				F247684BCD2C70CCFB38F1AB /* CloudAccountStatusModel.swift in Sources */,
+				744AFB75EAA18F066B4B3B02 /* CloudAccountStatusService.swift in Sources */,
+				491E4C18BA74FB55BDC7B43E /* CloudKitAccountStatusService.swift in Sources */,
+				DC52EC8473CA4ABA5B29384A /* CustomEditorRequest.swift in Sources */,
+				FC00072C096B47D7CF9EB3FE /* CustomWorkoutEditor.swift in Sources */,
+				8C9631BAA1B88DD95550D68F /* DisplayFormatters.swift in Sources */,
+				8A5F4FB43BBC4EEA9C2530D5 /* FixedCloudAccountStatusService.swift in Sources */,
+				0742896FE039CC5A0CCD7D7C /* GalleryRoute.swift in Sources */,
+				FC180A9E21994E3A95CFC6A1 /* GallerySection.swift in Sources */,
+				3704337281F506CE6F8F03BE /* GallerySectionHeader.swift in Sources */,
+				8F2FD14DBF589A229B187328 /* GalleryView.swift in Sources */,
+				DEC48253CA37333DD4CA3790 /* GeneratedToneSink.swift in Sources */,
+				427BE546700D208EF0F6580B /* InFlightSessionMarker.swift in Sources */,
+				8877FD56ADCB2B1A89C0CD20 /* InFlightSessionMarkerStore.swift in Sources */,
+				A76748935460609FBA1B9930 /* L10n.swift in Sources */,
+				28F4263A21D7BFF5A41539D8 /* MacAppShellView.swift in Sources */,
+				6CC22EECC1D2F576B0C36216 /* MacDetailRoute.swift in Sources */,
+				6A8710B22348E64D2BDB4510 /* MacSectionContent.swift in Sources */,
+				CE80618EDF98132595CDD24F /* MacSidebar.swift in Sources */,
+				0E83CB97B7EEC368D15C5798 /* ModelContext+Save.swift in Sources */,
+				039556A0278CABF76561FBAF /* Models.swift in Sources */,
+				D5E37093B281E25CE4485660 /* MotivationStrip.swift in Sources */,
+				2F14512C963F48BA725E930A /* NoopPlayerSignposter.swift in Sources */,
+				DE97A1C77A85E224306F92B0 /* PlanDetailView.swift in Sources */,
+				6A284162CD35667DC121E710 /* PlanEditorModel.swift in Sources */,
+				7232B92E967BE3BEDA525F66 /* PlanEditorPresentation.swift in Sources */,
+				5B5124B02B6521CCC0213360 /* PlanEditorView.swift in Sources */,
+				E565AABCA0FE4BA2DDBD9130 /* PlanLaunchContext.swift in Sources */,
+				AB0456709F3E08388F5646F6 /* PlanLibrary.swift in Sources */,
+				8978F0234FBF8D524E988F78 /* PlanRoutinePicker.swift in Sources */,
+				83FB65D1EA5EA0E0A18F5467 /* PlanWeeklyScheduleMigrator.swift in Sources */,
+				EAE734D0D5A1B0F5A95A76A8 /* PlansListView.swift in Sources */,
+				6ECF065C073703220BD6D0B0 /* PlatformColors.swift in Sources */,
+				8D5041D8F2C150FC82D72841 /* PlatformNavigation.swift in Sources */,
+				E4B0B86671F7B8791B771D70 /* PlayerAnnouncementSink.swift in Sources */,
+				D195F1705C4623B09B46C920 /* PlayerAudioSession.swift in Sources */,
+				5FEAE92B1C411CF30D2A8DF7 /* PlayerCompletionStats.swift in Sources */,
+				C2386DDBE3694CA58DC65854 /* PlayerCompletionStatsView.swift in Sources */,
+				EE819960E7839288609E78AC /* PlayerCompletionView.swift in Sources */,
+				391472599B782E030675C181 /* PlayerControlBar.swift in Sources */,
+				2EDC6073E23158898B45AA76 /* PlayerLauncher.swift in Sources */,
+				E1FD869EF83133A81DA2D321 /* PlayerPartialCompletionView.swift in Sources */,
+				AF0255A959C82CB4FD881930 /* PlayerPreferences.swift in Sources */,
+				4CE639832507E751803C6383 /* PlayerProgressFoot.swift in Sources */,
+				7BDB68A72B8F98A2A760DD0F /* PlayerSegmentView.swift in Sources */,
+				D82422433D3E5D1D8ADA5F1B /* PlayerSessionModel.swift in Sources */,
+				44C32D69C00959EC75C75DFC /* PlayerSessionRecorder.swift in Sources */,
+				1BA4EE8DFFFD59A2C57E3B93 /* PlayerSignposting.swift in Sources */,
+				E2F68EADEBFEE76839233AF5 /* PlayerStageColors.swift in Sources */,
+				E4F1E65F04FD5DAA818EBF62 /* PlayerStageRoot.swift in Sources */,
+				2B4B238EC57B95998E1CC80D /* PlayerStageView.swift in Sources */,
+				79858D20667F592494144A3D /* PlayerWakeService.swift in Sources */,
+				DDA98C4A4A48FDD0CE01F86C /* PlayerWindowRoot.swift in Sources */,
+				52029581E688FBA78CDB1C92 /* RoutineBuilderFloatingBar.swift in Sources */,
+				2B737BB36EE09CA4E0383CB7 /* RoutineBuilderModel.swift in Sources */,
+				DB60B91712AAA22D5CBB59CA /* RoutineBuilderPresentation.swift in Sources */,
+				E76129A40CB679462F06368E /* RoutineBuilderStepBlock.swift in Sources */,
+				57EBC0712C296FB6EDCEE319 /* RoutineBuilderStepEditor.swift in Sources */,
+				376FDA7D580981A450FA3DCF /* RoutineBuilderView.swift in Sources */,
+				9F188B9AB94F0AF78717C7FE /* RoutineBuilderWorkoutPicker.swift in Sources */,
+				4135EAB3D4B7983DD39CDDB2 /* RoutineCard.swift in Sources */,
+				853A742B2E064D174D4D2BFC /* RoutineCategoryDots.swift in Sources */,
+				F12BC9CC65987D2581FB581D /* RoutineDetailView.swift in Sources */,
+				6A5EB5209D9D82506C30ACF3 /* RoutineLibrary.swift in Sources */,
+				9A4D77302A7B7E9A7C5BFA53 /* RoutineRestRow.swift in Sources */,
+				D4ED19DA7F921D35F448996D /* RoutineStepDefaults.swift in Sources */,
+				7D18873AD78A15C5DAFEC57E /* RoutineStepFormatting.swift in Sources */,
+				9636BE4BC14E40C9C2CD4BB0 /* RoutineStepRow.swift in Sources */,
+				82EE65934A11B1488EDF91EF /* RoutinesHomeView.swift in Sources */,
+				8AA4B7E5DF9214CC3DA2E7CE /* SessionDateProviding.swift in Sources */,
+				90BAA5CE3175D2BF1E8DA0CB /* SettingsControlLabel.swift in Sources */,
+				F47D9A92194254DE9AC84C60 /* SettingsView.swift in Sources */,
+				341720C4026C97DAC160CADD /* ShapeRadius.swift in Sources */,
+				6A8E4700107B676A7256DAC1 /* StarterRoutineDeduplicator.swift in Sources */,
+				6C4FEFB9A6D84FC2F5AE98D8 /* StarterRoutineSeeder.swift in Sources */,
+				00CAC82292A6D5062E361475 /* StepBackApp.swift in Sources */,
+				4A8DB15E1120038415CED8C6 /* StepBackBootstrap.swift in Sources */,
+				4CBDCB7E58B78EADA73D5B7A /* StepBackModelContainer.swift in Sources */,
+				7B9B939685DF3822A2A68530 /* SystemPlayerSignposter.swift in Sources */,
+				3DA4AAF68931A61BC153D06D /* SystemSessionDateProvider.swift in Sources */,
+				8BD3A7FD4CCBBC86B6612788 /* TabAppShellView.swift in Sources */,
+				DA5926F4F94DD7DBECC0BFCB /* TodayPlanCard.swift in Sources */,
+				5C748E2BBEA8405042CF1C9C /* UserDefaultsInFlightSessionMarkerStore.swift in Sources */,
+				EE75F440DC9A73CFDA65F15F /* WeeklyPlanDayRow.swift in Sources */,
+				6AFC3470CD0550C65C0DD4A8 /* WelcomeFeatureRow.swift in Sources */,
+				654CC24B23FB85EFBF653D7E /* WelcomePreferences.swift in Sources */,
+				850D2E432632AE3D1B1D97C0 /* WelcomeView.swift in Sources */,
+				CDBFFB82BFAFABAEE2B20843 /* WorkoutCatalogService.swift in Sources */,
+				0C3196A2EF869215A77FE5FC /* WorkoutDetailView.swift in Sources */,
+				BC1B16CB4A79CB8A48C1C72E /* WorkoutItem.swift in Sources */,
+				7163773331C3E02A5A2431FD /* WorkoutLibrary.swift in Sources */,
+				8DE2EB9D0A68A4A12E212AC6 /* WorkoutTile.swift in Sources */,
+				21E43F35B86721FE300AB27C /* WorkoutVisual.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F7C56481F9D35EF07928CBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFCC78DCBF2D2562CDFCBC32 /* StepBackMacAccessibilityAuditTests.swift in Sources */,
+				70DE9FA2682F5D833CE29EAC /* StepBackMacUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6AE22974BA0AAC32A246114 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B162F7B85ABB8ADE22D542AB /* AgentBridgePluginContractTests.swift in Sources */,
+				FFBB11DAE73A202CC3F38DDB /* AgentBridgeServiceTests.swift in Sources */,
+				9C6D8A1A5E383DF42EC9C3B2 /* BrowsingModelTests.swift in Sources */,
+				5FBBEA43681D7211F77A3AF9 /* ColorTokenContrastTests.swift in Sources */,
+				8AFC5CD1103CE4E1D1BB1717 /* PersistenceModelTests.swift in Sources */,
+				01C6A4EF93DCA57414A6443F /* PersistenceTestSupport.swift in Sources */,
+				B6F6EB55DC3A5FC25F1C399E /* PlanPersistenceTests.swift in Sources */,
+				E43C39E84E15895BCD46B69C /* PlayerSessionModelTests.swift in Sources */,
+				DEE698DFE6AF1A22D1B7AEAE /* PlayerSessionRecorderTests.swift in Sources */,
+				F2561BD8A3F349A964F07EB1 /* PlayerTimingIntegrityTests.swift in Sources */,
+				194D79A1D87F6D08203FD3C6 /* ProductionCatalogTests.swift in Sources */,
+				69AF0E6A125C71152580F3F3 /* RoutineBuilderModelTests.swift in Sources */,
+				366405FC52D5CC9D665CECCF /* StarterRoutineDeduplicatorTests.swift in Sources */,
+				ECFF560911670B6CAC7A1980 /* StarterRoutineSeederTests.swift in Sources */,
+				BF75BA3499150800DAF1C697 /* StepBackTests.swift in Sources */,
+				4FEC22CA4503309ED77CCDC3 /* StringCatalogSourceTests.swift in Sources */,
+				7801969B6F8ACE7B171F600D /* WelcomeAndCloudStatusTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E47D06A8B3E584BCC6D041E1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C404245FE092AB302498912 /* StepBackAccessibilityAuditTests.swift in Sources */,
+				986C702369429BE81DB97403 /* StepBackPerformanceTests.swift in Sources */,
+				4A52183641FFDED9C276FD50 /* StepBackUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3769C564194660BD0065C2F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B92A60287648D44718B2201 /* StepBackMac */;
+			targetProxy = CC3DFD0171AB9CB60298C62D /* PBXContainerItemProxy */;
+		};
+		57A91FCC271DAAF4E926BB68 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0CAB4F2430D9C0B761CF496 /* StepBack */;
+			targetProxy = 9CBB1C70AF574256591252B9 /* PBXContainerItemProxy */;
+		};
+		A3A228543D8579582B64AA73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A0CAB4F2430D9C0B761CF496 /* StepBack */;
+			targetProxy = 9066358E6ED2276D82EDC317 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		01DCEA35FE97A1F09F807E22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "$(STEPBACK_TEAM_ID)";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		31D7DE7C1A98630BC5642D9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nags.stepback.macuitests;
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = StepBackMac;
+			};
+			name = Release;
+		};
+		78EF25A9EC69739050276E05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "$(STEPBACK_TEAM_ID)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		79D56F7C250A330A02F87CBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nags.stepback.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = StepBack;
+			};
+			name = Debug;
+		};
+		BF2C89C38DFA7672614B5047 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = StepBack/StepBackMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = StepBack/Info.macOS.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nags.stepback;
+				PRODUCT_NAME = StepBack;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) STEPBACK_MAC";
+			};
+			name = Release;
+		};
+		C22B13AE9A47F5E8B3E7FB65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nags.stepback.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StepBack.app/StepBack";
+			};
+			name = Release;
+		};
+		D034EEC3E6D863E26A8A325C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = StepBack/StepBack.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = StepBack/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nags.stepback;
+				PRODUCT_NAME = StepBack;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D4501AC9EF286460681B22D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nags.stepback.macuitests;
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = StepBackMac;
+			};
+			name = Debug;
+		};
+		D82D0C9E900591A6DACC5FBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = StepBack/StepBack.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = StepBack/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nags.stepback;
+				PRODUCT_NAME = StepBack;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DD2D1C5F1EC71B7CFDBC73BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = StepBack/StepBackMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = StepBack/Info.macOS.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nags.stepback;
+				PRODUCT_NAME = StepBack;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) STEPBACK_MAC";
+			};
+			name = Debug;
+		};
+		EB0FCB1CF218A5C2296FB0D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nags.stepback.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StepBack.app/StepBack";
+			};
+			name = Debug;
+		};
+		FADDF8DA01EAE9A0A277EF1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.nags.stepback.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = StepBack;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27D94A764F9062835B24C718 /* Build configuration list for PBXProject "StepBack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78EF25A9EC69739050276E05 /* Debug */,
+				01DCEA35FE97A1F09F807E22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		387C4AE814BF3F73C8D0D0D2 /* Build configuration list for PBXNativeTarget "StepBackUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79D56F7C250A330A02F87CBF /* Debug */,
+				FADDF8DA01EAE9A0A277EF1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4878E4B61B7A8D147AF780CA /* Build configuration list for PBXNativeTarget "StepBack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D034EEC3E6D863E26A8A325C /* Debug */,
+				D82D0C9E900591A6DACC5FBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		696E8565943C6BF70DC5E003 /* Build configuration list for PBXNativeTarget "StepBackMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD2D1C5F1EC71B7CFDBC73BA /* Debug */,
+				BF2C89C38DFA7672614B5047 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		80EBA241A43AEB4FA25281D3 /* Build configuration list for PBXNativeTarget "StepBackTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB0FCB1CF218A5C2296FB0D3 /* Debug */,
+				C22B13AE9A47F5E8B3E7FB65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9F0ADC6463A743043600B521 /* Build configuration list for PBXNativeTarget "StepBackMacUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4501AC9EF286460681B22D7 /* Debug */,
+				31D7DE7C1A98630BC5642D9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		FBD12567C7AE13256515277E /* XCLocalSwiftPackageReference "StepBackCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = StepBackCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1C83A3D3FE377943420A9802 /* StepBackCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = StepBackCore;
+		};
+		538D7E673B12B22C8CEAA1A0 /* StepBackCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = StepBackCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 0CA39756C4A5914D4F7268C9 /* Project object */;
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 2,
+  "commandID": "a2222222-2222-4222-8222-222222222222",
+  "verb": "createRoutine",
+  "payload": {
+    "name": "Morning Core",
+    "steps": [
+      {
+        "workoutID": "bridge",
+        "workSeconds": 30,
+        "sets": 3,
+        "setRestSeconds": 10,
+        "restAfterSeconds": 15
+      }
+    ]
+  }
+}
