@@ -155,6 +155,7 @@
 		9F188B9AB94F0AF78717C7FE /* RoutineBuilderWorkoutPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EFD46261CC312B7C60E37D /* RoutineBuilderWorkoutPicker.swift */; };
 		9F710B6EF41986B53FDAD052 /* PlayerStageRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D9400C781F7121ACBD717E /* PlayerStageRoot.swift */; };
 		A05EF539CB68743743C570A1 /* AgentBridgeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3578C8D6CD1D732AF4920D5B /* AgentBridgeProtocol.swift */; };
+		A37AA39E3D47D2A84222A74F /* JSONSchemaTestValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9C0E9E4662750D653A2373 /* JSONSchemaTestValidator.swift */; };
 		A45F556024C58865ED0C7C3E /* CustomEditorRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7282369927CF9F9C397DBF27 /* CustomEditorRequest.swift */; };
 		A76748935460609FBA1B9930 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18489B1B0D9B63867882F42F /* L10n.swift */; };
 		AA6E0451DE549EC0E3B04789 /* InFlightSessionMarkerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63392DC7C1140141ABD9C796 /* InFlightSessionMarkerStore.swift */; };
@@ -373,6 +374,7 @@
 		A1B2BF2C7B270CB9D6778B3C /* PlayerWakeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerWakeService.swift; sourceTree = "<group>"; };
 		A3776C829FB11907CC7E87F9 /* StepBack.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = StepBack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D5F9FDB53251663ADC3DEF /* WorkoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutItem.swift; sourceTree = "<group>"; };
+		AA9C0E9E4662750D653A2373 /* JSONSchemaTestValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSchemaTestValidator.swift; sourceTree = "<group>"; };
 		AE30C620F49D0503B571943C /* StepBackMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StepBackMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF8D13B5CE233958C911C766 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		B17F298E53E8D97109DD78D6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -618,6 +620,7 @@
 				1ECCAC7250708B24CA348654 /* AgentBridgeServiceTests.swift */,
 				0E2C505586468BEFC0D595DE /* BrowsingModelTests.swift */,
 				55C5668721400D86CCAAB5C3 /* ColorTokenContrastTests.swift */,
+				AA9C0E9E4662750D653A2373 /* JSONSchemaTestValidator.swift */,
 				371B02A1D26ACDF229544BEB /* PersistenceModelTests.swift */,
 				278C52F1593B97EE506D1201 /* PersistenceTestSupport.swift */,
 				775ED6934F3AA36EE76067F1 /* PlanPersistenceTests.swift */,
@@ -1151,6 +1154,7 @@
 				FFBB11DAE73A202CC3F38DDB /* AgentBridgeServiceTests.swift in Sources */,
 				9C6D8A1A5E383DF42EC9C3B2 /* BrowsingModelTests.swift in Sources */,
 				5FBBEA43681D7211F77A3AF9 /* ColorTokenContrastTests.swift in Sources */,
+				A37AA39E3D47D2A84222A74F /* JSONSchemaTestValidator.swift in Sources */,
 				8AFC5CD1103CE4E1D1BB1717 /* PersistenceModelTests.swift in Sources */,
 				01C6A4EF93DCA57414A6443F /* PersistenceTestSupport.swift in Sources */,
 				B6F6EB55DC3A5FC25F1C399E /* PlanPersistenceTests.swift in Sources */,

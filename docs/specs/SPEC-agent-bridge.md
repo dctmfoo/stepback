@@ -1,6 +1,6 @@
 # SPEC — Agent bridge: Claude/Codex create and edit workouts, routines, and plans
 
-**Status:** Ready
+**Status:** Implemented
 **Owner screens:** headless feature `StepBack/AgentBridge/` (new: bridge service, manifest writer, command ingestion/validation), `StepBack/Features/Settings/` (amended: bridge toggle + folder reveal), repo `plugin/` (new: Claude Code + Codex skills, JSON schemas, fixtures); `StepBackCore` (new pure types: command payload validation)
 **Docs this spec amends:** PRD.md §11 deferred list (agent access moves from unmentioned to shipped, Mac-hosted), AGENTS.md (documents the bridge as the supported programmatic write path)
 **Branch:** `codex/agent-bridge`
@@ -27,7 +27,7 @@ Checked against PRD §2 — no prescription logic enters the app (the *agent* co
 
 - No delete, archive, or destructive verbs of any kind in the protocol — not even behind a flag.
 - No direct SwiftData/CloudKit writes by external processes, no XPC, no local network server, no URL scheme, no App Intents in this pass (the file-drop protocol is the entire surface; richer automation layers can wrap it later).
-- No agent access to session history or stats beyond read-only counts in the manifest — the bridge is an authoring surface, not a telemetry export.
+- No agent access to session history or stats beyond read-only counts and per-routine recency in the manifest — the bridge is an authoring surface, not a telemetry export.
 - No modification of the built-in catalog (bundled JSON stays read-only truth; agents add *custom* workouts).
 - No in-app chat UI, no model execution inside the app — conversation happens in the agent's own harness.
 - No iOS/iPadOS bridge host: the bridge runs where agents run (the Mac app); results reach the iPad via existing CloudKit sync.
@@ -42,7 +42,7 @@ Rejected: a local HTTP/MCP server inside the app (a listening socket in a privat
 
 ### D2 — The manifest is the agent's read model
 
-`manifest.json` (schema-versioned) is regenerated on launch and after every mutation, and contains: bridge schema version and paths; catalog version with all categories and workout definitions (id, localized display name, category, focus areas); all custom workouts; all routines with full step detail (workout id + name, work seconds, sets, set-rest, rest-after, rep guidance) and compiled total duration; all plans with seven absolute weekday buckets, ordered slots, and the My Week marker; and read-only session counts per routine. Cursor, repeat, and completion fields are not exposed.
+`manifest.json` (schema-versioned independently from command envelopes) is regenerated on launch and after every mutation, and contains: bridge schema version and paths; catalog version with all categories and workout definitions (id, localized display name, category, focus areas); all custom workouts; all routines with full step detail (workout id + name, work seconds, sets, set-rest, rest-after, rep guidance) and compiled total duration; all plans with seven absolute weekday buckets, ordered slots, and the My Week marker; and read-only session counts plus optional `lastCompletedAt` recency per routine. Cursor, repeat, and completion fields are not exposed. The command schema remains v2; the recency field moves the strict manifest contract to v3 because the preserved v2 schema rejects unknown properties.
 
 Rationale: Intelli-Expense's manifest-as-read-model proved that grounding the skill in a fresh manifest eliminates the agent's main failure mode — acting on stale or hallucinated app state. The skill's first mandatory step is re-reading the manifest.
 

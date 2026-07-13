@@ -1,14 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://stepback.local/schema/agent-manifest-v3.json",
-  "title": "StepBack Agent Bridge manifest v3",
+  "$id": "https://stepback.local/schema/agent-manifest-v2.json",
+  "title": "StepBack Agent Bridge manifest",
   "type": "object",
   "required": [
     "schemaVersion", "generatedAt", "rootPath", "inboxPath", "processedPath", "failedPath",
     "catalogVersion", "categories", "catalogWorkouts", "customWorkouts", "routines", "plans"
   ],
   "properties": {
-    "schemaVersion": { "const": 3 },
+    "schemaVersion": { "const": 2 },
     "generatedAt": { "type": "string", "format": "date-time" },
     "rootPath": { "type": "string" },
     "inboxPath": { "type": "string" },
@@ -71,7 +71,6 @@
         "lastEditedVia": { "$ref": "#/$defs/provenance" }, "totalSeconds": { "type": "integer", "minimum": 0 },
         "sessionCount": { "type": "integer", "minimum": 0 },
         "completedSessionCount": { "type": "integer", "minimum": 0 },
-        "lastCompletedAt": { "type": ["string", "null"], "format": "date-time" },
         "steps": { "type": "array", "items": { "$ref": "#/$defs/routineStep" } }
       },
       "additionalProperties": false

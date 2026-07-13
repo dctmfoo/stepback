@@ -1,8 +1,13 @@
 # StepBack Agent Bridge Protocol
 
-Protocol schema version: `2`
+Command schema version: `2`
+Manifest schema version: `3` (`schema/manifest-v2.schema.json` preserves the prior strict contract)
 
 This plugin contains instructions and JSON contracts only. It ships no executable and never writes StepBack's SwiftData, SQLite, CloudKit, or app-container database files. Agents write command data to the Mac app's inbox; the running StepBack app validates, persists, and syncs changes through its own model container.
+
+## The coach role
+
+The packaged `stepback-coach` skill is a practical fitness coach as well as a protocol operator. Its shared conduct contract lives in [shared/stepback-coach-instructions.md](shared/stepback-coach-instructions.md): it performs a short intake, uses conservative programming defaults, composes from the catalog first, and keeps medical and bridge-safety boundaries explicit. The Claude and Codex wrappers both delegate to that one file.
 
 ## Locate the manifest
 

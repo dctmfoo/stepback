@@ -52,6 +52,113 @@ struct AgentBridgeServiceTests {
         #expect(try harness.pendingFiles().isEmpty)
     }
 
+    @Test("Manifest reports only the latest completed session as routine recency")
+    func manifestRoutineRecency() throws {
+        let harness = try Harness()
+        let routine = Routine(id: "routine-recency", name: "Recovery Flow", createdAt: .now)
+        let olderCompletion = Date(timeIntervalSince1970: 1_700_000_000)
+        let latestCompletion = Date(timeIntervalSince1970: 1_700_086_400)
+        routine.sessions = [
+            RoutineSession(
+                routineNameSnapshot: routine.name,
+                startedAt: olderCompletion.addingTimeInterval(-600),
+                endedAt: olderCompletion,
+                wasCompleted: true,
+                routine: routine
+            ),
+            RoutineSession(
+                routineNameSnapshot: routine.name,
+                startedAt: latestCompletion.addingTimeInterval(-300),
+                endedAt: latestCompletion,
+                wasCompleted: true,
+                routine: routine
+            ),
+            RoutineSession(
+                routineNameSnapshot: routine.name,
+                startedAt: latestCompletion.addingTimeInterval(3_600),
+                endedAt: latestCompletion.addingTimeInterval(4_200),
+                wasCompleted: false,
+                routine: routine
+            ),
+            RoutineSession(
+                routineNameSnapshot: routine.name,
+                startedAt: latestCompletion.addingTimeInterval(7_200),
+                endedAt: nil,
+                wasCompleted: true,
+                routine: routine
+            )
+        ]
+        harness.context.insert(routine)
+        try harness.context.save()
+
+        try harness.service.refreshManifest(force: true)
+
+        let entry = try #require(harness.readManifest().routines.first { $0.id == routine.id })
+        #expect(entry.lastCompletedAt == AgentBridgeDateCoding.string(from: latestCompletion))
+        #expect(entry.completedSessionCount == 3)
+    }
+
+    @Test("Manifest reports null recency for a routine without a completed session")
+    func manifestRoutineWithoutCompletion() throws {
+        let harness = try Harness()
+        let routine = Routine(id: "routine-never-completed", name: "New Routine", createdAt: .now)
+        routine.sessions = [
+            RoutineSession(
+                routineNameSnapshot: routine.name,
+                endedAt: .now,
+                wasCompleted: false,
+                routine: routine
+            )
+        ]
+        harness.context.insert(routine)
+        try harness.context.save()
+
+        try harness.service.refreshManifest(force: true)
+
+        let entry = try #require(harness.readManifest().routines.first { $0.id == routine.id })
+        #expect(entry.lastCompletedAt == nil)
+        let manifestObject = try #require(
+            JSONSerialization.jsonObject(with: Data(contentsOf: harness.service.paths.manifestURL)) as? [String: Any]
+        )
+        let routines = try #require(manifestObject["routines"] as? [[String: Any]])
+        let rawEntry = try #require(routines.first { $0["id"] as? String == routine.id })
+        #expect(rawEntry["lastCompletedAt"] is NSNull)
+    }
+
+    @Test("Generated manifest v3 validates against the published schema")
+    func generatedManifestMatchesSchema() throws {
+        let harness = try Harness()
+        let completed = Routine(id: "routine-schema-completed", name: "Completed", createdAt: .now)
+        completed.sessions = [RoutineSession(endedAt: .now, wasCompleted: true, routine: completed)]
+        let neverCompleted = Routine(id: "routine-schema-null", name: "Not Completed", createdAt: .now)
+        harness.context.insert(completed)
+        harness.context.insert(neverCompleted)
+        try harness.context.save()
+        try harness.service.refreshManifest(force: true)
+
+        let schemaURL = URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+            .appending(path: "plugin/schema/manifest.schema.json")
+        let schema = try #require(
+            JSONSerialization.jsonObject(with: Data(contentsOf: schemaURL)) as? [String: Any]
+        )
+        let manifest = try #require(
+            JSONSerialization.jsonObject(with: Data(contentsOf: harness.service.paths.manifestURL)) as? [String: Any]
+        )
+
+        try JSONSchemaTestValidator.validate(instance: manifest, schema: schema)
+        #expect(manifest["schemaVersion"] as? Int == 3)
+
+        var invalidManifest = manifest
+        var invalidRoutines = try #require(invalidManifest["routines"] as? [[String: Any]])
+        invalidRoutines[0]["lastCompletedAt"] = 42
+        invalidManifest["routines"] = invalidRoutines
+        #expect(throws: JSONSchemaValidationError.self) {
+            try JSONSchemaTestValidator.validate(instance: invalidManifest, schema: schema)
+        }
+    }
+
     @Test("Create and full replacement updates each authoring object type")
     func createAndUpdateObjects() throws {
         let harness = try Harness()

@@ -46,7 +46,27 @@ struct AgentBridgeManifest: Codable, Equatable {
         var totalSeconds: Int
         var sessionCount: Int
         var completedSessionCount: Int
+        var lastCompletedAt: String?
         var steps: [RoutineStepEntry]
+
+        private enum CodingKeys: String, CodingKey {
+            case id, name, createdAt, updatedAt, lastEditedVia, totalSeconds
+            case sessionCount, completedSessionCount, lastCompletedAt, steps
+        }
+
+        func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(id, forKey: .id)
+            try container.encode(name, forKey: .name)
+            try container.encode(createdAt, forKey: .createdAt)
+            try container.encode(updatedAt, forKey: .updatedAt)
+            try container.encodeIfPresent(lastEditedVia, forKey: .lastEditedVia)
+            try container.encode(totalSeconds, forKey: .totalSeconds)
+            try container.encode(sessionCount, forKey: .sessionCount)
+            try container.encode(completedSessionCount, forKey: .completedSessionCount)
+            try container.encode(lastCompletedAt, forKey: .lastCompletedAt)
+            try container.encode(steps, forKey: .steps)
+        }
     }
 
     struct RoutineStepEntry: Codable, Equatable {
