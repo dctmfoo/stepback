@@ -3,6 +3,7 @@
 **Status:** Implemented
 **Owner screens:**
 - `StepBack/Features/Player/PlayerSegmentView.swift` (stacked-branch layout, visual sizing)
+- `StepBack/Features/Player/PlayerStackedSegmentLayout.swift` (proportional hero/visual band allocation)
 - `StepBack/Features/Player/PlayerStageView.swift` (stage vertical budget, stacked padding/spacers)
 - `design/ui-spec.html` §player (new iPad-portrait work-segment frame)
 

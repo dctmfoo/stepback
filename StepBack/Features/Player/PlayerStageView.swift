@@ -47,9 +47,8 @@ struct PlayerStageView: View {
     }
 
     private func stackedVisualHeight(for size: CGSize) -> CGFloat {
-        let widthBound = max(0, size.width - 32) * 3 / 4
         let canvasTarget = max(180, size.height * 0.30)
         let shortCanvasBound = size.height * 0.34
-        return min(widthBound, canvasTarget, shortCanvasBound)
+        return min(canvasTarget, shortCanvasBound)
     }
 }

@@ -48,6 +48,15 @@ final class StepBackBootstrap {
             flagStore: resolvedFlagStore
         )
         if isRunningTests,
+           ProcessInfo.processInfo.environment["StepBackUILongWorkoutNameFixture"] == "1",
+           let routine = try container.mainContext.fetch(FetchDescriptor<Routine>())
+            .first(where: { $0.seedIdentifier == "starter.quick-start" }),
+           let firstStep = routine.steps?.min(by: { $0.sortIndex < $1.sortIndex }) {
+            firstStep.workoutNameSnapshot =
+                "Alternating Single Leg Squat With Overhead Reach And Controlled Rotation"
+            try container.mainContext.saveOrRollback()
+        }
+        if isRunningTests,
            ProcessInfo.processInfo.environment["StepBackUIRemovedPlanFixture"] == "1" {
             let weekday = Calendar.autoupdatingCurrent.component(.weekday, from: .now)
             let slot = PlanSlot(

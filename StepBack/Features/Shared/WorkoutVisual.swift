@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct WorkoutVisual: View {
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+
     enum Variant {
         case smallRow
         case galleryCard
@@ -43,26 +45,47 @@ struct WorkoutVisual: View {
 
     var body: some View {
         let style = CategoryStyle.resolve(categoryID)
+        Color.clear
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .aspectRatio(aspectRatio, contentMode: .fit)
+            .background {
+                background(style: style)
+            }
+            .accessibilityElement(children: .ignore)
+            .accessibilityIdentifier(variant == .stage ? "player.visual.category" : "")
+            .accessibilityHidden(true)
+            .overlay {
+                visualContent(style: style)
+            }
+            .clipped()
+    }
+
+    @ViewBuilder
+    private func visualContent(style: CategoryStyle) -> some View {
+        if variant == .stage {
+            visualLabel(style: style)
+                .accessibilityHidden(true)
+        } else {
+            visualLabel(style: style)
+        }
+    }
+
+    private func visualLabel(style: CategoryStyle) -> some View {
         VStack(spacing: 8) {
             Image(systemName: style.symbolName)
                 .font(symbolFont)
                 .foregroundStyle(style.color)
-                .accessibilityHidden(true)
-            if showsCategoryName, let categoryName {
+            if showsCategoryName,
+               !(variant == .stage && dynamicTypeSize.isAccessibilitySize),
+               let categoryName {
                 Text(categoryName.uppercased())
                     .font(.caption.bold())
                     .tracking(1)
                     .foregroundStyle(.primary)
                     .multilineTextAlignment(.center)
-                    .accessibilityIdentifier(variant == .stage ? "player.visual.category" : "")
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .aspectRatio(aspectRatio, contentMode: .fit)
-        .background {
-            background(style: style)
-        }
-        .accessibilityHidden(true)
+        .padding(8)
     }
 
     private var symbolFont: Font {
