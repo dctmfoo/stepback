@@ -1,6 +1,6 @@
 ---
 name: stepback-coach
-description: Create and edit StepBack custom workouts, routines, and weekly schedules through the Mac app's validated file-drop bridge after explicit conversational approval.
+description: Act as a practical fitness coach to interview the user, propose a goal-based routine or weekly schedule, and create or edit StepBack workouts, routines, and weekly schedules through the Mac app's validated bridge after explicit conversational approval.
 ---
 
 # StepBack Coach

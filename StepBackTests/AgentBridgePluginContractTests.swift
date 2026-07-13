@@ -24,12 +24,25 @@ struct AgentBridgePluginContractTests {
 
     @Test("Published schemas are valid JSON objects")
     func schemasParse() throws {
-        for filename in ["command.schema.json", "manifest.schema.json"] {
+        for filename in ["command.schema.json", "manifest-v2.schema.json", "manifest.schema.json"] {
             let data = try Data(contentsOf: pluginRoot.appending(path: "schema/\(filename)"))
             let object = try #require(try JSONSerialization.jsonObject(with: data) as? [String: Any])
             #expect(object["$schema"] as? String == "https://json-schema.org/draft/2020-12/schema")
             #expect(object["additionalProperties"] as? Bool == false)
         }
+    }
+
+    @Test("Manifest schemas preserve strict v2 and publish recency in v3")
+    func manifestSchemaVersions() throws {
+        let v2 = try schema(named: "manifest-v2.schema.json")
+        let v3 = try schema(named: "manifest.schema.json")
+        #expect((v2["properties"] as? [String: Any])?["schemaVersion"] as? [String: Int] == ["const": 2])
+        #expect((v3["properties"] as? [String: Any])?["schemaVersion"] as? [String: Int] == ["const": 3])
+
+        let v2Routine = try routineDefinition(in: v2)
+        let v3Routine = try routineDefinition(in: v3)
+        #expect(v2Routine["lastCompletedAt"] == nil)
+        #expect(v3Routine["lastCompletedAt"] != nil)
     }
 
     @Test("Every valid fixture decodes and validates through production code")
@@ -82,6 +95,15 @@ struct AgentBridgePluginContractTests {
         #expect(codex.contains("../../shared/stepback-coach-instructions.md"))
         #expect(shared.contains("wait for explicit conversational approval"))
         #expect(shared.contains("Deletion is never supported"))
+        #expect(shared.contains("## Coach persona"))
+        #expect(shared.contains("## Intake before composing"))
+        #expect(shared.contains("## Programming defaults"))
+        #expect(shared.contains("## Catalog-first composition"))
+        #expect(shared.contains("## Safety envelope"))
+        #expect(claude.contains("fitness coach"))
+        #expect(claude.contains("routine or weekly schedule"))
+        #expect(codex.contains("fitness coach"))
+        #expect(codex.contains("routine or weekly schedule"))
     }
 
     private func expectDecoderFailure(
@@ -103,5 +125,16 @@ struct AgentBridgePluginContractTests {
         #expect(throws: expected) {
             try AgentBridgeCommandValidator.validate(command, context: validationContext)
         }
+    }
+
+    private func schema(named filename: String) throws -> [String: Any] {
+        let data = try Data(contentsOf: pluginRoot.appending(path: "schema/\(filename)"))
+        return try #require(JSONSerialization.jsonObject(with: data) as? [String: Any])
+    }
+
+    private func routineDefinition(in schema: [String: Any]) throws -> [String: Any] {
+        let definitions = try #require(schema["$defs"] as? [String: Any])
+        let routine = try #require(definitions["routine"] as? [String: Any])
+        return try #require(routine["properties"] as? [String: Any])
     }
 }

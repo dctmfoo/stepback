@@ -416,15 +416,23 @@ final class AgentBridgeService {
             )
         }
         let routines = models.routines.sorted(by: { $0.id < $1.id }).map { routine in
-            AgentBridgeManifest.RoutineEntry(
+            let sessions = routine.sessions ?? []
+            let completion = sessions.reduce(into: (count: 0, latestEnd: Optional<Date>.none)) { result, session in
+                guard session.wasCompleted else { return }
+                result.count += 1
+                guard let endedAt = session.endedAt, endedAt > (result.latestEnd ?? .distantPast) else { return }
+                result.latestEnd = endedAt
+            }
+            return AgentBridgeManifest.RoutineEntry(
                 id: routine.id,
                 name: routine.name,
                 createdAt: AgentBridgeDateCoding.string(from: routine.createdAt),
                 updatedAt: AgentBridgeDateCoding.string(from: routine.updatedAt),
                 lastEditedVia: routine.lastEditedVia,
                 totalSeconds: TimelineCompiler.totalDurationSeconds(routine.snapshot, getReadySeconds: 0),
-                sessionCount: (routine.sessions ?? []).count,
-                completedSessionCount: (routine.sessions ?? []).filter(\.wasCompleted).count,
+                sessionCount: sessions.count,
+                completedSessionCount: completion.count,
+                lastCompletedAt: completion.latestEnd.map(AgentBridgeDateCoding.string(from:)),
                 steps: (routine.steps ?? []).sorted { $0.sortIndex < $1.sortIndex }.map {
                     AgentBridgeManifest.RoutineStepEntry(
                         workoutID: $0.workoutID,
@@ -464,7 +472,7 @@ final class AgentBridgeService {
             )
         }
         return AgentBridgeManifest(
-            schemaVersion: AgentBridgeProtocol.schemaVersion,
+            schemaVersion: AgentBridgeProtocol.manifestSchemaVersion,
             generatedAt: generatedAt,
             rootPath: paths.rootURL.path,
             inboxPath: paths.inboxURL.path,

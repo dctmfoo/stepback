@@ -1,7 +1,8 @@
 import Foundation
 
 enum AgentBridgeProtocol {
-    static let schemaVersion = 2
+    static let commandSchemaVersion = 2
+    static let manifestSchemaVersion = 3
     static let maxCommandBytes = 1_048_576
     static let rootDirectoryName = "AgentBridge"
     static let manifestFilename = "manifest.json"
@@ -43,7 +44,7 @@ enum AgentBridgeFailureReason: String, Codable, Equatable {
 }
 
 struct AgentBridgeOutcome: Codable, Equatable {
-    var schemaVersion = AgentBridgeProtocol.schemaVersion
+    var schemaVersion = AgentBridgeProtocol.commandSchemaVersion
     var commandID: String
     var verb: String?
     var status: AgentBridgeOutcomeStatus

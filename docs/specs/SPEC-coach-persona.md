@@ -1,6 +1,6 @@
 # SPEC — Coach persona: the StepBack Coach interviews, programs, and composes through the agent bridge
 
-**Status:** Ready
+**Status:** Implemented
 **Owner screens:** repo `plugin/shared/stepback-coach-instructions.md` (rewritten: persona + coaching workflow), `plugin/skills/stepback-coach/SKILL.md` and `plugin/codex-skills/stepback-coach/SKILL.md` (amended: trigger descriptions), `plugin/README.md` (amended: coach-role pointer), `StepBack/AgentBridge/AgentBridgeService.swift` + `StepBack/AgentBridge/AgentBridgeManifest.swift` + `plugin/schema/manifest.schema.json` (amended: routine recency field — the only code change, see D7)
 **Docs this spec amends:** docs/specs/SPEC-agent-bridge.md (D2 manifest field list and the §3 session-data non-goal wording, per D7 below), AGENTS.md §External automation (names the coach role as the intended use of the bridge)
 **Branch:** `codex/coach-persona`
@@ -27,7 +27,7 @@ The agent bridge works as designed: an agent can read the manifest and create/up
 
 Checked against PRD §2 non-goals — the app itself still ships no generated or adaptive programming; the coach lives entirely in the agent's harness, and the app remains a dumb, honest executor. Additionally:
 
-- No new bridge verbs, no protocol schema-version bump, no app UI change. The coach uses the existing surface exactly as shipped.
+- No new bridge verbs, no command-schema-version bump, no app UI change. The coach uses the existing mutation surface exactly as shipped; the strict manifest read contract advances to v3 for D7.
 - No session-history export. The bridge non-goal ("not a telemetry export") stands; D7 adds one derived date per routine, not per-session records.
 - No focus-area metadata on custom workouts. The create/update payload keeps name + category + notes; the coach records its focus-area rationale in `notes`. Adding a structured `focusAreas` attribute would touch the SwiftData model, CloudKit schema, and builder UI for marginal benefit — rejected as disproportionate; revisit only if coach-authored custom workouts become numerous.
 - No automatic execution of a "coaching loop" (scheduled check-ins, auto-progression without conversation). Every mutation still requires explicit conversational approval per bridge D3.
@@ -61,7 +61,7 @@ Before proposing any routine or plan, the coach runs a short intake modeled on s
 4. **Limitations** — injuries, conditions, and space/noise constraints (e.g., no jumping in an apartment).
 5. **Preferences** — movements they enjoy or refuse.
 
-Rules: everything already answerable from the manifest (existing routines, session counts, `lastCompletedAt`, active plan and cursor) or from the conversation is *not* asked again — the manifest is the coach's client file. The intake is at most one round of grouped questions, not an interrogation; if the user declines ("just give me something"), the coach proceeds with conservative defaults and states its assumptions in the proposal. This satisfies bridge D2's manifest-first grounding and adds the human half of the picture.
+Rules: everything already answerable from the manifest (existing routines, session counts, `lastCompletedAt`, the My Week selection and weekday schedules) or from the conversation is *not* asked again — the manifest is the coach's client file. The intake is at most one round of grouped questions, not an interrogation; if the user declines ("just give me something"), the coach proceeds with conservative defaults and states its assumptions in the proposal. This satisfies bridge D2's manifest-first grounding and adds the human half of the picture.
 
 ### D4 — Programming defaults encoded in the skill
 
@@ -91,8 +91,8 @@ Layered on top of the bridge safety contract, which remains verbatim (manifest-f
 The manifest's routine entries gain an optional `lastCompletedAt` (ISO 8601 date-time, null when the routine has never been completed), derived at manifest-generation time from the routine's most recent completed session. This is the minimal fact that turns counts into coaching: recovery spacing ("legs were two days ago"), staleness ("you haven't done Mobility Reset in three weeks — drop or revive?"), and "what should I do today" all require *when*, not just *how many*.
 
 - Amends SPEC-agent-bridge D2's field list and softens its §3 non-goal wording from "read-only counts" to "read-only counts and per-routine recency" — still deliberately short of a session-history export; per-session records, durations, and streak data stay out.
-- `plugin/schema/manifest.schema.json` adds the optional field; the manifest `schemaVersion` stays 1 — the addition is backward-compatible for readers (a required-field or semantics change would bump it; this is neither). The schema file, fixtures, and app change land in the same commit so contract tests cannot drift (bridge §7).
-- Rejected: exposing streak/weekly-minutes aggregates in the manifest (derivable app-side stats, PRD §7 owns their presentation; the coach doesn't need them to program), and per-focus-area volume summaries (the agent can derive these from routines + plan cursor it already has).
+- `plugin/schema/manifest.schema.json` adds the field and advances the manifest `schemaVersion` to 3 while command envelopes remain v2. Implementation review found that the published routine schema uses `additionalProperties: false`, so a new field is not backward-compatible for strict validators even when optional. `plugin/schema/manifest-v2.schema.json` preserves the prior contract; app encoding, both schema versions, and contract tests land together so they cannot drift (bridge §7).
+- Rejected: exposing streak/weekly-minutes aggregates in the manifest (derivable app-side stats, PRD §7 owns their presentation; the coach doesn't need them to program), and per-focus-area volume summaries (the agent can derive these from the routines + weekday schedules it already has).
 
 ### D8 — Packaging and triggering
 
@@ -104,7 +104,7 @@ Bridge D7's layout stands: one shared instruction source, two thin SKILL.md wrap
 - **User refuses intake:** proceed with beginner-conservative defaults, state assumptions in the proposal, invite corrections (D3).
 - **Requirement needs equipment StepBack can't represent:** honest substitute flow per D5; never silently swap.
 - **Requested outcome implies deletion** (e.g., "replace my old plan"): content replacement via update verbs where possible; actual object removal escalates to the human in-app, per bridge G3 — the coach explains the distinction.
-- **Activating a new plan while another is active:** activation follows training-plans exclusivity exactly (bridge D4); the coach must tell the user the currently active plan will deactivate before asking approval.
+- **Activating a new plan while another is My Week:** `activatePlan` follows My Week exclusivity exactly (bridge D4); the coach must tell the user the current My Week selection will be replaced before asking approval.
 - **Time budget too small for the stated goal:** the coach says so plainly and proposes the best honest use of the time, rather than cramming a degraded program that fits on paper only.
 - **`lastCompletedAt` null everywhere but session counts positive:** counts include abandoned sessions; the coach treats only completed sessions as training history (mirrors PRD §7 honest-stats rule).
 - **User reports pain mid-plan:** D6 escalation; any resulting program change still goes through normal proposal + approval.
@@ -133,7 +133,7 @@ No new accessibility identifiers; no Dynamic Type impact.
 
 1. `plugin/shared/stepback-coach-instructions.md` contains the persona block (D2), the intake protocol (D3), the programming-defaults section (D4), catalog-first rules (D5), and the safety envelope (D6), while retaining every existing bridge-safety obligation verbatim (manifest-first, approval-before-write, inbox-only writes, truthful outcomes, deletion escalation).
 2. Both SKILL.md wrappers still point at the single shared file and their descriptions trigger on coaching intents (D8); the Claude and Codex packages contain no divergent instruction content.
-3. The manifest emits `lastCompletedAt` per routine per D7, schema-valid, with the app-unit coverage in §7 green; `schemaVersion` remains 1 and all existing bridge tests pass unchanged.
+3. The manifest emits `lastCompletedAt` per routine per D7, validates against manifest schema v3, preserves the v2 schema for older clients, and keeps command envelopes at schema v2, with the app-unit coverage in §7 green.
 4. SPEC-agent-bridge.md's D2 field list and §3 non-goal wording are amended, and AGENTS.md names the coach role — in the same implementation commit.
 5. No new verbs, no command-schema change, no app UI change, no new user-facing strings.
 6. `make test-core` and `make test-app-unit` pass; no UI lane is dispatched (nothing rendered changed).

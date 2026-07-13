@@ -14,4 +14,4 @@ For spec implementation, do not call the work complete while the spec's changes 
 
 Before writing code, read PRD.md fully, then DESIGN.md, then design/ui-spec.html, then PLAN.md. Any UI work must be verified against ui-spec.html (the `design-spec` preview server) before it is called done; player work additionally requires the DESIGN.md across-the-room verification.
 
-External workout/routine/plan automation must use the Mac app's supported `AgentBridge/` file-drop protocol described in `plugin/README.md`. Read the app-written manifest, write only to its declared inbox, and never edit the SwiftData/SQLite/CloudKit store or any other app-container file. Deletion is intentionally unavailable through the bridge.
+External workout/routine/plan automation, including the packaged `stepback-coach` fitness-coach role, must use the Mac app's supported `AgentBridge/` file-drop protocol described in `plugin/README.md`. Read the app-written manifest, write only to its declared inbox, and never edit the SwiftData/SQLite/CloudKit store or any other app-container file. Deletion is intentionally unavailable through the bridge.
